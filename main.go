@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/jedib0t/go-pretty/table"
@@ -148,7 +149,12 @@ func main() {
 	e.GET("/", GetPriceHandler(p))
 
 	// Start server
-	e.Logger.Fatal(e.Start("127.0.0.1:6000"))
+
+	listen_on := os.Getenv("BIND_TO")
+	if listen_on == "" {
+		listen_on = "127.0.0.1:6000"
+	}
+	e.Logger.Fatal(e.Start(listen_on))
 }
 
 // Handler

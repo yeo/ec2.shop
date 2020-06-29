@@ -1,4 +1,4 @@
-FROM sid-slim
+FROM debian:sid-slim
 
 WORKDIR /app
 COPY output/ec2shop /app
