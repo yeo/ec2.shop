@@ -1,0 +1,39 @@
+{{define "hello"}}Hello, {{.}}!{{end}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hacker way to compare ec2 instances</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/termynal.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono">
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- the termynal container -->
+    <div class="terminal-container">
+      <div id="termynal" data-termynal>
+        <span data-ty="input">curl https://ec2.shop</span>
+      </div>
+    </div>
+
+    <div id="price-grid-container"><div id="price-grid"></div></div>
+    <script>
+      window._pricedata = [
+        {{ $price := index . "priceData" }}
+        {{ range $index, $val := index . "priceData" }}
+          [
+            "{{ $val.Attribute.EC2InstanceType }}",
+            "{{ $val.Attribute.EC2Memory }}",
+            "{{ $val.Attribute.EC2VCPU }}",
+            "{{ $val.Attribute.EC2Storage }}",
+            "{{ $val.Attribute.EC2NetworkPerformance }}",
+            "{{ $val.Price }}",
+          ],
+        {{ end }}
+      ]
+    </script>
+    <script src="/static/js/app.js?ts={{ index . "ts" }}"></script>
+  </body>
+</html>
