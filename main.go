@@ -223,6 +223,10 @@ func IsText(c echo.Context) bool {
 	ua := c.Request().Header.Get("User-Agent")
 	accept := c.Request().Header.Get("Accept")
 
+	if strings.Contains(c.QueryString(), "txt") {
+		return true
+	}
+
 	if strings.Contains(accept, "html") {
 		return false
 	}
@@ -251,6 +255,25 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 		if prices == nil {
 			return errors.New("Invalid region")
+		}
+
+		if IsJson(c) {
+			friendlyPrices := &FriendlyPriceResponse{
+				Prices: make([]*FriendlyPrice, len(prices)),
+			}
+
+			for i, v := range prices {
+				friendlyPrices.Prices[i] = &FriendlyPrice{
+					InstanceType: v.Attribute.EC2InstanceType,
+					Memory:       v.Attribute.EC2Memory,
+					VCPUS:        v.Attribute.EC2VCPU,
+					Storage:      v.Attribute.EC2Storage,
+					Network:      v.Attribute.EC2NetworkPerformance,
+					Cost:         v.Price,
+				}
+			}
+
+			return c.JSON(http.StatusOK, friendlyPrices)
 		}
 
 		if IsText(c) {
@@ -299,25 +322,6 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
 
 			return c.String(http.StatusOK, priceText)
-		}
-
-		if IsJson(c) {
-			friendlyPrices := &FriendlyPriceResponse{
-				Prices: make([]*FriendlyPrice, len(prices)),
-			}
-
-			for _, v := range prices {
-				friendlyPrices.Prices = append(friendlyPrices.Prices, &FriendlyPrice{
-					InstanceType: v.Attribute.EC2InstanceType,
-					Memory:       v.Attribute.EC2Memory,
-					VCPUS:        v.Attribute.EC2VCPU,
-					Storage:      v.Attribute.EC2Storage,
-					Network:      v.Attribute.EC2NetworkPerformance,
-					Cost:         v.Price,
-				})
-			}
-
-			return c.JSON(http.StatusOK, friendlyPrices)
 		}
 
 		currentRegion := "us-east-1"
