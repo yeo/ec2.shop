@@ -67,6 +67,19 @@ type Price struct {
 	Attribute *Attribute `json:"attributes"`
 }
 
+type FriendlyPrice struct {
+	InstanceType string
+	Memory       string
+	VCPUS        string
+	Storage      string
+	Network      string
+	Cost         float64
+}
+
+type FriendlyPriceResponse struct {
+	Prices []*FriendlyPrice
+}
+
 type MetaPrice struct {
 	Prices []Price `json:"prices"`
 }
@@ -200,7 +213,10 @@ func main() {
 
 func IsJson(c echo.Context) bool {
 	contentType := c.Request().Header.Get("Content-Type")
-	return contentType == "application/json"
+	accept := c.Request().Header.Get("Accept")
+	qa := c.QueryString()
+
+	return strings.Contains(contentType, "json") || strings.Contains(accept, "json") || strings.Contains(qa, "json")
 }
 
 func IsText(c echo.Context) bool {
@@ -232,6 +248,25 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 		}
 
 		prices := p.PriceListFromRequest(c)
+
+		if IsJson(c) {
+			friendlyPrices := &FriendlyPriceResponse{
+				Prices: make([]*FriendlyPrice, len(prices)),
+			}
+
+			for _, v := range prices {
+				friendlyPrices.Prices = append(friendlyPrices.Prices, &FriendlyPrice{
+					InstanceType: v.Attribute.EC2InstanceType,
+					Memory:       v.Attribute.EC2Memory,
+					VCPUS:        v.Attribute.EC2VCPU,
+					Storage:      v.Attribute.EC2Storage,
+					Network:      v.Attribute.EC2NetworkPerformance,
+					Cost:         v.Price,
+				})
+			}
+
+			return c.JSON(http.StatusOK, friendlyPrices)
+		}
 
 		if prices == nil {
 			return errors.New("Invalid region")
