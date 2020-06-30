@@ -167,6 +167,8 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 func main() {
+	debug := os.Getenv("DEBUG") == "1"
+
 	p := &PriceFinder{}
 	p.Load()
 
@@ -184,8 +186,7 @@ func main() {
 	e.Static("/static", "static")
 
 	// Routes
-	e.GET("/", GetPriceHandler(p))
-	e.GET("/home", GetHomeHandler(p))
+	e.GET("/", GetPriceHandler(debug, p))
 
 	// Start server
 
@@ -193,73 +194,74 @@ func main() {
 	if listen_on == "" {
 		listen_on = "127.0.0.1:6001"
 	}
-	e.Logger.Fatal(e.Start(listen_on))
-}
 
-// Handler
-func GetHomeHandler(p *PriceFinder) func(echo.Context) error {
-	return func(c echo.Context) error {
-		prices := p.PriceListFromRequest(c)
-		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
-			"ts":        time.Now(),
-			"priceData": prices,
-		})
-	}
+	e.Logger.Fatal(e.Start(listen_on))
 }
 
 func IsJson(c echo.Context) bool {
 	contentType := c.Request().Header.Get("Content-Type")
-	if contentType == "application/json" {
-		return true
-	}
-
-	ua := c.Request().Header.Get("User-Agent")
-	if strings.Contains(ua, "curl") {
-		return true
-	}
-
-	return false
+	return contentType == "application/json"
 }
 
-func GetPriceHandler(p *PriceFinder) func(echo.Context) error {
+func IsShell(c echo.Context) bool {
+	ua := c.Request().Header.Get("User-Agent")
+	format := c.QueryParam("o")
+
+	return strings.Contains(ua, "curl") || format == "text"
+}
+
+func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 	header := "│ %s%%-15s │ %s%%-12s │ %s%%4s vCPUs │ %s%%-20s │ %s%%-18s │ %s%%-10s │\n"
 	colorizeHeader := fmt.Sprintf(header, Green, White, White, White, White, Red)
 
 	pattern := "│ %s%%-15s │ %s%%-12s │ %s%%4s vCPUs │ %s%%-20s │ %s%%-18s │ %s%%-10.4f │\n"
 	colorizePattern := fmt.Sprintf(pattern, Green, White, White, White, Yellow, Red)
 
+	ts := time.Now()
+
 	return func(c echo.Context) error {
+		if debug {
+			ts = time.Now()
+		}
+
 		prices := p.PriceListFromRequest(c)
 
 		if prices == nil {
 			return errors.New("Invalid region")
 		}
 
-		priceText := "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
-		priceText += fmt.Sprintf(colorizeHeader,
-			"Instance Type",
-			"Memory",
-			"",
-			"Storage",
-			"Network",
-			"Price")
+		if IsShell(c) {
+			priceText := "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
+			priceText += fmt.Sprintf(colorizeHeader,
+				"Instance Type",
+				"Memory",
+				"",
+				"Storage",
+				"Network",
+				"Price")
 
-		for _, price := range prices {
-			priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
-			m := price.Attribute
-			priceText += fmt.Sprintf(colorizePattern,
-				m.EC2InstanceType,
-				m.EC2Memory,
-				m.EC2VCPU,
-				m.EC2Storage,
-				m.EC2NetworkPerformance,
-				price.Price)
+			for _, price := range prices {
+				priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
+				m := price.Attribute
+				priceText += fmt.Sprintf(colorizePattern,
+					m.EC2InstanceType,
+					m.EC2Memory,
+					m.EC2VCPU,
+					m.EC2Storage,
+					m.EC2NetworkPerformance,
+					price.Price)
 
+			}
+
+			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n" + Reset
+
+			c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
+			return c.String(http.StatusOK, priceText)
 		}
 
-		priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n" + Reset
-
-		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
-		return c.String(http.StatusOK, priceText)
+		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
+			"ts":        ts,
+			"priceData": prices,
+		})
 	}
 }
