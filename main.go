@@ -231,6 +231,10 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 		}
 
 		if IsShell(c) {
+			// When loading by shell we can pass these param
+			filter := c.QueryParam("filter")
+			keywords := strings.Split(filter, ",")
+
 			priceText := "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
 			priceText += fmt.Sprintf(colorizeHeader,
 				"Instance Type",
@@ -240,9 +244,25 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 				"Network",
 				"Price")
 
+		PRICE:
 			for _, price := range prices {
-				priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
 				m := price.Attribute
+
+				matched := false
+				//MATCHER:
+				for _, kw := range keywords {
+					if strings.Contains(m.EC2InstanceType, kw) ||
+						strings.Contains(m.EC2Storage, kw) ||
+						strings.Contains(m.EC2NetworkPerformance, kw) {
+						matched = true
+					}
+				}
+
+				if !matched {
+					continue PRICE
+				}
+
+				priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
 				priceText += fmt.Sprintf(colorizePattern,
 					m.EC2InstanceType,
 					m.EC2Memory,
@@ -259,9 +279,15 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			return c.String(http.StatusOK, priceText)
 		}
 
+		currentRegion := "us-east-1"
+		if region := c.QueryParam("region"); region != "" {
+			currentRegion = region
+		}
+
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
-			"ts":        ts,
-			"priceData": prices,
+			"ts":            ts,
+			"priceData":     prices,
+			"currentRegion": currentRegion,
 		})
 	}
 }

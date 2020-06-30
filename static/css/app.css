@@ -4,8 +4,8 @@ body {
   --color-text-subtle: #D76D77;
 
   padding: 0; margin: 0;
-  /*background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);*/
-  background: #1a1e24;
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+  background: rgb(213, 204, 186);
 
   width: 100%;
   min-height: 100vh;
@@ -19,7 +19,26 @@ body {
   margin: 2em 0;
 }
 
-#price-grid-container {
-  justify-content: flex-start;
+.info {
   display: flex;
+  justify-content: center;
+  margin:0;
+}
+
+.info a {
+  color: #D76D77;
+  font-size: 1.2em;
+}
+
+
+#price-grid-container {
+}
+
+.region-picker {
+  float: left;
+  position: relative;
+  left: 300px;
+  top: 37px;
+  font-size: 1.2em;
+  z-index: 10;
 }

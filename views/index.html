@@ -4,25 +4,59 @@
   <head>
     <title>Hacker way to compare ec2 instances</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/static/css/termynal.css">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono">
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
+    <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
   </head>
   <body>
     <!-- the termynal container -->
     <div class="terminal-container">
-      <div id="termynal" data-termynal>
+      <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
         <span data-ty="input">echo Hacker way to compare ec2 instances price</span>
         <span data-ty="input">curl https://ec2.shop</span>
-        <span data-ty></span>
-        <span data-ty="input">echo Force region and filter out by keyword</span>
+        <span data-ty="input">curl https://ec2.shop?region=us-west-2</span>
         <span data-ty="input">curl https://ec2.shop?region=us-west-2&filter=m4,m5,ssd</span>
       </div>
+
     </div>
 
-    <div id="price-grid-container"><div id="price-grid"></div></div>
+
+    <div class="info">
+      <p>Develop by&nbsp;<a href="https://betterdev.link">BetterDev</a></p>
+    </div>
+
+    <div id="price-grid-container">
+      <select name="region" id="region-picker" class="region-picker" onchange="window.location = '?region=' + this.value">
+          {{ $currentRegion := index . "currentRegion" }}
+          <option {{ if eq $currentRegion "us-east-1" }}selected{{ end }} value="us-east-1">us-east-1</option>
+          <option {{ if eq $currentRegion "us-east-2" }}selected{{ end }} value="us-east-2">us-east-2</option>
+          <option {{ if eq $currentRegion "us-west-1" }}selected{{ end }} value="us-west-1">us-west-1</option>
+          <option {{ if eq $currentRegion "us-west-1" }}selected{{ end }} value="us-west-2">us-west-2</option>
+          <option {{ if eq $currentRegion "eu-central-1" }}selected{{ end }} value="eu-central-1">eu-central-1</option>
+          <option {{ if eq $currentRegion "eu-west-3" }}selected{{ end }} value="eu-west-3">eu-west-3</option>
+          <option {{ if eq $currentRegion "eu-west-1" }}selected{{ end }} value="eu-west-1">eu-west-1</option>
+          <option {{ if eq $currentRegion "eu-north-1" }}selected{{ end }} value="eu-north-1">eu-north-1</option>
+          <option {{ if eq $currentRegion "eu-south-1" }}selected{{ end }} value="eu-south-1">eu-south-1</option>
+          <option {{ if eq $currentRegion "eu-west-2" }}selected{{ end }} value="eu-west-2">eu-west-2</option>
+          <option {{ if eq $currentRegion "af-south-1" }}selected{{ end }} value="af-south-1">af-south-1</option>
+          <option {{ if eq $currentRegion "ap-south-1" }}selected{{ end }} value="ap-south-1">ap-south-1</option>
+          <option {{ if eq $currentRegion "ap-northeast-3" }}selected{{ end }} value="ap-northeast-3">ap-northeast-3</option>
+          <option {{ if eq $currentRegion "ap-northeast-2" }}selected{{ end }} value="ap-northeast-2">ap-northeast-2</option>
+          <option {{ if eq $currentRegion "ap-northeast-1" }}selected{{ end }} value="ap-northeast-1">ap-northeast-1</option>
+          <option {{ if eq $currentRegion "us-gov-east-1" }}selected{{ end }} value="us-gov-east-1">us-gov-east-1</option>
+          <option {{ if eq $currentRegion "us-west-2-lax-1" }}selected{{ end }} value="us-west-2-lax-1">us-west-2-lax-1</option>
+          <option {{ if eq $currentRegion "me-south-1" }}selected{{ end }} value="me-south-1">me-south-1</option>
+          <option {{ if eq $currentRegion "ca-central-1" }}selected{{ end }} value="ca-central-1">ca-central-1</option>
+          <option {{ if eq $currentRegion "sa-east-1" }}selected{{ end }} value="sa-east-1">sa-east-1</option>
+          <option {{ if eq $currentRegion "ap-east-1" }}selected{{ end }} value="ap-east-1">ap-east-1</option>
+          <option {{ if eq $currentRegion "us-gov-west-1" }}selected{{ end }} value="us-gov-west-1">us-gov-west-1</option>
+          <option {{ if eq $currentRegion "ap-southeast-1" }}selected{{ end }} value="ap-southeast-1">ap-southeast-1</option>
+          <option {{ if eq $currentRegion "ap-southeast-2" }}selected{{ end }} value="ap-southeast-2">ap-southeast-2</option>
+        </select>
+      <div id="price-grid"></div>
+    </div>
+
     <script>
       window._pricedata = [
         {{ $price := index . "priceData" }}
