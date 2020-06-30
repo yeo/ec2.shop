@@ -1,0 +1,58 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ec2shop
+  namespace: opty
+spec:
+  selector:
+    app: ec2shop
+  ports:
+    - protocol: TCP
+      port: 6000
+      name: web
+
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: ec2shop
+  namespace: opty
+spec:
+  secretName: ec2shop-tls-secret
+  renewBefore: 12h
+  dnsNames:
+  - ec2.shop
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - ec2.shop
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ec2shop
+  namespace: opty
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+  - hosts:
+    - ec2.shop
+    secretName: ec2shop-tls-secret
+  rules:
+  - host: ec2.shop
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ec2shop
+          servicePort: web

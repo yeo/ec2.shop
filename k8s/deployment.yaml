@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ec2shop
+  labels:
+    app: ec2shop
+  namespace: opty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ec2shop
+  template:
+    metadata:
+      labels:
+        app: ec2shop
+    spec:
+      containers:
+      - name: app
+        image: yeospace/ec2shop:359e109465816f3d4af4e536b022d330232b1a9d
+        ports:
+        - containerPort: 6000
+        env:
+        - name: BIND_TO
+          value: "0.0.0.0:6000"
