@@ -211,11 +211,9 @@ func IsShell(c echo.Context) bool {
 }
 
 func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
-	header := "│ %s%%-15s │ %s%%-12s │ %s%%4s vCPUs │ %s%%-20s │ %s%%-18s │ %s%%-10s │\n"
-	colorizeHeader := fmt.Sprintf(header, Green, White, White, White, White, Red)
+	header := "│ %-15s │ %-12s │ %4s vCPUs │ %-20s │ %-18s │ %-10s │\n"
 
-	pattern := "│ %s%%-15s │ %s%%-12s │ %s%%4s vCPUs │ %s%%-20s │ %s%%-18s │ %s%%-10.4f │\n"
-	colorizePattern := fmt.Sprintf(pattern, Green, White, White, White, Yellow, Red)
+	pattern := "│ %-15s │ %-12s │ %4s vCPUs │ %-20s │ %-18s │ %-10.4f │\n"
 
 	ts := time.Now()
 
@@ -237,7 +235,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			keywords := strings.Split(filter, ",")
 
 			priceText := "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
-			priceText += fmt.Sprintf(colorizeHeader,
+			priceText += fmt.Sprintf(header,
 				"Instance Type",
 				"Memory",
 				"",
@@ -264,7 +262,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 				}
 
 				priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
-				priceText += fmt.Sprintf(colorizePattern,
+				priceText += fmt.Sprintf(pattern,
 					m.EC2InstanceType,
 					m.EC2Memory,
 					m.EC2VCPU,
@@ -274,7 +272,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 			}
 
-			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n" + Reset
+			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
 
 			return c.String(http.StatusOK, priceText)
 		}
