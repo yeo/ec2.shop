@@ -249,25 +249,6 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 		prices := p.PriceListFromRequest(c)
 
-		if IsJson(c) {
-			friendlyPrices := &FriendlyPriceResponse{
-				Prices: make([]*FriendlyPrice, len(prices)),
-			}
-
-			for _, v := range prices {
-				friendlyPrices.Prices = append(friendlyPrices.Prices, &FriendlyPrice{
-					InstanceType: v.Attribute.EC2InstanceType,
-					Memory:       v.Attribute.EC2Memory,
-					VCPUS:        v.Attribute.EC2VCPU,
-					Storage:      v.Attribute.EC2Storage,
-					Network:      v.Attribute.EC2NetworkPerformance,
-					Cost:         v.Price,
-				})
-			}
-
-			return c.JSON(http.StatusOK, friendlyPrices)
-		}
-
 		if prices == nil {
 			return errors.New("Invalid region")
 		}
@@ -318,6 +299,25 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
 
 			return c.String(http.StatusOK, priceText)
+		}
+
+		if IsJson(c) {
+			friendlyPrices := &FriendlyPriceResponse{
+				Prices: make([]*FriendlyPrice, len(prices)),
+			}
+
+			for _, v := range prices {
+				friendlyPrices.Prices = append(friendlyPrices.Prices, &FriendlyPrice{
+					InstanceType: v.Attribute.EC2InstanceType,
+					Memory:       v.Attribute.EC2Memory,
+					VCPUS:        v.Attribute.EC2VCPU,
+					Storage:      v.Attribute.EC2Storage,
+					Network:      v.Attribute.EC2NetworkPerformance,
+					Cost:         v.Price,
+				})
+			}
+
+			return c.JSON(http.StatusOK, friendlyPrices)
 		}
 
 		currentRegion := "us-east-1"
