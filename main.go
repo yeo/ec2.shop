@@ -49,7 +49,8 @@ type Attribute struct {
 	EC2Tenancy                string `json:"aws:ec2:tenancy"`
 	EC2Term                   string `json:"aws:ec2:term"`
 	EC2UsageType              string `json:"aws"ec2:usagetype"`
-	EC2VCPU                   string `json:"aws:ec2:vcpu"`
+	RawEC2VCPU                string `json:"aws:ec2:vcpu"`
+	EC2VCPU                   int64  `json:"-"`
 
 	ProductFamily string `json:"aws:productFamily"`
 	Service       string `json:"aws:service"`
@@ -70,7 +71,7 @@ type Price struct {
 type FriendlyPrice struct {
 	InstanceType string
 	Memory       string
-	VCPUS        string
+	VCPUS        int64
 	Storage      string
 	Network      string
 	Cost         float64
@@ -81,15 +82,15 @@ type FriendlyPriceResponse struct {
 }
 
 type MetaPrice struct {
-	Prices []Price `json:"prices"`
+	Prices []*Price `json:"prices"`
 }
 
 type PriceFinder struct {
-	regions map[string][]Price
+	regions map[string][]*Price
 }
 
 func (p *PriceFinder) Load() {
-	p.regions = make(map[string][]Price)
+	p.regions = make(map[string][]*Price)
 
 	regions := []string{
 		"af-south-1",
@@ -119,7 +120,7 @@ func (p *PriceFinder) Load() {
 	}
 
 	for _, r := range regions {
-		p.regions[r] = make([]Price, 0)
+		p.regions[r] = make([]*Price, 0)
 		for _, generation := range []string{"ondemand", "ondemand-previous-generation"} {
 			var priceList MetaPrice
 
@@ -142,17 +143,18 @@ func (p *PriceFinder) Load() {
 				if err != nil {
 					fmt.Printf("Error when converting price %+v\n", err)
 				}
+				p.regions[r][i].Attribute.EC2VCPU, err = strconv.ParseInt(price.Attribute.RawEC2VCPU, 10, 64)
 			}
 		}
 	}
 
 }
 
-func (p *PriceFinder) PriceListByRegion(region string) []Price {
+func (p *PriceFinder) PriceListByRegion(region string) []*Price {
 	return p.regions[region]
 }
 
-func (p *PriceFinder) PriceListFromRequest(c echo.Context) []Price {
+func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 	requestRegion := c.QueryParam("region")
 	if requestRegion == "" {
 		requestRegion = c.QueryParam("r")

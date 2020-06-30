@@ -6,7 +6,30 @@ new gridjs.Grid({
   search: true,
   sort: true,
 
-  columns: ['Instance Type', 'Memory', 'vCPUS', 'Storage', 'Network', 'Price'],
+  columns: [
+    'Instance Type',
+    {
+      name: 'Memory',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x.split(' ')[0])
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    },
+
+    'vCPUS',
+    'Storage',
+    'Network',
+    'Price'
+  ],
 
   data: window._pricedata,
 }).render(document.getElementById('price-grid'));
