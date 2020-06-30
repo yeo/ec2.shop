@@ -245,7 +245,7 @@ func IsText(c echo.Context) bool {
 func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s\n"
 
-	pattern := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10.4f\n"
+	pattern := "%-15s  %-12s  %4d vCPUs  %-20s  %-18s  %-10.4f\n"
 
 	ts := time.Now()
 
