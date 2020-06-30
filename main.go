@@ -220,6 +220,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 	ts := time.Now()
 
 	return func(c echo.Context) error {
+		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		if debug {
 			ts = time.Now()
 		}
@@ -275,7 +276,6 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n" + Reset
 
-			c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 			return c.String(http.StatusOK, priceText)
 		}
 
