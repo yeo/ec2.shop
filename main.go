@@ -203,11 +203,19 @@ func IsJson(c echo.Context) bool {
 	return contentType == "application/json"
 }
 
-func IsShell(c echo.Context) bool {
+func IsText(c echo.Context) bool {
 	ua := c.Request().Header.Get("User-Agent")
-	format := c.QueryParam("o")
+	accept := c.Request().Header.Get("Accept")
 
-	return strings.Contains(ua, "curl") || format == "text"
+	if strings.Contains(accept, "html") {
+		return false
+	}
+
+	if strings.Contains(ua, "Chrome") || strings.Contains(ua, "Safari") || strings.Contains(ua, "Mozilla") {
+		return false
+	}
+
+	return true
 }
 
 func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
@@ -229,7 +237,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			return errors.New("Invalid region")
 		}
 
-		if IsShell(c) {
+		if IsText(c) {
 			// When loading by shell we can pass these param
 			filter := c.QueryParam("filter")
 			keywords := strings.Split(filter, ",")
