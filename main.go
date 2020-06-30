@@ -119,27 +119,29 @@ func (p *PriceFinder) Load() {
 	}
 
 	for _, r := range regions {
-		var priceList MetaPrice
-
 		p.regions[r] = make([]Price, 0)
+		for _, generation := range []string{"ondemand", "ondemand-previous-generation"} {
+			var priceList MetaPrice
 
-		content, err := ioutil.ReadFile("./data/" + r + "-ondemand.json")
-		if err != nil {
-			fmt.Println("error %v", err)
-			continue
-		}
-
-		err = json.Unmarshal(content, &priceList)
-		if err != nil {
-			fmt.Println("error %v", err)
-			continue
-		}
-		p.regions[r] = priceList.Prices
-
-		for i, price := range p.regions[r] {
-			p.regions[r][i].Price, err = strconv.ParseFloat(price.RawPrice.USD, 64)
+			filename := "./data/" + r + "-" + generation + ".json"
+			content, err := ioutil.ReadFile(filename)
 			if err != nil {
-				fmt.Println("Error when converting price", err)
+				fmt.Printf("error %s %+v\n", filename, err)
+				continue
+			}
+
+			err = json.Unmarshal(content, &priceList)
+			if err != nil {
+				fmt.Printf("error process %s %v\n", filename, err)
+				continue
+			}
+			p.regions[r] = append(p.regions[r], priceList.Prices...)
+
+			for i, price := range p.regions[r] {
+				p.regions[r][i].Price, err = strconv.ParseFloat(price.RawPrice.USD, 64)
+				if err != nil {
+					fmt.Printf("Error when converting price %+v\n", err)
+				}
 			}
 		}
 	}
@@ -239,9 +241,9 @@ func IsText(c echo.Context) bool {
 }
 
 func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
-	header := "│ %-15s │ %-12s │ %4s vCPUs │ %-20s │ %-18s │ %-10s │\n"
+	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s\n"
 
-	pattern := "│ %-15s │ %-12s │ %4s vCPUs │ %-20s │ %-18s │ %-10.4f │\n"
+	pattern := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10.4f\n"
 
 	ts := time.Now()
 
@@ -281,7 +283,8 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			filter := c.QueryParam("filter")
 			keywords := strings.Split(filter, ",")
 
-			priceText := "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
+			priceText := ""
+			//priceText += "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
 			priceText += fmt.Sprintf(header,
 				"Instance Type",
 				"Memory",
@@ -308,7 +311,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 					continue PRICE
 				}
 
-				priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
+				//priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
 				priceText += fmt.Sprintf(pattern,
 					m.EC2InstanceType,
 					m.EC2Memory,
@@ -319,7 +322,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 			}
 
-			priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
+			//priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
 
 			return c.String(http.StatusOK, priceText)
 		}
