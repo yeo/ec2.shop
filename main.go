@@ -207,7 +207,7 @@ func GetPriceHandler(p *PriceFinder) func(echo.Context) error {
 
 		priceText += "└──────────────────────────────────────────────────────────────────────────────────────────────────────┘\n"
 
-		c.Response().Header().Set("Cache-Control", "max-age=600, stale-while-revalidate=30")
+		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		return c.String(http.StatusOK, priceText)
 	}
 }
