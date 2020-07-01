@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: yeospace/ec2shop:359e109465816f3d4af4e536b022d330232b1a9d
+        image: yeospace/ec2shop:${rev}
         ports:
         - containerPort: 6000
         env:
