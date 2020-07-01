@@ -28,7 +28,8 @@ new gridjs.Grid({
     'vCPUS',
     'Storage',
     'Network',
-    'Price'
+    'Hourly Price',
+    'Monthly',
   ],
 
   data: window._pricedata,

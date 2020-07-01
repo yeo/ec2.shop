@@ -69,6 +69,7 @@
             "{{ $val.Attribute.EC2Storage }}",
             "{{ $val.Attribute.EC2NetworkPerformance }}",
             {{ $val.Price }},
+            {{ printf "%.3f" $val.MonthlyPrice }},
           ],
         {{ end }}
       ]

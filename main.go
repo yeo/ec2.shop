@@ -63,7 +63,8 @@ type Price struct {
 	RawPrice struct {
 		USD string `json:"USD"`
 	} `json:"price"`
-	Price float64 `json:"-"`
+	Price        float64 `json:"-"`
+	MonthlyPrice float64 `json:"-"`
 
 	Attribute *Attribute `json:"attributes"`
 }
@@ -140,6 +141,9 @@ func (p *PriceFinder) Load() {
 
 			for i, price := range p.regions[r] {
 				p.regions[r][i].Price, err = strconv.ParseFloat(price.RawPrice.USD, 64)
+				// Assume 730 hours per month, similar to aws calculator https://aws.amazon.com/calculator/calculator-assumptions/
+				p.regions[r][i].MonthlyPrice = p.regions[r][i].Price * 730
+
 				if err != nil {
 					fmt.Printf("Error when converting price %+v\n", err)
 				}
