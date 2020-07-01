@@ -29,7 +29,22 @@ new gridjs.Grid({
     'Storage',
     'Network',
     'Hourly Price',
-    'Monthly',
+    {
+      name: 'Monthly',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    }
   ],
 
   data: window._pricedata,
