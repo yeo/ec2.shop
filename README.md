@@ -35,3 +35,11 @@ this page: https://aws.amazon.com/ec2/pricing/on-demand/
 
 For spot instances, it maybe a bit outdated. The price is refresh every
 5 minutes from this page: https://aws.amazon.com/ec2/spot/pricing/
+
+# Will you maitenance this?
+
+I need it myself and it's very cheap to keep it running given a majority
+of request are cached at Cloudflare.
+
+Otherwise, you can run it yourself. I had Dockerfile, k8s, makefile to
+help you run it.
