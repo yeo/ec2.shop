@@ -247,9 +247,9 @@ func IsText(c echo.Context) bool {
 }
 
 func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
-	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s\n"
+	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s  %-10s\n"
 
-	pattern := "%-15s  %-12s  %4d vCPUs  %-20s  %-18s  %-10.4f\n"
+	pattern := "%-15s  %-12s  %4d vCPUs  %-20s  %-18s  %-10.4f  %-8.3f\n"
 
 	ts := time.Now()
 
@@ -297,7 +297,8 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 				"",
 				"Storage",
 				"Network",
-				"Price")
+				"Price",
+				"Monthly")
 
 		PRICE:
 			for _, price := range prices {
@@ -324,7 +325,8 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 					m.EC2VCPU,
 					m.EC2Storage,
 					m.EC2NetworkPerformance,
-					price.Price)
+					price.Price,
+					price.MonthlyPrice)
 
 			}
 
