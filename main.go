@@ -168,7 +168,27 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		requestRegion = "us-east-1"
 	}
 
-	prices := p.PriceListByRegion(requestRegion)
+	prices := make([]*Price, 0)
+
+	filter := c.QueryParam("filter")
+	keywords := strings.Split(filter, ",")
+
+	for _, price := range p.PriceListByRegion(requestRegion) {
+		m := price.Attribute
+		matched := false
+		for _, kw := range keywords {
+			if strings.Contains(m.EC2InstanceType, kw) ||
+				strings.Contains(m.EC2Storage, kw) ||
+				strings.Contains(m.EC2NetworkPerformance, kw) {
+				matched = true
+			}
+		}
+		if !matched {
+			continue
+		}
+
+		prices = append(prices, price)
+	}
 
 	return prices
 }
@@ -286,9 +306,6 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 		if IsText(c) {
 			// When loading by shell we can pass these param
-			filter := c.QueryParam("filter")
-			keywords := strings.Split(filter, ",")
-
 			priceText := ""
 			//priceText += "┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐\n"
 			priceText += fmt.Sprintf(header,
@@ -300,23 +317,8 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 				"Price",
 				"Monthly")
 
-		PRICE:
 			for _, price := range prices {
 				m := price.Attribute
-
-				matched := false
-				//MATCHER:
-				for _, kw := range keywords {
-					if strings.Contains(m.EC2InstanceType, kw) ||
-						strings.Contains(m.EC2Storage, kw) ||
-						strings.Contains(m.EC2NetworkPerformance, kw) {
-						matched = true
-					}
-				}
-
-				if !matched {
-					continue PRICE
-				}
 
 				//priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
 				priceText += fmt.Sprintf(pattern,
