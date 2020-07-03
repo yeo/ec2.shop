@@ -140,7 +140,7 @@ func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) 
 }
 
 func (s *SpotPriceCrawler) Run() {
-	ticker := time.NewTicker(180 * time.Second)
+	ticker := time.NewTicker(150 * time.Second)
 
 	go func() {
 		for {
