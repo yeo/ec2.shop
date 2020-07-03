@@ -23,3 +23,10 @@ spec:
         env:
         - name: BIND_TO
           value: "0.0.0.0:6000"
+        volumeMounts:
+          - mountPath: /etc/ssl
+            name: ssl-cert
+      volumes:
+        - name: ssl-cert
+          hostPath:
+            path: /etc/ssl
