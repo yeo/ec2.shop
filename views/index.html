@@ -8,6 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="/static/icon/favicon.svg">
+    <link rel="alternate icon" href="/static/icon/favicon.ico">
+    <link rel="mask-icon" href="/static/icon/favicon.svg" color="#ff8a01">
   </head>
   <body>
     <!-- the termynal container -->
@@ -19,12 +23,15 @@
         <span data-ty="input">curl 'https://ec2.shop?region=us-west-2&filter=m4,m5,ssd'</span>
         <span data-ty="input">curl 'https://ec2.shop' -H 'accept: json'</span>
       </div>
-
     </div>
 
 
     <div class="info">
-      <p>Developed by&nbsp;<a href="https://betterdev.link">BetterDev</a>. <a href="https://github.com/yeo/ec2.shop">Source Code</a>. Data is refreshed at <strong>22:53:14 UTC Tuesday, June 30, 2020</strong></p>
+      <p>
+        Made by&nbsp;<a href="https://betterdev.link">BetterDev</a>.
+        <a href="https://github.com/yeo/ec2.shop">Code</a>.
+        <a href="https://github.com/yeo/ec2.shop#api">Docs</a>
+      </p>
     </div>
 
     <div id="price-grid-container">
@@ -70,6 +77,7 @@
             "{{ $val.Attribute.EC2NetworkPerformance }}",
             {{ $val.Price }},
             {{ printf "%.3f" $val.MonthlyPrice }},
+            {{ printf "%-10s" $val.FormatSpotPrice }},
           ],
         {{ end }}
       ]
