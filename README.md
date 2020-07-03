@@ -106,3 +106,7 @@ Unfortunately the `SpotPrice` is a string :-( because sometime it
 contains this text: `"SpotPrice": "NA"` when that instance type isn't
 available for purchase on Spot Instance(as in, they are only available
 for on-demand).
+
+# Icon
+
+Use price icon by https://www.iconfinder.com/WTicon
