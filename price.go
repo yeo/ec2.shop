@@ -196,8 +196,7 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		}
 
 		// Attempt to load spot price
-		region := requestRegion[0 : len(requestRegion)-2]
-		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(region, m.EC2InstanceType); err == nil {
+		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(requestRegion, m.EC2InstanceType); err == nil {
 			if _spotPrice != nil && _spotPrice.Linux != nil {
 				price.SpotPrice = *_spotPrice.Linux
 			}
