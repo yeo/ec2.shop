@@ -1,4 +1,4 @@
-# https://ec2.Shop
+# https://ec2.shop
 
 Get ec2 price right from your terminal
 
