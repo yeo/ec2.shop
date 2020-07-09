@@ -130,8 +130,27 @@ func (s *SpotPriceCrawler) Fetch() error {
 	return nil
 }
 
+func (s *SpotPriceCrawler) SpotRegionName(region string) string {
+	// The AWS API we're using has some funky names for some regions; e.g. eu-west-1 is referred to as eu-ireland
+	// This function maps an "actual" region name to the one in this API call
+	spotRegionMap := map[string]string{
+		"us-east-1": "us-east",
+		"us-west-1": "us-west",
+		"eu-west-1": "eu-ireland",
+		"ap-southeast-1": "apac-sin",
+		"ap-southeast-2": "apac-syd",
+		"ap-northeast-1": "apac-tokyo",
+	}
+	spotRegionName, found := spotRegionMap[region]
+	if found {
+		return spotRegionName
+	} else {
+		return region
+	}
+}
+
 func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) (*SpotPrice, error) {
-	m := s.pricePerRegions[region][instanceType]
+	m := s.pricePerRegions[s.SpotRegionName(region)][instanceType]
 	if m == nil {
 		return nil, errors.New("Invalid instance type or region")
 	}
