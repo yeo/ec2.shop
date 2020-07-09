@@ -1,12 +1,12 @@
 FROM debian:sid-slim
 
 RUN apt-get -y update \
- && apt-get -y upgrade \
- && apt-get -y install ca-certificates
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-#COPY data /app/data
 COPY output/ec2shop /app
 COPY . /app
 

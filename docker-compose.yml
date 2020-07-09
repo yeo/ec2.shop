@@ -1,0 +1,8 @@
+version: '3.6'
+services:
+  web:
+    build: .
+    environment:
+      - BIND_TO=0.0.0.0:6001
+    ports:
+      - "6001:6001"
