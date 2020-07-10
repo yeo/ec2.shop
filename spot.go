@@ -177,7 +177,6 @@ func (s *SpotPriceCrawler) FetchSpotAdvisor() error {
 	regions := spotAdvisorWrap.Regions
 
 	for region, instanceTypes := range regions {
-		fmt.Println("At region", region)
 		for instanceType, instanceDetails := range instanceTypes.Windows {
 			s.pricePerRegions[region][instanceType].MSWinSavings = new(int)
 			*s.pricePerRegions[region][instanceType].MSWinSavings = instanceDetails.Savings
@@ -192,7 +191,6 @@ func (s *SpotPriceCrawler) FetchSpotAdvisor() error {
 		}
 	}
 
-	//fmt.Printf("Spot Price %+v", s.pricePerRegions)
 	fmt.Println("Fetched spot advisor data in", time.Now().Sub(t0), "at", time.Now())
 
 	return nil
@@ -236,6 +234,7 @@ func (s *SpotPriceCrawler) Run() {
 				return
 			case <-ticker.C:
 				s.Fetch()
+				s.FetchSpotAdvisor()
 			}
 		}
 	}()
