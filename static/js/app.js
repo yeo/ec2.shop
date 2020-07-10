@@ -60,7 +60,9 @@ new gridjs.Grid({
           }
         }
       }
-    }
+    },
+    'Spot Savings',
+    'Spot Reclaim Rate'
   ],
 
   data: window._pricedata,

@@ -47,11 +47,13 @@ func (r *RawPrice) Price() (float64, error) {
 }
 
 type Price struct {
-	ID        string    `json:"id"`
-	Unit      string    `json:"unit"`
-	RawPrice  *RawPrice `json:"price"`
-	Price     float64   `json:"-"`
-	SpotPrice float64   `json:"-"`
+	ID              string    `json:"id"`
+	Unit            string    `json:"unit"`
+	RawPrice        *RawPrice `json:"price"`
+	Price           float64   `json:"-"`
+	SpotPrice       float64   `json:"-"`
+	SpotSavings     int       `json:"-"`
+	SpotReclaimRate int       `json:"-"`
 
 	Attribute *Attribute `json:"attributes"`
 }
@@ -69,6 +71,28 @@ func (p *Price) FormatSpotPrice() string {
 	}
 
 	return txtSpotPrice
+}
+
+func (p *Price) FormatSpotReclaimRate() string {
+	spotReclaimRateMapping := map[int]string{
+		0: "NA",
+		1: "< 5%",
+		2: "5-10%",
+		3: "10-15%",
+		4: "15-20%",
+		5: "> 20%",
+	}
+	return spotReclaimRateMapping[p.SpotReclaimRate]
+}
+
+func (p *Price) FormatSpotSavings() string {
+	txtSpotSavings := "NA"
+
+	if p.SpotSavings > 0 {
+		txtSpotSavings = fmt.Sprintf("%d%%", p.SpotSavings)
+	}
+
+	return txtSpotSavings
 }
 
 type FriendlyPrice struct {
@@ -197,8 +221,16 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 
 		// Attempt to load spot price
 		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(requestRegion, m.EC2InstanceType); err == nil {
-			if _spotPrice != nil && _spotPrice.Linux != nil {
-				price.SpotPrice = *_spotPrice.Linux
+			if _spotPrice != nil {
+				if _spotPrice.Linux != nil {
+					price.SpotPrice = *_spotPrice.Linux
+				}
+				if _spotPrice.LinuxSavings != nil {
+					price.SpotSavings = *_spotPrice.LinuxSavings
+				}
+				if _spotPrice.LinuxReclaimRate != nil {
+					price.SpotReclaimRate = *_spotPrice.LinuxReclaimRate
+				}
 			}
 		}
 

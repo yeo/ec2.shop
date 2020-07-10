@@ -80,6 +80,8 @@
             {{ $val.Price }},
             {{ printf "%.3f" $val.MonthlyPrice }},
             {{ printf "%-10s" $val.FormatSpotPrice }},
+            {{ printf "%-10s" $val.FormatSpotSavings }},
+            {{ printf "%-10s" $val.FormatSpotReclaimRate }},
           ],
         {{ end }}
       ]
