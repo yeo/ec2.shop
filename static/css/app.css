@@ -42,3 +42,12 @@ body {
   font-size: 1.2em;
   z-index: 10;
 }
+
+.show-spot {
+  float: left;
+  position: relative;
+  left: 337px;
+  top: 41px;
+  font-size: 1.2em;
+  z-index: 10;
+}
