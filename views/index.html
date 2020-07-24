@@ -64,6 +64,9 @@
           <option {{ if eq $currentRegion "ap-southeast-1" }}selected{{ end }} value="ap-southeast-1">ap-southeast-1</option>
           <option {{ if eq $currentRegion "ap-southeast-2" }}selected{{ end }} value="ap-southeast-2">ap-southeast-2</option>
         </select>
+      <label class="show-spot">Show Spot data
+        <input type="checkbox" id="show-spot" name="show-spot">
+      </label>
       <div id="price-grid"></div>
     </div>
 
@@ -79,12 +82,26 @@
             "{{ $val.Attribute.EC2NetworkPerformance }}",
             {{ $val.Price }},
             {{ printf "%.3f" $val.MonthlyPrice }},
+          ],
+        {{ end }}
+      ];
+      window._pricedatawithspot = [
+        {{ $price := index . "priceData" }}
+        {{ range $index, $val := index . "priceData" }}
+          [
+            "{{ $val.Attribute.EC2InstanceType }}",
+            "{{ $val.Attribute.EC2Memory }}",
+            {{ $val.Attribute.EC2VCPU }},
+            "{{ $val.Attribute.EC2Storage }}",
+            "{{ $val.Attribute.EC2NetworkPerformance }}",
+            {{ $val.Price }},
+            {{ printf "%.3f" $val.MonthlyPrice }},
             {{ printf "%-10s" $val.FormatSpotPrice }},
             {{ printf "%-10s" $val.FormatSpotSavings }},
             {{ printf "%-10s" $val.FormatSpotReclaimRate }},
           ],
         {{ end }}
-      ]
+      ];
     </script>
     <script src="/static/js/termynal.min.js" data-termynal-container="#termynal"></script>
     <script src="/static/js/app.js?ts={{ index . "ts" }}"></script>
