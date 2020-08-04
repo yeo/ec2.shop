@@ -7,7 +7,7 @@ RUN apt-get -y update \
 
 WORKDIR /app
 
-COPY output/ec2shop /app
 COPY . /app
+COPY output/ec2shop /app
 
 CMD ["/app/ec2shop"]
