@@ -2,6 +2,10 @@
 var termynal = new Termynal('#termynal');
 
 function weightNetwork(value) {
+  if (value == 'NA') {
+    return -1001
+  }
+
   if (value == 'Very Low') {
     return -1000
   }
@@ -18,20 +22,20 @@ function weightNetwork(value) {
     return -996
   }
 
-  if (value == 'Hight') {
+  if (value == 'High') {
     return -995
   }
 
   if (value.startsWith('Up to')) {
     const m = value.match(/\d+/)
     if (m) {
-      return m[0] - 0.5
+      return parseInt(m[0]) - 0.5
     }
   }
 
   const m = value.match(/\d+/)
   if (m) {
-    return m[0]
+    return parseInt(m[0])
   }
 
   return -9000
