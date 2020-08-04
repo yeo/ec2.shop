@@ -1,6 +1,42 @@
 // https://github.com/ines/termynal 
 var termynal = new Termynal('#termynal');
 
+function weightNetwork(value) {
+  if (value == 'Very Low') {
+    return -1000
+  }
+
+  if (value == 'Low') {
+    return -998
+  }
+
+  if (value == 'Low to Moderate') {
+    return -997
+  }
+
+  if (value == 'Moderate') {
+    return -996
+  }
+
+  if (value == 'Hight') {
+    return -995
+  }
+
+  if (value.startsWith('Up to')) {
+    const m = value.match(/\d+/)
+    if (m) {
+      return m[0] - 0.5
+    }
+  }
+
+  const m = value.match(/\d+/)
+  if (m) {
+    return m[0]
+  }
+
+  return -9000
+}
+
 // data grid
 new gridjs.Grid({
   search: true,
@@ -27,7 +63,24 @@ new gridjs.Grid({
 
     'vCPUS',
     'Storage',
-    'Network',
+    {
+      name: 'Network',
+      sort: {
+        compare: (a, b) => {
+          const wa = weightNetwork(a)
+          const wb = weightNetwork(b)
+          if (wa > wb) {
+            return 1
+          }
+
+          if (wa < wb) {
+            return -1
+          }
+
+          return 0
+        }
+      }
+    },
     'Hourly Price',
     {
       name: 'Monthly',
