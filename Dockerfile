@@ -1,4 +1,17 @@
-FROM debian:sid-slim
+FROM golang:1.17-bullseye as build
+
+WORKDIR /app
+
+RUN mkdir output
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN go build -o output/ec2shop .
+
+
+FROM debian:bullseye-slim
 
 RUN apt-get -y update \
  && apt-get install -y --no-install-recommends ca-certificates \
@@ -8,6 +21,7 @@ RUN apt-get -y update \
 WORKDIR /app
 
 COPY . /app
-COPY output/ec2shop /app
+
+COPY --from=build /app/output/ec2shop /app
 
 CMD ["/app/ec2shop"]
