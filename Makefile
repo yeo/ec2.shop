@@ -1,7 +1,7 @@
 rev ?= $(shell git rev-parse HEAD)
 
 up:
-	docker-compose up
+	docker-compose up --build
 
 build:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
