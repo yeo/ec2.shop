@@ -11,31 +11,25 @@ import (
 )
 
 type Attribute struct {
-	EC2CapacityStatus         string `json:"aws:ec2:capacitystatus"`
-	EC2ClockSpeed             string `json:"aws:ec2:clockSpeed"`
-	EC2CurrentGeneration      string `json:"aws:ec2:currentGeneration"`
-	EC2DedicatedEbsThroughput string `json:"aws:ec2:dedicatedEbsThroughput"`
-	EC2ECU                    string `json:"aws:ec2:ecu"`
-	EC2EnhancedNetworking     string `json:"aws:ec2:enhancedNetworkingSupported"`
-	EC2InstanceFamily         string `json:"aws:ec2:instanceFamily"`
-	EC2InstanceType           string `json:"aws:ec2:instanceType"`
-	EC2LicenseModel           string `json:"aws:ec2:licenseModel"`
-	EC2Memory                 string `json:"aws:ec2:memory"`
-	EC2NetworkPerformance     string `json:"aws:ec2:networkPerformance"`
-	EC2OperatingSystem        string `json:"aws:ec2:operatingSystem"`
-	EC2PhysicalProcessor      string `json:"aws:ec2:physicalProcessor"`
-	EC2ProcessorArchitecture  string `json:"aws:ec2:processorArchitecture"`
-	EC2ProcessorFeatures      string `json:"aws:ec2:processorFeatures"`
-	EC2Storage                string `json:"aws:ec2:storage"`
-	EC2Tenancy                string `json:"aws:ec2:tenancy"`
-	EC2Term                   string `json:"aws:ec2:term"`
-	EC2UsageType              string `json:"aws"ec2:usagetype"`
-	RawEC2VCPU                string `json:"aws:ec2:vcpu"`
-	EC2VCPU                   int64  `json:"-"`
+	Price          string `json:"price"`
+	InstanceFamily string `json:"Instance Family"`
 
-	ProductFamily string `json:"aws:productFamily"`
-	Service       string `json:"aws:service"`
-	SKU           string `json:"aws:sku"`
+	RawVCPU string `json:"vCPU"`
+	VCPU    int64  `json:"-"`
+
+	InstanceType       string `json:"Instance Type"`
+	Memory             string `json:"Memory"`
+	Storage            string `json:"Storage"`
+	NetworkPerformance string `json:"Network Performance"`
+
+	plcOperatingSystem string `json:"plc:OperatingSystem"`
+	plcInstanceFamily  string `json:"plc:InstanceFamily"`
+}
+
+type PriceMap = map[string]Attribute
+
+type PriceManifest struct {
+	Regions map[string]PriceMap `json:"regions"`
 }
 
 type RawPrice struct {
@@ -46,12 +40,15 @@ func (r *RawPrice) Price() (float64, error) {
 	return strconv.ParseFloat(r.USD, 64)
 }
 
+// Our own data
 type Price struct {
-	ID        string    `json:"id"`
-	Unit      string    `json:"unit"`
-	RawPrice  *RawPrice `json:"price"`
-	Price     float64   `json:"-"`
-	SpotPrice float64   `json:"-"`
+	ID string `json:"id"`
+
+	// RawPrice can be a float or a string or a NA
+	RawPrice *RawPrice `json:"price"`
+
+	Price     float64 `json:"-"`
+	SpotPrice float64 `json:"-"`
 
 	Attribute *Attribute `json:"attributes"`
 }
@@ -87,10 +84,6 @@ type FriendlyPriceResponse struct {
 	Prices []*FriendlyPrice
 }
 
-type MetaPrice struct {
-	Prices []*Price `json:"prices"`
-}
-
 type SpotPriceFinder interface {
 	PriceForInstance(region string, instanceType string) (*SpotPrice, error)
 }
@@ -100,66 +93,49 @@ type PriceFinder struct {
 	SpotPriceFinder SpotPriceFinder
 }
 
+// Load price from db for all regions
 func (p *PriceFinder) Load() {
 	p.regions = make(map[string][]*Price)
 
-	regions := []string{
-		"af-south-1",
-		"ap-south-1",
-		"eu-north-1",
-		"eu-west-3",
-		"eu-south-1",
-		"eu-west-2",
-		"eu-west-1",
-		"ap-northeast-3",
-		"ap-northeast-2",
-		"us-gov-east-1",
-		"ap-northeast-1",
-		"us-west-2-lax-1",
-		"me-south-1",
-		"ca-central-1",
-		"sa-east-1",
-		"ap-east-1",
-		"us-gov-west-1",
-		"ap-southeast-1",
-		"ap-southeast-2",
-		"eu-central-1",
-		"us-east-1",
-		"us-east-2",
-		"us-west-1",
-		"us-west-2",
-	}
-
-	for _, r := range regions {
+	for _, r := range availableRegions {
 		p.regions[r] = make([]*Price, 0)
-		for _, generation := range []string{"ondemand", "ondemand-previous-generation"} {
-			var priceList MetaPrice
 
-			filename := "./data/" + r + "-" + generation + ".json"
-			content, err := ioutil.ReadFile(filename)
-			if err != nil {
-				fmt.Printf("error %s %+v\n", filename, err)
-				continue
-			}
-
-			err = json.Unmarshal(content, &priceList)
-			if err != nil {
-				fmt.Printf("error process %s %v\n", filename, err)
-				continue
-			}
-			p.regions[r] = append(p.regions[r], priceList.Prices...)
-
-			for i, price := range p.regions[r] {
-				p.regions[r][i].Price, err = price.RawPrice.Price()
-
-				if err != nil {
-					fmt.Printf("Error when converting price %+v\n", err)
-				}
-				p.regions[r][i].Attribute.EC2VCPU, err = strconv.ParseInt(price.Attribute.RawEC2VCPU, 10, 64)
-			}
+		for _, generation := range []string{"ondemand", "previousgen-ondemand"} {
+			p.loadRegion(r, generation)
 		}
 	}
+}
 
+func (p *PriceFinder) loadRegion(r string, generation string) {
+	fmt.Printf("load price for region %s generation %s", r, generation)
+	var priceList PriceManifest
+
+	filename := "./data/" + r + "-" + generation + ".json"
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Printf("error %s %+v\n", filename, err)
+		return
+	}
+
+	err = json.Unmarshal(content, &priceList)
+	if err != nil {
+		fmt.Printf("error process %s %v\n", filename, err)
+		return
+	}
+
+	// price is a 2 nested map like this
+	for _, regionalPriceItems := range priceList.Regions {
+		for item, priceItem := range regionalPriceItems {
+			fmt.Printf("%s server: %s\n", r, item)
+			price := &Price{
+				Attribute: &priceItem,
+			}
+			price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
+			price.Attribute.VCPU, _ = strconv.ParseInt(priceItem.RawVCPU, 10, 64)
+
+			p.regions[r] = append(p.regions[r], price)
+		}
+	}
 }
 
 func (p *PriceFinder) PriceListByRegion(region string) []*Price {
@@ -185,9 +161,9 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		m := price.Attribute
 		matched := false
 		for _, kw := range keywords {
-			if strings.Contains(m.EC2InstanceType, kw) ||
-				strings.Contains(m.EC2Storage, kw) ||
-				strings.Contains(m.EC2NetworkPerformance, kw) {
+			if strings.Contains(m.InstanceType, kw) ||
+				strings.Contains(m.Storage, kw) ||
+				strings.Contains(m.NetworkPerformance, kw) {
 				matched = true
 			}
 		}
@@ -196,7 +172,7 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		}
 
 		// Attempt to load spot price
-		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(requestRegion, m.EC2InstanceType); err == nil {
+		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(requestRegion, m.InstanceType); err == nil {
 			if _spotPrice != nil && _spotPrice.Linux != nil {
 				price.SpotPrice = *_spotPrice.Linux
 			}
@@ -207,3 +183,103 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 
 	return prices
 }
+
+var (
+	availableRegions = []string{
+		"af-south-1",
+		"ap-east-1",
+		"ap-northeast-1",
+		"ap-northeast-2",
+		"ap-northeast-3",
+		"ap-south-1",
+		"ap-south-2",
+		"ap-southeast-1",
+		"ap-southeast-2",
+		"ap-southeast-3",
+		"ap-southeast-4",
+		"ca-central-1",
+		"ca-west-1",
+		"eu-central-1",
+		"eu-central-2",
+		"eu-north-1",
+		"eu-south-1",
+		"eu-south-2",
+		"eu-west-1",
+		"eu-west-2",
+		"eu-west-3",
+		"il-central-1",
+		"me-central-1",
+		"me-south-1",
+		"sa-east-1",
+		"us-east-1",
+		"us-east-2",
+		"us-east-2-mci-1",
+		"us-gov-east-1",
+		"us-gov-west-1",
+		"us-west-1",
+		"us-west-2",
+		"ap-northeast-1-wl1-kix1",
+		"ap-northeast-1-wl1-nrt1",
+		"ap-northeast-2-wl1-cjj1",
+		"ap-northeast-2-wl1-sel1",
+		"ca-central-1-wl1-yto1",
+		"eu-central-1-wl1-ber1",
+		"eu-central-1-wl1-dtm1",
+		"eu-central-1-wl1-muc1",
+		"eu-west-2-wl1-lon1",
+		"eu-west-2-wl1-man1",
+		"eu-west-2-wl2-man1",
+		"us-east-1-wl1",
+		"us-east-1-wl1-atl1",
+		"us-east-1-wl1-bna1",
+		"us-east-1-wl1-chi1",
+		"us-east-1-wl1-clt1",
+		"us-east-1-wl1-dfw1",
+		"us-east-1-wl1-dtw1",
+		"us-east-1-wl1-iah1",
+		"us-east-1-wl1-mia1",
+		"us-east-1-wl1-msp1",
+		"us-east-1-wl1-nyc1",
+		"us-east-1-wl1-tpa1",
+		"us-east-1-wl1-was1",
+		"us-west-2-wl1",
+		"us-west-2-wl1-den1",
+		"us-west-2-wl1-las1",
+		"us-west-2-wl1-lax1",
+		"us-west-2-wl1-phx1",
+		"us-west-2-wl1-sea1",
+		"af-south-1-los-1",
+		"ap-northeast-1-tpe-1",
+		"ap-south-1-ccu-1",
+		"ap-south-1-del-1",
+		"ap-southeast-1-bkk-1",
+		"ap-southeast-1-mnl-1",
+		"ap-southeast-2-akl-1",
+		"ap-southeast-2-per-1",
+		"eu-central-1-ham-1",
+		"eu-central-1-waw-1",
+		"eu-north-1-cph-1",
+		"eu-north-1-hel-1",
+		"me-south-1-mct-1",
+		"us-east-1-atl-1",
+		"us-east-1-bos-1",
+		"us-east-1-bue-1",
+		"us-east-1-chi-1",
+		"us-east-1-dfw-1",
+		"us-east-1-iah-1",
+		"us-east-1-lim-1",
+		"us-east-1-mci-1",
+		"us-east-1-mia-1",
+		"us-east-1-msp-1",
+		"us-east-1-nyc-1",
+		"us-east-1-phl-1",
+		"us-east-1-qro-1",
+		"us-east-1-scl-1",
+		"us-west-2-den-1",
+		"us-west-2-las-1",
+		"us-west-2-lax-1",
+		"us-west-2-pdx-1",
+		"us-west-2-phx-1",
+		"us-west-2-sea-1",
+	}
+)

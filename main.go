@@ -30,9 +30,11 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 func main() {
 	debug := os.Getenv("DEBUG") == "1"
 
+	// Setup spot price crawlet
 	s := NewSpotPriceCrawler()
 	s.Run()
 
+	// setup price loader
 	p := &PriceFinder{
 		SpotPriceFinder: s,
 	}
@@ -90,11 +92,11 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 			for i, v := range prices {
 				friendlyPrices.Prices[i] = &FriendlyPrice{
-					InstanceType: v.Attribute.EC2InstanceType,
-					Memory:       v.Attribute.EC2Memory,
-					VCPUS:        v.Attribute.EC2VCPU,
-					Storage:      v.Attribute.EC2Storage,
-					Network:      v.Attribute.EC2NetworkPerformance,
+					InstanceType: v.Attribute.InstanceType,
+					Memory:       v.Attribute.Memory,
+					VCPUS:        v.Attribute.VCPU,
+					Storage:      v.Attribute.Storage,
+					Network:      v.Attribute.NetworkPerformance,
 					Cost:         v.Price,
 					MonthlyPrice: v.MonthlyPrice(),
 					SpotPrice:    v.FormatSpotPrice(),
@@ -123,11 +125,11 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 
 				//priceText += "├──────────────────────────────────────────────────────────────────────────────────────────────────────┤\n"
 				priceText += fmt.Sprintf(pattern,
-					m.EC2InstanceType,
-					m.EC2Memory,
-					m.EC2VCPU,
-					m.EC2Storage,
-					m.EC2NetworkPerformance,
+					m.InstanceType,
+					m.Memory,
+					m.VCPU,
+					m.Storage,
+					m.NetworkPerformance,
 					price.Price,
 					price.MonthlyPrice(),
 					price.FormatSpotPrice())

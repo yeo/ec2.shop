@@ -2,12 +2,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Hacker way to compare ec2 instances</title>
+    <title>EC2 instance price api</title>
     <meta name="description" content="EC2 Price API - API To check ec2 prices">
 
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
 
@@ -19,7 +18,6 @@
     <!-- the termynal container -->
     <div class="terminal-container">
       <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="padding: 2em 0.5em; min-height: 240px;">
-        <span data-ty="input">echo Hacker way to compare ec2 instances price</span>
         <span data-ty="input">curl 'https://ec2.shop'</span>
         <span data-ty="input">curl 'https://ec2.shop?region=us-west-2'</span>
         <span data-ty="input">curl 'https://ec2.shop?region=us-west-2&filter=m4,m5,ssd'</span>
@@ -29,7 +27,7 @@
 
     <div class="info">
       <p style="text-align: center">
-        Need an email forwarding service, try out <a href="https://hanami.run">hanami</a>. <a href="https://github.com/yeo/ec2.shop#api-document">Docs</a>
+        Need an email forwarding service, try out <a href="https://mailwip.com">Mailwip</a>. <a href="https://github.com/yeo/ec2.shop#api-document">Docs</a>
       </p>
     </div>
 
@@ -69,11 +67,11 @@
         {{ $price := index . "priceData" }}
         {{ range $index, $val := index . "priceData" }}
           [
-            "{{ $val.Attribute.EC2InstanceType }}",
-            "{{ $val.Attribute.EC2Memory }}",
-            {{ $val.Attribute.EC2VCPU }},
-            "{{ $val.Attribute.EC2Storage }}",
-            "{{ $val.Attribute.EC2NetworkPerformance }}",
+            "{{ $val.Attribute.InstanceType }}",
+            "{{ $val.Attribute.Memory }}",
+            {{ $val.Attribute.VCPU }},
+            "{{ $val.Attribute.Storage }}",
+            "{{ $val.Attribute.NetworkPerformance }}",
             {{ $val.Price }},
             {{ printf "%.3f" $val.MonthlyPrice }},
             {{ printf "%-10s" $val.FormatSpotPrice }},
@@ -81,7 +79,6 @@
         {{ end }}
       ]
     </script>
-    <script src="/static/js/termynal.min.js" data-termynal-container="#termynal"></script>
     <script src="/static/js/app.js?ts={{ index . "ts" }}"></script>
   </body>
 </html>
