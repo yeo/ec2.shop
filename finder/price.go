@@ -110,6 +110,22 @@ func (p *PriceFinder) Discover() {
 				fmt.Println("server has reserver data but not found in on-demand", id)
 			}
 		}
+
+		for id, reseveredPrice := range p.loadRegion(r, "reservedinstance-convertible-1y") {
+			if _, ok := regionalPrice[id]; ok == true {
+				regionalPrice[id].Reserved1yConveritble = reseveredPrice.Price
+			} else {
+				fmt.Println("server has reserver data but not found in on-demand", id)
+			}
+		}
+
+		for id, reseveredPrice := range p.loadRegion(r, "reservedinstance-convertible-3y") {
+			if _, ok := regionalPrice[id]; ok == true {
+				regionalPrice[id].Reserved3yConveritble = reseveredPrice.Price
+			} else {
+				fmt.Println("server has reserver data but not found in on-demand", id)
+			}
+		}
 		p.regions[r] = regionalPrice
 	}
 

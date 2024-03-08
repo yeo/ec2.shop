@@ -37,10 +37,12 @@ type FriendlyPrice struct {
 	Network      string
 	Cost         float64
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
-	MonthlyPrice    float64
-	SpotPrice       string
-	Reserved1yPrice float64
-	Reserved3yPrice float64
+	MonthlyPrice               float64
+	SpotPrice                  string
+	Reserved1yPrice            float64
+	Reserved3yPrice            float64
+	Reserved1yConveritblePrice float64
+	Reserved3yConveritblePrice float64
 }
 type FriendlyPriceResponse struct {
 	Prices []*FriendlyPrice

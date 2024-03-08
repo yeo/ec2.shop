@@ -216,7 +216,7 @@ button.gridjs-sort:focus {
 }
 
 table.gridjs-table {
-  max-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   text-align: left;
   display: table;

@@ -7,8 +7,6 @@
 
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
 
@@ -58,6 +56,8 @@
             {{ printf "%s" $val.FormatSpotPrice }},
             {{ printf "%.4f" $val.Reserved1y }},
             {{ printf "%.4f" $val.Reserved3y }},
+            {{ printf "%.4f" $val.Reserved1yConveritble }},
+            {{ printf "%.4f" $val.Reserved3yConveritble }},
           ],
         {{ end }}
       ]

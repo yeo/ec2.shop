@@ -48,7 +48,13 @@ new gridjs.Grid({
 
   style: {
     header: {
-      'font-size': '0.8em',
+      'font-size': '0.8rem',
+      'color': 'red',
+    },
+    th: {
+      'font-size': '0.8rem',
+      'color': 'red',
+      'word-wrap': 'break-word',
     },
   },
 
@@ -141,7 +147,7 @@ new gridjs.Grid({
       }
     },
     {
-      name: "Reserved\nStandard(1y)",
+      name: "Reserved 1y",
       width: '80px',
       sort: {
         compare: (a, b) => {
@@ -158,7 +164,7 @@ new gridjs.Grid({
       }
     },
     {
-      name: "Reserved\nStandard(3y)",
+      name: "Reserved 3y",
       width: '80px',
       sort: {
         compare: (a, b) => {
@@ -173,7 +179,41 @@ new gridjs.Grid({
           }
         }
       }
-    }
+    },
+    {
+      name: "Convertible Resv(1y)",
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    },
+    {
+      name: "Convertible Resv(3y)",
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    },
   ],
 
   data: window._pricedata,
