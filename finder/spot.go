@@ -1,10 +1,10 @@
-package main
+package finder
 
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"time"
 )
@@ -12,6 +12,10 @@ import (
 const (
 	AWSSpotPriceUrl = "https://website.spot.ec2.aws.a2z.com/spot.js"
 )
+
+type SpotPriceFinder interface {
+	PriceForInstance(region string, instanceType string) (*SpotPrice, error)
+}
 
 type SpotPrice struct {
 	Linux *float64
@@ -70,7 +74,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 	t0 := time.Now()
 	resp, err := s.client.Get(AWSSpotPriceUrl)
 	if err != nil {
-		fmt.Println("Error fetching spot price", err)
+		log.Println("Error fetching spot price", err)
 		return err
 	}
 
@@ -78,7 +82,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("Fail to read response body", err)
+		log.Println("Fail to read response body", err)
 		return err
 	}
 
@@ -88,7 +92,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 
 	err = json.Unmarshal(body, &priceWrap)
 	if err != nil {
-		fmt.Println("Cannot parse json from spot request response", err)
+		log.Println("Cannot parse json from spot request response", err)
 		return err
 	}
 
@@ -98,8 +102,10 @@ func (s *SpotPriceCrawler) Fetch() error {
 		s.pricePerRegions[r.Region] = make(map[string]*SpotPrice)
 
 		for _, t := range r.InstanceTypes {
+			total := 0
 			for _, size := range t.Sizes {
 				s.pricePerRegions[r.Region][size.Size] = &SpotPrice{}
+				total += 1
 				for _, vc := range size.ValueColumns {
 					if vc.RawPrice.USD == "N/A*" {
 						continue
@@ -121,11 +127,13 @@ func (s *SpotPriceCrawler) Fetch() error {
 				}
 
 			}
+
+			log.Printf("found %d server price for region %s", total, r.Region)
 		}
 	}
 
-	//fmt.Printf("Spot Price %+v", s.pricePerRegions)
-	fmt.Println("Fetched spot price in", time.Now().Sub(t0), "at", time.Now())
+	//log.Printf("Spot Price %+v", s.pricePerRegions)
+	log.Println("Fetched spot price in", time.Now().Sub(t0), "at", time.Now())
 
 	return nil
 }
@@ -134,9 +142,9 @@ func (s *SpotPriceCrawler) SpotRegionName(region string) string {
 	// The AWS API we're using has some funky names for some regions; e.g. eu-west-1 is referred to as eu-ireland
 	// This function maps an "actual" region name to the one in this API call
 	spotRegionMap := map[string]string{
-		"us-east-1": "us-east",
-		"us-west-1": "us-west",
-		"eu-west-1": "eu-ireland",
+		"us-east-1":      "us-east",
+		"us-west-1":      "us-west",
+		"eu-west-1":      "eu-ireland",
 		"ap-southeast-1": "apac-sin",
 		"ap-southeast-2": "apac-syd",
 		"ap-northeast-1": "apac-tokyo",
@@ -150,7 +158,7 @@ func (s *SpotPriceCrawler) SpotRegionName(region string) string {
 }
 
 func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) (*SpotPrice, error) {
-	m := s.pricePerRegions[s.SpotRegionName(region)][instanceType]
+	m := s.pricePerRegions[region][instanceType]
 	if m == nil {
 		return nil, errors.New("Invalid instance type or region")
 	}

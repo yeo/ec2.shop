@@ -11,6 +11,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"github.com/yeo/ec2shop/finder"
 )
 
 type Template struct {
@@ -27,18 +29,26 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
+type FriendlyPrice struct {
+	InstanceType string
+	Memory       string
+	VCPUS        int64
+	Storage      string
+	Network      string
+	Cost         float64
+	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
+	MonthlyPrice float64
+	SpotPrice    string
+}
+type FriendlyPriceResponse struct {
+	Prices []*FriendlyPrice
+}
+
 func main() {
 	debug := os.Getenv("DEBUG") == "1"
 
-	// Setup spot price crawlet
-	s := NewSpotPriceCrawler()
-	s.Run()
-
-	// setup price loader
-	p := &PriceFinder{
-		SpotPriceFinder: s,
-	}
-	p.Load()
+	priceFinder := finder.New()
+	priceFinder.Discover()
 
 	// Echo instance
 	e := echo.New()
@@ -54,7 +64,7 @@ func main() {
 	e.Static("/static", "static")
 
 	// Routes
-	e.GET("/", GetPriceHandler(debug, p))
+	e.GET("/", GetPriceHandler(debug, priceFinder))
 
 	// Start server
 
@@ -66,7 +76,7 @@ func main() {
 	e.Logger.Fatal(e.Start(listen_on))
 }
 
-func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
+func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error {
 	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s  %-10s  %-10s\n"
 
 	pattern := "%-15s  %-12s  %4d vCPUs  %-20s  %-18s  %-10.4f  %-10.3f  %-10s\n"
@@ -140,6 +150,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			return c.String(http.StatusOK, priceText)
 		}
 
+		// If user not select, default to us-east1
 		currentRegion := "us-east-1"
 		if region := c.QueryParam("region"); region != "" {
 			currentRegion = region
@@ -149,6 +160,7 @@ func GetPriceHandler(debug bool, p *PriceFinder) func(echo.Context) error {
 			"ts":            ts,
 			"priceData":     prices,
 			"currentRegion": currentRegion,
+			"regions":       finder.AvailableRegions,
 		})
 	}
 }

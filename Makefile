@@ -11,5 +11,5 @@ deploy:
 	export rev=$(rev); envsubst < k8s/deployment.yaml | kubectl apply -f -
 
 docker:
-	docker build -t yeospace/ec2shop:$(rev) .
+	docker build --platform=linux/amd64 -t yeospace/ec2shop:$(rev) .
 	docker push yeospace/ec2shop:$(rev)
