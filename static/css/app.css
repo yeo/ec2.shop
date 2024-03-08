@@ -183,7 +183,6 @@ input.gridjs-input:focus {
 }
 
 button.gridjs-sort {
-  float: right;
   height: 24px;
   width: 13px;
   background-color: transparent;
