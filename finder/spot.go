@@ -13,10 +13,6 @@ const (
 	AWSSpotPriceUrl = "https://website.spot.ec2.aws.a2z.com/spot.js"
 )
 
-type SpotPriceFinder interface {
-	PriceForInstance(region string, instanceType string) (*SpotPrice, error)
-}
-
 type SpotPrice struct {
 	Linux *float64
 	MSWin *float64
@@ -128,7 +124,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 
 			}
 
-			log.Printf("found %d server price for region %s", total, r.Region)
+			log.Printf("[spot price loader] found %d server price for region %s", total, r.Region)
 		}
 	}
 

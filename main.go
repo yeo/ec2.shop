@@ -37,8 +37,10 @@ type FriendlyPrice struct {
 	Network      string
 	Cost         float64
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
-	MonthlyPrice float64
-	SpotPrice    string
+	MonthlyPrice    float64
+	SpotPrice       string
+	Reserved1yPrice float64
+	Reserved3yPrice float64
 }
 type FriendlyPriceResponse struct {
 	Prices []*FriendlyPrice
@@ -102,14 +104,16 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 
 			for i, v := range prices {
 				friendlyPrices.Prices[i] = &FriendlyPrice{
-					InstanceType: v.Attribute.InstanceType,
-					Memory:       v.Attribute.Memory,
-					VCPUS:        v.Attribute.VCPU,
-					Storage:      v.Attribute.Storage,
-					Network:      v.Attribute.NetworkPerformance,
-					Cost:         v.Price,
-					MonthlyPrice: v.MonthlyPrice(),
-					SpotPrice:    v.FormatSpotPrice(),
+					InstanceType:    v.Attribute.InstanceType,
+					Memory:          v.Attribute.Memory,
+					VCPUS:           v.Attribute.VCPU,
+					Storage:         v.Attribute.Storage,
+					Network:         v.Attribute.NetworkPerformance,
+					Cost:            v.Price,
+					MonthlyPrice:    v.MonthlyPrice(),
+					SpotPrice:       v.FormatSpotPrice(),
+					Reserved1yPrice: v.Reserved1y,
+					Reserved3yPrice: v.Reserved3y,
 				}
 			}
 

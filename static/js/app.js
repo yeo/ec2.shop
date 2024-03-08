@@ -1,5 +1,3 @@
-// https://github.com/ines/termynal 
-var termynal = new Termynal('#termynal');
 
 function weightNetwork(value) {
   if (value == 'NA') {
@@ -43,13 +41,25 @@ function weightNetwork(value) {
 
 // data grid
 new gridjs.Grid({
+  width: '100%',
   search: true,
+
   sort: true,
 
+  style: {
+    header: {
+      'font-size': '0.8em',
+    },
+  },
+
   columns: [
-    'Instance Type',
     {
-      name: 'Memory',
+      name: 'Type',
+      width: '90px',
+    },
+    {
+      name: 'Mem',
+      width: '70px',
       sort: {
         compare: (a, b) => {
           const code = (x) => parseFloat(x.split(' ')[0])
@@ -65,10 +75,17 @@ new gridjs.Grid({
       }
     },
 
-    'vCPUS',
-    'Storage',
+    {
+      name: 'vCPUS',
+      width: '60px',
+    },
+    {
+      name: 'Storage',
+      width: '70px',
+    },
     {
       name: 'Network',
+      width: '90px',
       sort: {
         compare: (a, b) => {
           const wa = weightNetwork(a)
@@ -85,9 +102,13 @@ new gridjs.Grid({
         }
       }
     },
-    'Hourly Price',
+    {
+      name: 'Hourly Price',
+      width: '90px',
+    },
     {
       name: 'Monthly',
+      width: '80px',
       sort: {
         compare: (a, b) => {
           const code = (x) => parseFloat(x)
@@ -104,6 +125,41 @@ new gridjs.Grid({
     },
     {
       name: 'Spot Price',
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    },
+    {
+      name: "Reserved\nStandard(1y)",
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    },
+    {
+      name: "Reserved\nStandard(3y)",
+      width: '80px',
       sort: {
         compare: (a, b) => {
           const code = (x) => parseFloat(x)

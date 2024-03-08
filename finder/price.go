@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"maps"
 	"strconv"
 	"strings"
 
@@ -50,6 +51,11 @@ type Price struct {
 	Price     float64 `json:"-"`
 	SpotPrice float64 `json:"-"`
 
+	Reserved1y            float64 `json:"-"`
+	Reserved3y            float64 `json:"-"`
+	Reserved1yConveritble float64 `json:"-"`
+	Reserved3yConveritble float64 `json:"-"`
+
 	Attribute *Attribute `json:"attributes"`
 }
 
@@ -68,21 +74,43 @@ func (p *Price) FormatSpotPrice() string {
 	return txtSpotPrice
 }
 
+type PriceByInstanceType = map[string]*Price
+type PriceByRegion = map[string]PriceByInstanceType
 type PriceFinder struct {
-	regions         map[string][]*Price
+	regions PriceByRegion
+
 	SpotPriceFinder *SpotPriceCrawler
 }
 
 // Load price from db for all regions
 func (p *PriceFinder) Discover() {
-	p.regions = make(map[string][]*Price)
+	p.regions = make(map[string]map[string]*Price)
 
 	for _, r := range AvailableRegions {
-		p.regions[r] = make([]*Price, 0)
-
+		regionalPrice := make(map[string]*Price)
+		// build up a base array with server spec and on-demand price
+		// this map hold all kind of servers including previous gen
 		for _, generation := range []string{"ondemand", "previousgen-ondemand"} {
-			p.loadRegion(r, generation)
+			onDemandPrice := p.loadRegion(r, generation)
+			maps.Copy(regionalPrice, onDemandPrice)
 		}
+
+		for id, reseveredPrice := range p.loadRegion(r, "reservedinstance-1y") {
+			if _, ok := regionalPrice[id]; ok == true {
+				regionalPrice[id].Reserved1y = reseveredPrice.Price
+			} else {
+				fmt.Println("server has reserver data but not found in on-demand", id)
+			}
+		}
+
+		for id, reseveredPrice := range p.loadRegion(r, "reservedinstance-3y") {
+			if _, ok := regionalPrice[id]; ok == true {
+				regionalPrice[id].Reserved3y = reseveredPrice.Price
+			} else {
+				fmt.Println("server has reserver data but not found in on-demand", id)
+			}
+		}
+		p.regions[r] = regionalPrice
 	}
 
 	// TODO: Add other item such as reverse
@@ -90,7 +118,7 @@ func (p *PriceFinder) Discover() {
 
 }
 
-func (p *PriceFinder) loadRegion(r string, generation string) {
+func (p *PriceFinder) loadRegion(r string, generation string) map[string]*Price {
 	fmt.Printf("load price for region %s generation %s", r, generation)
 	var priceList PriceManifest
 
@@ -98,15 +126,16 @@ func (p *PriceFinder) loadRegion(r string, generation string) {
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Printf("error %s %+v\n", filename, err)
-		return
+		return map[string]*Price{}
 	}
 
 	err = json.Unmarshal(content, &priceList)
 	if err != nil {
 		fmt.Printf("error process %s %v\n", filename, err)
-		return
+		return map[string]*Price{}
 	}
 
+	itemPrices := make(map[string]*Price)
 	// price is a 2 nested map like this
 	for _, regionalPriceItems := range priceList.Regions {
 		for item, priceItem := range regionalPriceItems {
@@ -119,14 +148,14 @@ func (p *PriceFinder) loadRegion(r string, generation string) {
 			price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
 			price.Attribute.VCPU, _ = strconv.ParseInt(priceItem.RawVCPU, 10, 64)
 
-			fmt.Printf("found price item %v:\n", price)
-
-			p.regions[r] = append(p.regions[r], price)
+			itemPrices[price.ID] = price
 		}
 	}
+
+	return itemPrices
 }
 
-func (p *PriceFinder) PriceListByRegion(region string) []*Price {
+func (p *PriceFinder) PriceListByRegion(region string) map[string]*Price {
 	return p.regions[region]
 }
 
