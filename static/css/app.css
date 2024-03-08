@@ -262,10 +262,9 @@ th.gridjs-th {
   vertical-align: middle;
 }
 th.gridjs-th .gridjs-th-content {
+  word-wrap: 'break-word',
   text-overflow: ellipsis;
-  overflow: hidden;
   width: 100%;
-  float: left;
 }
 th.gridjs-th-sort {
   cursor: pointer;

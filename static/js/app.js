@@ -53,7 +53,6 @@ new gridjs.Grid({
     },
     th: {
       'font-size': '0.8rem',
-      'color': 'red',
       'word-wrap': 'break-word',
     },
   },
@@ -181,7 +180,7 @@ new gridjs.Grid({
       }
     },
     {
-      name: "Convertible Resv(1y)",
+      name: "1y Convertible Reser",
       width: '80px',
       sort: {
         compare: (a, b) => {
@@ -198,7 +197,7 @@ new gridjs.Grid({
       }
     },
     {
-      name: "Convertible Resv(3y)",
+      name: "1y Convertible Reser",
       width: '80px',
       sort: {
         compare: (a, b) => {
