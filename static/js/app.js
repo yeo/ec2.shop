@@ -63,7 +63,7 @@ new gridjs.Grid({
       width: '90px',
     },
     {
-      name: 'Mem',
+      name: "Mem (GiB)",
       width: '70px',
       sort: {
         compare: (a, b) => {
@@ -197,7 +197,7 @@ new gridjs.Grid({
       }
     },
     {
-      name: "1y Convertible Reser",
+      name: "3y Convertible Reser",
       width: '80px',
       sort: {
         compare: (a, b) => {
