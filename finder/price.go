@@ -206,7 +206,6 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 
 	prices := make([]*Price, 0)
 	keywords := ParseSearchTerm(c.QueryParam("filter"))
-	fmt.Println("query", c.QueryParam("filter"))
 
 	for _, price := range p.PriceListByRegion(requestRegion) {
 		m := price.Attribute
