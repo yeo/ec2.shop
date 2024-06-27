@@ -69,8 +69,13 @@ new gridjs.Grid({
         let params = new URL(document.location.toString()).searchParams;
         params.set("filter", keyword);
         params.set("sc", searchCount+1);
+        if (!params.get("region")) {
+            // default to us-east-1
+            // TODO: load from cookie ?
+            params.set("region", "us-east-1");
+        }
         searchCount += 1;
-
+        //window.history.pushState(params, 'unused', '?');
         return `?json&${params.toString()}`
       }
     }

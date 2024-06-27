@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"maps"
+	"math"
 	"strconv"
 	"strings"
 
@@ -18,6 +19,9 @@ type Attribute struct {
 	RawVCPU string `json:"vCPU"`
 	VCPU    int64  `json:"-"`
 
+	MemoryGib float64 `json:"-"`
+	VCPUFloat float64 `json:"-"`
+
 	InstanceType       string `json:"Instance Type"`
 	Memory             string `json:"Memory"`
 	Storage            string `json:"Storage"`
@@ -25,6 +29,17 @@ type Attribute struct {
 
 	plcOperatingSystem string `json:"plc:OperatingSystem"`
 	plcInstanceFamily  string `json:"plc:InstanceFamily"`
+}
+
+// Build internal data structure for price to make it searchable. Such as
+// convert string to float
+func (a *Attribute) Build() {
+	gib := strings.Split(a.Memory, " ")
+	if len(gib) >= 2 {
+		a.MemoryGib, _ = strconv.ParseFloat(gib[0], 64)
+	}
+	a.VCPU, _ = strconv.ParseInt(a.RawVCPU, 10, 64)
+	a.VCPUFloat = float64(a.VCPU)
 }
 
 type PriceMap = map[string]Attribute
@@ -61,7 +76,10 @@ type Price struct {
 
 func (p *Price) MonthlyPrice() float64 {
 	// Assume 730 hours per month, similar to aws calculator https://aws.amazon.com/calculator/calculator-assumptions/
-	return p.Price * 730
+	value := p.Price * 730
+
+	// workaround to round a float64 to 4 decimals
+	return math.Round(value*1000) / 1000
 }
 
 func (p *Price) FormatSpotPrice() string {
@@ -155,6 +173,8 @@ func (p *PriceFinder) loadRegion(r string, generation string) map[string]*Price 
 	// price is a 2 nested map like this
 	for _, regionalPriceItems := range priceList.Regions {
 		for item, priceItem := range regionalPriceItems {
+			priceItem.Build()
+
 			serverTypeParts := strings.Split(item, " ")
 			price := &Price{
 				ID:        fmt.Sprintf("%s.%s", serverTypeParts[0], serverTypeParts[1]),
@@ -162,7 +182,6 @@ func (p *PriceFinder) loadRegion(r string, generation string) map[string]*Price 
 			}
 
 			price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
-			price.Attribute.VCPU, _ = strconv.ParseInt(priceItem.RawVCPU, 10, 64)
 
 			itemPrices[price.ID] = price
 		}
@@ -200,9 +219,25 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 					strings.Contains(m.Storage, kw.Text()) ||
 					strings.Contains(m.NetworkPerformance, kw.Text()) {
 					matched = true
+					// For text base, we do an OR, therefore we bait as soon as
+					// we matched
+					break
 				}
 			}
 		}
+
+		// For expression, we do `AND` we bail as soon as we failed to match
+		for _, kw := range keywords {
+			if kw.IsExpr() {
+				if kw.SearchFn(price) {
+					matched = true
+				} else {
+					matched = false
+					break
+				}
+			}
+		}
+
 		if !matched {
 			continue
 		}

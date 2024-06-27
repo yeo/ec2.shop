@@ -19,6 +19,24 @@ curl 'https://ec2.shop?filter=i3'
 curl 'https://ec2.shop?filter=ssd'
 ```
 
+# Advanced Filter
+
+We also support expression in filter so you can do comparison like this
+
+```
+curl 'https://ec2.shop?filter=ssd,mem>=32,mem<=64,cpu>=2,cpu<=4'
+```
+
+The pharse `ssd,mem>=32,mem<=64,cpu>=2,cpu<=4` can also be entered into our
+search box to filter the desire instance.
+
+We support below field:
+
+- **mem**: filter based on memory in Gib
+- **cpu**: filter based on cpu
+- **price**: hourly price
+- **spotprice**: hourly spot price
+
 # Why
 
 AWS pricing page is very slow, sometime just timing out say "Fail to
