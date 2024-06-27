@@ -40,11 +40,41 @@ function weightNetwork(value) {
 }
 
 // data grid
+let params = new URL(document.location.toString()).searchParams;
+let searchCount = 1;
 new gridjs.Grid({
   width: '100%',
-  search: true,
 
   sort: true,
+  server: {
+    url: '/?json&' + params.toString(),
+    then: data => data.Prices.map(price => [
+        price.InstanceType,
+        price.Memory,
+        price.VCPUS,
+        price.Storage,
+        price.Network,
+        price.Cost,
+        price.MonthlyPrice,
+        price.SpotPrice,
+        price.Reserved1yPrice,
+        price.Reserved3yPrice,
+        price.Reserved1yConveritblePrice,
+        price.Reserved3yConveritblePrice,
+    ])
+  },
+  search: {
+    server: {
+      url: (prev, keyword) => {
+        let params = new URL(document.location.toString()).searchParams;
+        params.set("filter", keyword);
+        params.set("sc", searchCount+1);
+        searchCount += 1;
+
+        return `?json&${params.toString()}`
+      }
+    }
+  },
 
   style: {
     header: {

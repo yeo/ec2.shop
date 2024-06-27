@@ -186,18 +186,21 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 	}
 
 	prices := make([]*Price, 0)
-
-	filter := c.QueryParam("filter")
-	keywords := strings.Split(filter, ",")
+	keywords := ParseSearchTerm(c.QueryParam("filter"))
+	fmt.Println("query", c.QueryParam("filter"))
 
 	for _, price := range p.PriceListByRegion(requestRegion) {
 		m := price.Attribute
-		matched := false
+		// when search query is empty, match everything
+		matched := len(keywords) == 0
+
 		for _, kw := range keywords {
-			if strings.Contains(m.InstanceType, kw) ||
-				strings.Contains(m.Storage, kw) ||
-				strings.Contains(m.NetworkPerformance, kw) {
-				matched = true
+			if kw.IsText() {
+				if strings.Contains(m.InstanceType, kw.Text()) ||
+					strings.Contains(m.Storage, kw.Text()) ||
+					strings.Contains(m.NetworkPerformance, kw.Text()) {
+					matched = true
+				}
 			}
 		}
 		if !matched {
