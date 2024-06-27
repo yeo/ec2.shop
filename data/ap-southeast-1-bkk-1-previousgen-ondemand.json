@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>KDTT5ABV84JFS3YT</RequestId><HostId>66p6mMqc+1iaeMsgY2fzdWcMLomZKhBdmd89Lhmi8zktUq+oU4P/eVTYk67ALNisn6XOy/zfSUE=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Thailand (Bangkok)/Linux/index.json</Key><RequestId>JNKEY9ARQ8W1X4QW</RequestId><HostId>iq2DQR2TfByq8zR3uTaKEIAsxIwHlidHsD8hdz55JEmYjKJNkZOO3co/dnevsr/Wk96FjLGWhjs=</HostId></Error>

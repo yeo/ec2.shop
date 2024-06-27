@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>W3BEQTZTY6WV6QWC</RequestId><HostId>QtYfRDFl7lYUH68hwkwEIY5XEE1JqKIbzA4mMAy/tLLoYnf2fT8NJP0JgpS1qPAcRjv6k4AeB60=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>KJZSK6GJ51H4KDBG</RequestId><HostId>3JXADFrRVMxNN02uNWnL6XKA7Qk83JEdfoH2KcWb90rZiZ7cFTJ4+PvNAUKjaEl8HI8vYOq3l8M=</HostId></Error>

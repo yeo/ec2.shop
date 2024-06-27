@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>T3JPNDFYZK3R8QCC</RequestId><HostId>RdvvWlIFxtjR3Dl9+F9kD3YaCqU1+OHTMnMOdUwFI2t70P7NmOKOlFLKEC3jfTYcPXoeXVgcICFSCloBYFhRX/bQ7pFFyWzg</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Taiwan (Taipei)/Linux/Shared/index.json</Key><RequestId>PNB4SPYMXQWQX2AH</RequestId><HostId>ILwQYyB4hJv7dbUbrWuSs+NKCDw5HgXoWSI1oIeHDWFhVoVJy8ZnmP3ZLtw4IdG+UUQfyCA00Ds=</HostId></Error>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>1R3D8P8X4HM8PC97</RequestId><HostId>V91vy07eLO9r6AGhcHqSw8KpsP4YlO2CveiDYqP/3Srx7+PCiPPtXdbWIYrql2UrDj/Em0wxZZs=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US East (Verizon) - Minneapolis/Linux/Shared/index.json</Key><RequestId>HYBTE7TT6G42QNPZ</RequestId><HostId>nLJCrvQocSI7ae2wdNl6Q2E8pzo7sE8t2s73IsTwE1jiB5Er9jVfddtypUWO8DMr+x/tm5ArgNA=</HostId></Error>

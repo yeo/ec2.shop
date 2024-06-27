@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>0705B338XQCHTCVF</RequestId><HostId>5va57UB/bZMKQBTeVwCkvgLAFOJvYHuTuIX4+WlRy5DJ0FVxaIkekq0cYAaWrha+iQH58ElHYcxgN41z5zXHtQ==</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Oman (Muscat)/Linux/index.json</Key><RequestId>GCNHX6B07KV37K92</RequestId><HostId>WxE0/PW547WPlBrplndriCeqA86ZrCg7PE9EvHzbs3Jp92d3GYazZq6+Qj5yTXM8HBQIkqAAi+4=</HostId></Error>

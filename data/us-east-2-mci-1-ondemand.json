@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>VWR9QZPPA9E0T1R4</RequestId><HostId>8gdGabyWwZVjbVvxSJWXUsFHaXrRQMRc1U2B5bK4SjzJuAoZRjZIoI/VbLtVhCT6ksAWi4nXDlo=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US East (Kansas City)/Linux/index.json</Key><RequestId>JKZR1ZC32GZDSSGV</RequestId><HostId>WZrpxlxefag2vP9GvUAIwyj/4jruhP7Jf8v5fo1SeCtdFSPlHrbjmJs9VLG5WX4cjB89Eyr+Dr4dqTBLOs76Dg==</HostId></Error>

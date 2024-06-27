@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>CD6MMJ9D86ZJP57A</RequestId><HostId>FvhezJnL16qgxtbQ3SxgX46an/2XSFmPgUIcKqDeEbgRNnQLYfRwiBXIem6yj+6FPvHGa3tZbT8=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>ZYQB13PYSPYYXMPC</RequestId><HostId>NqIN9YuS5d3+LBpnPXLIrjwoNSkCfOeB6tYh3iH1nnZpAN0gE89y1lviSvrv5T6TGhR327eSHgY=</HostId></Error>

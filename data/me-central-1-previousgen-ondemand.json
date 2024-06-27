@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>Y3PCKJ3HF6TZ774N</RequestId><HostId>ypzoIR1yqs9F8zeMK9gvuSw2P8z8xQez45oJoFrFmNq2LH0jMNC6RrLILtP4JG2mUBZMjx0XnLA=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Middle East (UAE)/Linux/index.json</Key><RequestId>GT6JNHPGS2H6Z7VS</RequestId><HostId>1099E+o9SyzROO5aj/nNBHC5UrZ/WXkTxMENeubNlBK+RVEXW0wUL5MqILHpZFudgW3UtVPtA64=</HostId></Error>

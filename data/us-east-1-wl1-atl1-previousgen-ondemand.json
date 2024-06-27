@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>K7J8YSZWFEV828KM</RequestId><HostId>kLg+7QfJA90IAjvDWgYioWyrUqwVcKuFOoQwI1d9nU3xLWKKCETz+z/Z/Cu1Tk5d2k4+d0qDk7U=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Verizon) - Atlanta/Linux/index.json</Key><RequestId>YPJ6VH6HX7QTHAGE</RequestId><HostId>V1Tlgg9CnbPvr2q5n3pvCxGHygp0GujYDEmSR4bf84WQH3+x3UqEHD4zv0k1l3PsEYuPOE0cJme7qODJ4/DXVZbu9peekIarafaiymC88Wc=</HostId></Error>

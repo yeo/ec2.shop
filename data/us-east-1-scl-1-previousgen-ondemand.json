@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>FRYK5FD6EQ83QBAR</RequestId><HostId>O1ii1OwtsvkjTP+3fAGT1WCixNQ3+UWO0g8TV70KMvucBxtNUi/13kh3SiVWM7AxqFmQt3KQu3abBYOZMvgo7Q==</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Chile (Santiago)/Linux/index.json</Key><RequestId>62EWYMDFZWSG4R52</RequestId><HostId>ls8dIydtJyofCd3Z4CQmJajzZikrGmW4uzn9OMgBfiawLCoOzrQ9BpYnSR2RGVTRl5ZdpStd79A=</HostId></Error>

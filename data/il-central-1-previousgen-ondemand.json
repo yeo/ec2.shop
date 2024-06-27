@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>02YCX8WAKXQBGHPT</RequestId><HostId>0hg/qjd3n0zKiv7DQ3wXK4EkKPTKTBbialeuW95slSetuTKfsNEnsaZ8eHTmCpuATu307uKIuCY=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Israel (Tel Aviv)/Linux/index.json</Key><RequestId>GEY2PZB6VW3EMN0H</RequestId><HostId>NqjxintBSju3BaDhHsFV60/ZUIU2pWFoP2uhHOi/ox7FQwFzDcDs509c/3+HIH9C4kWXcioO1tM=</HostId></Error>

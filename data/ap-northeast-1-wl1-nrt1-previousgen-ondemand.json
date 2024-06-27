@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>BNQ7V3ZKDYHMPJCF</RequestId><HostId>pDQCmmhnjBY5VCswqP09fEbFIRSzVlORLuyVRIYfJ46DP/243cTcxjqnMHP05k5qgnOoXrG0My0=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>H17HRDYGAFKD2RES</RequestId><HostId>JSB4hYlBMx5ZVY5uNU0Ipux+8NF7F9FD/+jUnXPMfZD+lxNmlcgTSKYboxr51FtDBdJFygTN1BFaYiE6t4tBIw==</HostId></Error>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>171RM79CNPV1CPQ5</RequestId><HostId>hB4Hlcz/Xt5Vpkm2VD8h2gasnjgzhNlnWV05Vu6MKz6pDdH0YO3PunRh2HDcTNnHgcbC5KM+Q9k=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>01XF8WBCZ30S09MG</RequestId><HostId>/8WscAGQHb2yqBMbQtYKTNhHhzfaz7A4i4OiNHxqr8iBwbzMR7KKpZ0MD4QXB8fyM3lgZrIieIc=</HostId></Error>

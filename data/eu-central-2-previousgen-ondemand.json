@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>PQ0TMZDBYM2610W0</RequestId><HostId>g2my6rysQrsnDHeedSlgY4W5/mvqytILD/vJZ7oT5qSg9xC/lLFshMDOw6XGprwIFPbr2PSUAPo=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Zurich)/Linux/index.json</Key><RequestId>4S9B72BVYEBB9RNX</RequestId><HostId>4pjTNR6fAQHYtN+Sq2o/tdqxAR0W1JoX9lNR4li9PtF5R7n48wiugCKcP6+RdaiPv339QFSg/DM=</HostId></Error>

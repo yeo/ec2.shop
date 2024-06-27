@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>V8GPCVGZQNG8ERFD</RequestId><HostId>C7tiTpoZBvC0BAGw5dVW5sRIqya1DFjjWUWs7WqfCcMj/9jNJBLf8Ib/q2+3jIz/8ojTQIergXE=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Peru (Lima)/Linux/Shared/index.json</Key><RequestId>YB68GKG4K7QEHCXS</RequestId><HostId>X6ng6s7bLUSrvt3lMPHAGwhd6SuB9jh/lCZaqxxSkR/NsftVF7c1hdc2LajUXackqE/3i96B45Y=</HostId></Error>

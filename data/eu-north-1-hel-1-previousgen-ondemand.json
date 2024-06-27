@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>MV7JF04HBS6J4QCX</RequestId><HostId>eovb1iQpVOo1r6HjbRfIXNFNmVP2OJGcdhW7olUC9ltKZNcRfkQWBeb4hEk1lJaa4jm4YFMJz2I=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Finland (Helsinki)/Linux/index.json</Key><RequestId>5DRYS2Q9EPB505HV</RequestId><HostId>5t9wStkKnjPzOZK8r4J8sElWS0Btryki1JYPVNyPULCZeLc8Dvpx/M2Y6XB35B3rvmIpLj8ZieQ=</HostId></Error>

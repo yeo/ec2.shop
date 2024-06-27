@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>6607A14RKJ1BYKXN</RequestId><HostId>dQZDcZLOZ7QTls9UxLVBu7UKVVfU1rtuRbopplYtfz6mkCD50BlzXAezB9zTqDsPOPivnLQc02s=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/EU (British Telecom) - Manchester/Linux/Shared/index.json</Key><RequestId>F6PJQZM1DRC4EGHP</RequestId><HostId>VFP1z1ETXRiGx1KhGsh52An35FMqmV5py8ydiraHA2SXJZAqXFGVA3yuSwouzB6OWk0OOYpg1aU=</HostId></Error>

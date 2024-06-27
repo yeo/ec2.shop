@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>5CB5JBCAPPYBMH28</RequestId><HostId>Eq1tnOPfpd0A6NPCtAUJSZ3uW4IfJ2UB29WbraGYHPUyzt5SklrRFVGbyQvW0yJBKbS9LfmUgJ8=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada (BELL) - Toronto/Linux/index.json</Key><RequestId>ZFN7RPR998GB2NFB</RequestId><HostId>MTapd6BQPd8hQN4klQX9tm/XN4Z7AQivLioQf0aHTUT3pMB85RuOG4A7sEtS46jVy1eSa2856MI=</HostId></Error>

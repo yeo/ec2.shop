@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>RKZCHDYFAPVQPYZ5</RequestId><HostId>duCRHWeZEMVzv8DRwDjO7ReMb9vyQqeApy5C76AQRw0sTMP9qp0bE7B8rJ93jxWl5LBASVckpvk=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>H17GKEAEM7J9SC5S</RequestId><HostId>bZaKslA+ARPajeaW0t100GSwdHz788xhhO7OpJI7P0SaJ70z0LSYLxDkcqL9bQuNeI2tgvAr9hHctk2wiLuT5Q==</HostId></Error>

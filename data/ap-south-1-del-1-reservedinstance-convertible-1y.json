@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>H12Y8E2KF7S50EP4</RequestId><HostId>nffXAcHt9vR7XGEEvoLEjtDbqxCdB6GScjEZMxvov+pWsGYxbbWueoFwuNs4u583/Wz1gsy3trk=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/India (Delhi)/Linux/Shared/index.json</Key><RequestId>83VNFNMVXES2FEWB</RequestId><HostId>hUro3sO9qpP+ge57KvuJGx6Hek3l8bTkwqe+cHHfpR0+o17VWzMKBtsI6wGx/+GbN0zybYZoyHk=</HostId></Error>

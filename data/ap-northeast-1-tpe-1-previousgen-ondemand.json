@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>RZRNM6995DA7Z80K</RequestId><HostId>0Vyg6Yb3ofvCDudl5hH+V55XSdDFQrD+SEIMNMsndFdclOvMnopDRYmsSOUeqaXVNVVlSmM2Ns8=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Taiwan (Taipei)/Linux/index.json</Key><RequestId>NNJ1A2MF1NDMS3VT</RequestId><HostId>N3fJeH0HK2Y7GP2yCQk7hCpiZvVwBoHkH1T3Xclu1YMGKYskVp8mgflzpM2Y2jBxUm51fC55CC8=</HostId></Error>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>5BWMAXK9Y7D594WD</RequestId><HostId>Qyan6rEDmJvafe8QOmLWF5AdVum/Vey0KyQuP1vd6kq6nJMpKVXou0UftBQRYsY0hRVTYmh8utY=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Asia Pacific (KDDI) - Tokyo/Linux/Shared/index.json</Key><RequestId>A0KE8Q2FBR19ES62</RequestId><HostId>2/mK3qxvJq4KWuzZnBq11Ucj8XnaJjOryJ0VyqilMbrDt8zgpmWEf0pquhKGHo4PlhKLWrjty7g=</HostId></Error>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>ZGPSKAEVGA7AJTJH</RequestId><HostId>tFxEtxN77yy2bMOh9XacVzKTjcGC0EWKLJIPJxGMo1R82d11WPXlj2HIBXCiIi6iitJmz2OLkfY=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Germany (Hamburg)/Linux/Shared/index.json</Key><RequestId>PMJ0PKVTYS2FGA3C</RequestId><HostId>o8xx6uRa+i8gocJ4yB5UboYCJnyD24CoK05wZFZugPwiOZ3iw7RXrmOg9GK5ZvGFiGmwhS3B2JQ=</HostId></Error>

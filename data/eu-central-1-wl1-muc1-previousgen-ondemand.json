@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>0VMFXC5T0MCE1A56</RequestId><HostId>QunwpHP0w1bsBf/kdVKPA4IWsG7A3CAu10DzwXfd+ELnvDIzXpEtJrAgaz6zgANtVKxhj+ZASiM=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Munich/Linux/index.json</Key><RequestId>FFHKRP68BKENMEVT</RequestId><HostId>vXPKl8sX5BirmsS+KPz76DcL1JTECs58DXv83IeZ9umPnkhpUTHK/hCTnTa2d7qkn+jDdizcAOQ=</HostId></Error>

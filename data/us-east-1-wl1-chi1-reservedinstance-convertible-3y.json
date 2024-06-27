@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>X1E8FR3ZWT71E9FA</RequestId><HostId>Ax9RX/o7KN0qSzdPtvCGNzOEFARILXpdMfECYYmTOJDL3J+IeZmBXncX2hEFxpHqhyQyUIlMi7iPuz3uK/pP4tD8cJW1lzuF</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/US East (Verizon) - Chicago/Linux/Shared/index.json</Key><RequestId>MK76NGB9QQ3TQHWC</RequestId><HostId>GtJuxBPP5wP+1tYEhVx8dp201DUkXo3gVqUK7kjnJGGQMbUaL8IHRy30LB1DD0DKCfshDcg8d7A=</HostId></Error>

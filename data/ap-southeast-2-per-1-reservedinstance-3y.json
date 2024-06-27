@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>D4W3XC2WNV0GF5CE</RequestId><HostId>LAeQVnf9Xherwr5JdGouY6rdcZ8o3jbBAZRBfUYJIdv8AChmfH0i1PU6Io5hgTwJKYczHuaOqgNwKfi0Aq1mAQ==</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Australia (Perth)/Linux/Shared/index.json</Key><RequestId>93EV95TCEJTGSMX8</RequestId><HostId>AlQky0g8iJ01NAULZ1vP7ZCDf+rhqibmN86K5eoIjoEPdx7sYKhgbN4BKvCx6BxHxTGYgMShnfU=</HostId></Error>
