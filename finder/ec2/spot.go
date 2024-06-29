@@ -11,6 +11,8 @@ import (
 
 const (
 	AWSSpotPriceUrl = "https://website.spot.ec2.aws.a2z.com/spot.js"
+
+	AWSSpotAdvisorDataUrl = "https://spot-bid-advisor.s3.amazonaws.com/spot-advisor-data.json"
 )
 
 type SpotPrice struct {

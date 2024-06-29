@@ -66,6 +66,9 @@ type Price struct {
 	Price     float64 `json:"-"`
 	SpotPrice float64 `json:"-"`
 
+	SpotSavings     int `json:"-"`
+	SpotReclaimRate int `json:"-"`
+
 	Reserved1y            float64 `json:"-"`
 	Reserved3y            float64 `json:"-"`
 	Reserved1yConveritble float64 `json:"-"`
