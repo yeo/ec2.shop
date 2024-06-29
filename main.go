@@ -106,16 +106,18 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 
 			for i, v := range prices {
 				friendlyPrices.Prices[i] = &FriendlyPrice{
-					InstanceType:    v.Attribute.InstanceType,
-					Memory:          v.Attribute.Memory,
-					VCPUS:           v.Attribute.VCPU,
-					Storage:         v.Attribute.Storage,
-					Network:         v.Attribute.NetworkPerformance,
-					Cost:            v.Price,
-					MonthlyPrice:    v.MonthlyPrice(),
-					SpotPrice:       v.FormatSpotPrice(),
-					Reserved1yPrice: v.Reserved1y,
-					Reserved3yPrice: v.Reserved3y,
+					InstanceType:               v.Attribute.InstanceType,
+					Memory:                     v.Attribute.Memory,
+					VCPUS:                      v.Attribute.VCPU,
+					Storage:                    v.Attribute.Storage,
+					Network:                    v.Attribute.NetworkPerformance,
+					Cost:                       v.Price,
+					MonthlyPrice:               v.MonthlyPrice(),
+					SpotPrice:                  v.FormatSpotPrice(),
+					Reserved1yPrice:            v.Reserved1y,
+					Reserved3yPrice:            v.Reserved3y,
+					Reserved1yConveritblePrice: v.Reserved1yConveritble,
+					Reserved3yConveritblePrice: v.Reserved3yConveritble,
 				}
 			}
 
