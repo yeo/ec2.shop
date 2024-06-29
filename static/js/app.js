@@ -250,5 +250,4 @@ new gridjs.Grid({
     },
   ],
 
-  data: window._pricedata,
 }).render(document.getElementById('price-grid'));
