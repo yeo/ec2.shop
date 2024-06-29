@@ -12,7 +12,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/yeo/ec2shop/finder"
+	"github.com/yeo/ec2shop/ec2/ec2"
 )
 
 type Template struct {
@@ -51,7 +51,7 @@ type FriendlyPriceResponse struct {
 func main() {
 	debug := os.Getenv("DEBUG") == "1"
 
-	priceFinder := finder.New()
+	priceFinder := ec2.New()
 	priceFinder.Discover()
 
 	// Echo instance
@@ -80,7 +80,7 @@ func main() {
 	e.Logger.Fatal(e.Start(listen_on))
 }
 
-func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error {
+func GetPriceHandler(debug bool, p *ec2.PriceFinder) func(echo.Context) error {
 	header := "%-15s  %-12s  %4s vCPUs  %-20s  %-18s  %-10s  %-10s  %-10s\n"
 
 	pattern := "%-15s  %-12s  %4d vCPUs  %-20s  %-18s  %-10.4f  %-10.3f  %-10s\n"
@@ -168,7 +168,7 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 			"ts":            ts,
 			"priceData":     prices,
 			"currentRegion": currentRegion,
-			"regions":       finder.AvailableRegions,
+			"regions":       ec2.AvailableRegions,
 		})
 	}
 }
