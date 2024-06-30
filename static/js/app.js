@@ -57,6 +57,8 @@ new gridjs.Grid({
         price.Cost,
         price.MonthlyPrice,
         price.SpotPrice,
+        price.SpotReclaimRate,
+        price.SpotSavingRate,
         price.Reserved1yPrice,
         price.Reserved3yPrice,
         price.Reserved1yConveritblePrice,
@@ -177,6 +179,51 @@ new gridjs.Grid({
           } else {
             return 0;
           }
+        }
+      }
+    },
+    {
+      name: 'Spot Reclaim',
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+         const range = {
+              "NA": -1,
+              "<5%": 0,
+              "5-10%": 1,
+		      "10-15%": 2,
+		      "15-20%": 3,
+		      ">20%": 4,
+          }
+
+          const code = (x) => range[x]
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+
+        }
+      }
+    },
+    {
+      name: 'Spot Saving',
+      width: '80px',
+      sort: {
+        compare: (a, b) => {
+          const code = (x) => parseFloat(x.substring(0, x.length-1) || 0)
+
+          if (code(a) > code(b)) {
+            return 1;
+          } else if (code(b) > code(a)) {
+            return -1;
+          } else {
+            return 0;
+          }
+         
         }
       }
     },

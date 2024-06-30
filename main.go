@@ -12,7 +12,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/yeo/ec2shop/ec2/ec2"
+	"github.com/yeo/ec2shop/finder/ec2"
 )
 
 type Template struct {
@@ -38,7 +38,11 @@ type FriendlyPrice struct {
 	Cost         float64
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
 	MonthlyPrice               float64
+
 	SpotPrice                  string
+	SpotReclaimRate string
+	SpotSavingRate string
+
 	Reserved1yPrice            float64
 	Reserved3yPrice            float64
 	Reserved1yConveritblePrice float64
@@ -118,6 +122,11 @@ func GetPriceHandler(debug bool, p *ec2.PriceFinder) func(echo.Context) error {
 					Reserved3yPrice:            v.Reserved3y,
 					Reserved1yConveritblePrice: v.Reserved1yConveritble,
 					Reserved3yConveritblePrice: v.Reserved3yConveritble,
+				}
+
+				if v.AdvisorSpotData != nil {
+					friendlyPrices.Prices[i].SpotReclaimRate = v.AdvisorSpotData.FormatReclaim()
+					friendlyPrices.Prices[i].SpotSavingRate = v.AdvisorSpotData.FormatSaving()
 				}
 			}
 

@@ -1,4 +1,4 @@
-package finder
+package ec2
 
 import (
 	"encoding/json"
@@ -11,13 +11,14 @@ import (
 
 const (
 	AWSSpotPriceUrl = "https://website.spot.ec2.aws.a2z.com/spot.js"
-
-	AWSSpotAdvisorDataUrl = "https://spot-bid-advisor.s3.amazonaws.com/spot-advisor-data.json"
 )
 
 type SpotPrice struct {
 	Linux *float64
 	MSWin *float64
+
+	AdvisorLinux *AdvisorInfo
+	AdvisorWindows *AdvisorInfo
 }
 
 type SpotValueColumn struct {
@@ -51,6 +52,9 @@ type SpotPriceResponseWrap struct {
 type SpotPriceCrawler struct {
 	client          *http.Client
 	Done            chan bool
+
+	// nested map of 
+	// region.instance_type => SpotPrice
 	pricePerRegions map[string]map[string]*SpotPrice
 }
 
@@ -136,25 +140,6 @@ func (s *SpotPriceCrawler) Fetch() error {
 	return nil
 }
 
-func (s *SpotPriceCrawler) SpotRegionName(region string) string {
-	// The AWS API we're using has some funky names for some regions; e.g. eu-west-1 is referred to as eu-ireland
-	// This function maps an "actual" region name to the one in this API call
-	spotRegionMap := map[string]string{
-		"us-east-1":      "us-east",
-		"us-west-1":      "us-west",
-		"eu-west-1":      "eu-ireland",
-		"ap-southeast-1": "apac-sin",
-		"ap-southeast-2": "apac-syd",
-		"ap-northeast-1": "apac-tokyo",
-	}
-	spotRegionName, found := spotRegionMap[region]
-	if found {
-		return spotRegionName
-	} else {
-		return region
-	}
-}
-
 func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) (*SpotPrice, error) {
 	m := s.pricePerRegions[region][instanceType]
 	if m == nil {
@@ -174,8 +159,10 @@ func (s *SpotPriceCrawler) Run() {
 				return
 			case <-ticker.C:
 				s.Fetch()
+				s.FetchAdvisor()
 			}
 		}
 	}()
 	s.Fetch()
+	s.FetchAdvisor()
 }

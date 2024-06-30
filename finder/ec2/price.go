@@ -1,4 +1,4 @@
-package finder
+package ec2
 
 import (
 	"encoding/json"
@@ -56,7 +56,7 @@ func (r *RawPrice) Price() (float64, error) {
 	return strconv.ParseFloat(r.USD, 64)
 }
 
-// Our own data
+// Price structure for a given ec2 instance
 type Price struct {
 	ID string `json:"id"`
 
@@ -66,8 +66,7 @@ type Price struct {
 	Price     float64 `json:"-"`
 	SpotPrice float64 `json:"-"`
 
-	SpotSavings     int `json:"-"`
-	SpotReclaimRate int `json:"-"`
+	AdvisorSpotData *AdvisorInfo `json:"-"`
 
 	Reserved1y            float64 `json:"-"`
 	Reserved3y            float64 `json:"-"`
@@ -248,6 +247,7 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		if _spotPrice, err := p.SpotPriceFinder.PriceForInstance(requestRegion, m.InstanceType); err == nil {
 			if _spotPrice != nil && _spotPrice.Linux != nil {
 				price.SpotPrice = *_spotPrice.Linux
+				price.AdvisorSpotData = _spotPrice.AdvisorLinux
 			}
 		}
 
