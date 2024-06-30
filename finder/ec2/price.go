@@ -8,6 +8,7 @@ import (
 	"math"
 	"strconv"
 	"strings"
+	"slices"
 
 	"github.com/labstack/echo/v4"
 )
@@ -253,6 +254,35 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 
 		prices = append(prices, price)
 	}
+
+	sorters := ParseSortTerm(c.QueryParam("sort"))
+	slices.SortFunc(prices, func(a,b *Price) int {
+		for _, t := range sorters {
+			switch t.Field {
+			case "price":
+				if a.Price < b.Price {
+					return -t.Direction
+				} else if a.Price > b.Price {
+					return t.Direction
+				}
+			case "cpu":
+				if a.Attribute.VCPUFloat < a.Attribute.VCPUFloat {
+					return -t.Direction
+				} else if a.Price > b.Price {
+					return t.Direction
+				}
+
+			case "mem":
+				if a.Attribute.MemoryGib < b.Attribute.MemoryGib {
+					return -t.Direction
+				} else if a.Price > b.Price {
+					return t.Direction
+				}
+			}
+		}
+
+		return 0
+	})
 
 	return prices
 }
