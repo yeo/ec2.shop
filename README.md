@@ -37,6 +37,33 @@ We support below field:
 - **price**: hourly price
 - **spotprice**: hourly spot price
 
+# Sorting
+
+To sort the instance, pass a `sort` query to pick which field and direction to
+sort on
+
+```
+curl 'https://ec2.shop?json&sort=price'
+```
+
+To sort in reverse direction(high to low) we can add a `-` sign:
+
+```
+curl 'https://ec2.shop?json&sort=-price'
+```
+
+We can also sort by multiple field:
+
+```
+curl 'https://ec2.shop?json&sort=-price,mem'
+```
+
+`sort` and `filter` can mixed together such as:
+
+```
+curl 'https://ec2.shop?filter=ssd,mem>=32,mem<=64,cpu>=2,cpu<=4'
+```
+
 # Why
 
 AWS pricing page is very slow, sometime just timing out say "Fail to
