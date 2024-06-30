@@ -152,7 +152,13 @@ contains this text: `"SpotPrice": "NA"` when that instance type isn't
 available for purchase on Spot Instance(as in, they are only available
 for on-demand).
 
-# Icon
+# Credit
+
+## Spot saving and spot reclaim
+
+Implemented by https://github.com/Pluies at https://github.com/yeo/ec2.shop/pull/9
+
+## Icon
 
 Use price icon by https://www.iconfinder.com/WTicon
 
