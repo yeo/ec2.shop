@@ -44,6 +44,8 @@ let params = new URL(document.location.toString()).searchParams;
 let searchCount = 1;
 new gridjs.Grid({
   width: '100%',
+  fixedHeader: true,
+  height: '800px',
 
   sort: true,
   server: {
