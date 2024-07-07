@@ -1,0 +1,26 @@
+name: Refresh Price
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update_ec2_price:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        gem install httpx
+
+    - name: Download price
+      run: |
+        ruby download.rb
+ 
+    - name: Add new price data
+      run: |
+        git config --global user.name 'github-action'
+        git config --global user.email 'github-action@users.noreply.github.com'
+        git commit -am "re-fetch data"
+        git push
