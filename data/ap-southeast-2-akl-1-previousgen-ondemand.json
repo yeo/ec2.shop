@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>4BHF5X0DG1V5JCTR</RequestId><HostId>mv1cVHSP06/H6kaZuOJ7XkOIHDXovodH/ZEVC8703vcIjEKCiDWxmc7WnO0witOtrpVraqda8qPqWP7n6j6LEizfXdqQEMgC</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>ZN3HTCM97BZGF9QG</RequestId><HostId>s1BSguEoftMhc0JsDT8l2iHm1aanEX6y7Za4dKUnV9AyEGN+fAgMw9VCO+hGRXh5/0+SHVITzyI=</HostId></Error>
