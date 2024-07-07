@@ -15,7 +15,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        gem install httpx
+        sudo gem install httpx
 
     - name: Download price
       run: |
