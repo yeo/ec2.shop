@@ -8,8 +8,11 @@ permissions:
 
 jobs:
   update_ec2_price:
-    - name: Checkout
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
       uses: actions/checkout@v4
+
     - name: Install dependencies
       run: |
         gem install httpx
