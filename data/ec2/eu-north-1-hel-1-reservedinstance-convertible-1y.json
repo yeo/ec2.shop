@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-north-1-hel-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Finland (Helsinki)/Linux/Shared/index.json</Key><RequestId>2B8TZN8VRBMN4TJV</RequestId><HostId>lXtTtknW67dwY6Ozyf2DVWg0XSrBMewioZUsK2tY/xoXY7tbxAfpp9Lz/a3CN0P8FnNCN7oxJ2I5BJHcd3FX1MwR/dWEb/fbZv8Zf8wi4fI=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Finland (Helsinki)/Linux/Shared/index.json</Key><RequestId>VRK8FRP677JM525Q</RequestId><HostId>tuPUBaT2Dc0Nn1WBfSepy0anm69wDiQDB2XqL1kHcXXXAWqZGXCDt5v1vqhC+Dlyej2XzygTRP4=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-north-1-hel-1-reservedinstance-convertible-1y.json

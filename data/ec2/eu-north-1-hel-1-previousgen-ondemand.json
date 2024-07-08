@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-north-1-hel-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Finland (Helsinki)/Linux/index.json</Key><RequestId>HSAQSQKF6TWKYGRD</RequestId><HostId>GkJeRa8nwMC0KX23lbCtLpVB0+anSUYkwXz0VSHrKwfhSXEYgGXqhGjehkbC17VW+C2ghEhc2YZJThmsNTsh+3g2sepw+NexHw7lklhApg4=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Finland (Helsinki)/Linux/index.json</Key><RequestId>6RMDS549DC5BYQ1W</RequestId><HostId>rJIvZUdmK2btjigA51bLwhGBsnN/iMLQH22/64zdsKO3JCwRn4idMeAzVQPxKci2O53CZg35/Ek=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-north-1-hel-1-previousgen-ondemand.json

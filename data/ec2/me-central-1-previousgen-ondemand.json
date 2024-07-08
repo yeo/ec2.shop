@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/me-central-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Middle East (UAE)/Linux/index.json</Key><RequestId>YTNR4PAPWNS0J75K</RequestId><HostId>bFrN01sIQHPobprShTOzOcgmetpf+bBdqFEcNSMvwpzs4wGMrfkDrw12gPcltwtZLhIhT8dth6c=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Middle East (UAE)/Linux/index.json</Key><RequestId>WNXHEHAB101QHAHV</RequestId><HostId>bTroBX6DX4eaV34VhCWjTfcSmKhE6HVC7pzph2WrmaFMrIHTCPQs9GptlhZfil2rmLfHKHZ3gNM=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/me-central-1-previousgen-ondemand.json

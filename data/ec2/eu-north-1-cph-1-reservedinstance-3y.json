@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-north-1-cph-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Denmark (Copenhagen)/Linux/Shared/index.json</Key><RequestId>9BZBFEB33F8SSVYJ</RequestId><HostId>lMQmQy244Ot6dCF846pM1QQWeC+tgjTopecbk13hdaPlTicWMXCIjMcEcUzBS+j7RtUt/lId4dX811vh8b5xDmKTaRbz7u2EfGLPoewbLSM=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Denmark (Copenhagen)/Linux/Shared/index.json</Key><RequestId>7KAAQ2FWVT9PS9TB</RequestId><HostId>IUObgtqHI4sE28IKAW6KJ4c3VX2emfwZpnQ3dsbfT0pfEfoCPu5j06XdszLA3yd+COmhtg11jgw=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-north-1-cph-1-reservedinstance-3y.json

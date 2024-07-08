@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-nyc-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (New York City)/Linux/index.json</Key><RequestId>34E9M2SZFKRQP8A3</RequestId><HostId>i2m6tOF1FROPqH3zdpvKhb9tRdeAbKHl2SdVamDkJobpLeI22r0q7hodd7KGCnTzLASsjAkHQX6vfy4KfMf0HEWdJGohcy0U</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (New York City)/Linux/index.json</Key><RequestId>2EXNY56JN111ATYD</RequestId><HostId>I+As3Qo5Xd067VrpVwrdfhpYLLFSQr0rAznwGYQINPvb+hHeRpahlB0P/W2Nlv+49dTfJtK3Zso=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-nyc-1-previousgen-ondemand.json

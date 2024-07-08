@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-iah-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Houston)/Linux/Shared/index.json</Key><RequestId>MX0RW0VCG9MR8Q96</RequestId><HostId>L3Qv8vcbbTfItFE3zA9YiH64qpiQ2tBKaPgbMv7pprhKicD303ecUgICiePTiuK8jHXcAo17hsA=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Houston)/Linux/Shared/index.json</Key><RequestId>T20EQNZ1MTGDMRTE</RequestId><HostId>SZ4+TK8XpcILIQ2wi6u40NjmDpBjGXldWEemL/xBGMXKh+V91h7pVL607I7KbICRCvTLiwd+qdRDo+p/6SgSdLdU9pbfAWwK3pR6ZvOcwok=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-iah-1-reservedinstance-convertible-1y.json

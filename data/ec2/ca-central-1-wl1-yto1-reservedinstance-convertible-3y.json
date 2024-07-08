@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ca-central-1-wl1-yto1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Canada (BELL) - Toronto/Linux/Shared/index.json</Key><RequestId>TMSA6M8BYGGS3MEV</RequestId><HostId>HDkTU7j45Ii2wT7IQ3W5vNrQU9FO+g+RhA41/bpEP2kvny9vK6fc9bElCMVq+cUt5M4YR+UNuRs=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Canada (BELL) - Toronto/Linux/Shared/index.json</Key><RequestId>THSK9Y1F9R019117</RequestId><HostId>qktMLpeOHXkml6a/Z7/sxaBbQm/fdRVggcLmbDWKZ2Zv9Sdj4KNrc3xsS317cdwQ3uGeJ5Az4fI=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ca-central-1-wl1-yto1-reservedinstance-convertible-3y.json

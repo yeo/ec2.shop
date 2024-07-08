@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-southeast-2-akl-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/New Zealand (Auckland)/Linux/Shared/index.json</Key><RequestId>S7JQT6HKARQPCX54</RequestId><HostId>RbWnuImVhRF6Lt+Q4zu6gNrILXnqYdcTmRUYqBI6pJdO/PQL5pvwE/nxJ0ImJOBJCOkFgvWVTcxfm1ZxiT1Qvg==</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/New Zealand (Auckland)/Linux/Shared/index.json</Key><RequestId>9FZYXX6CW4CJ9SY6</RequestId><HostId>ip9FUF7nlzMokWDljCfQ7vQNI+oISYjJkpx6HcRaXT3LJlXMtmABrTCZ5Xvm/mfTvAg+X3zLfC5aP5HQfzoImiLm4rpNByJX</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-2-akl-1-reservedinstance-3y.json

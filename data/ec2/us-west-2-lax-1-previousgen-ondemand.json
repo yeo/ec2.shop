@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-west-2-lax-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Los Angeles)/Linux/index.json</Key><RequestId>KZEVBQ210JZN7CEJ</RequestId><HostId>YRb1z5SZSD7w/2SxEW5vmINhbmS8LXF0eOqrR7ITPiy+RtD9C7L8n2VrIS4vfFoWD3KxPWdzY6w=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Los Angeles)/Linux/index.json</Key><RequestId>E93Q3KJ188CVXXPR</RequestId><HostId>F4lXN2QmOwsu8ujK8KGnNFCEeDYPxrXnPh/svi9Ur0QdTiDzUFonHcEaOeRWMFOmDvc3A6nKY1Q=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-lax-1-previousgen-ondemand.json

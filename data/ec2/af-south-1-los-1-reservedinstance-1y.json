@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/af-south-1-los-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>895PH62ZDMBB305H</RequestId><HostId>jHlbldyK+HJ52n//58VmkbGbmv+dsghBbYZ3aqf3pVVWqlwRnRUkdmsCwVi658P+gom5FGrIpFA=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>YT54KQX5XGEEHV7P</RequestId><HostId>I2lWp5YZCA8rm68IqOdJp36QloWWbMBgGaTJKlorfwMx7EXpqCK0XiBj5EHN6bka/CVjgy491A7JiGH38psHfW2OU9TEAeJ9</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/af-south-1-los-1-reservedinstance-1y.json

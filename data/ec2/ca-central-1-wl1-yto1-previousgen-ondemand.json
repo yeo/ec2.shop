@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ca-central-1-wl1-yto1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada (BELL) - Toronto/Linux/index.json</Key><RequestId>N2MJC372ZFGV8ZYM</RequestId><HostId>oQSAAD0VlWltGiA8Y5l7DDyHe7/zzz+9VyusOpj7wvF4K4ps0v9rGCOoDsh7DDNYzurJOwvLlTbZn2LlP79lOd4RNuf6/ocGlNcv1cSJd+4=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada (BELL) - Toronto/Linux/index.json</Key><RequestId>HKDQ4AAN7CG038T2</RequestId><HostId>C0F645yIsp+xQly/0oDFOZ5WkX864z1Y+Jcv4t4nRnW7Tle5impI3NbKW/kUpBXpXJ81m6tho4c=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ca-central-1-wl1-yto1-previousgen-ondemand.json

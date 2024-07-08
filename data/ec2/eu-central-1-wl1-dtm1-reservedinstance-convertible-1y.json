@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-central-1-wl1-dtm1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/EU (Vodafone) - Dortmund/Linux/Shared/index.json</Key><RequestId>J2JG75K5D3C2QVFZ</RequestId><HostId>DUZBkjZwubVA0bloE0vpyad9s7skZqQQ8NbfflSTK8bMBlwCGl70LgGUdY7+bdwMvH9a7MaIXbw=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/EU (Vodafone) - Dortmund/Linux/Shared/index.json</Key><RequestId>K4T96B367QDCG8AY</RequestId><HostId>v71zWSnSFv2ZTw75fkWHhIofGs40xXPoiulvQTlCW80IzSwAD0hdbMFAPB6kZpmLWM4DV83oo4A=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-wl1-dtm1-reservedinstance-convertible-1y.json

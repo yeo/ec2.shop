@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/me-south-1-mct-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Oman (Muscat)/Linux/index.json</Key><RequestId>AH83PQHTFFRZMJXC</RequestId><HostId>b1YCm49K/2OAIiBC/ewe7FLDbHKQnhfqWwO9ryfGZLqDrsUpb/hVPOBiqejA+Wsixuiv0xvxTEg=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Oman (Muscat)/Linux/index.json</Key><RequestId>Z2M5SWB2CYN060VQ</RequestId><HostId>+DkBcYbGZC6KmBqRpLizlEroJ6/B8UiGZBUDc8pmX05rn/qosutSMMJ2bYbVIIRVanpYyDcjHAg=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/me-south-1-mct-1-previousgen-ondemand.json

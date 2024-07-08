@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-southeast-1-mnl-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>DRCFG4AD6MEZHP23</RequestId><HostId>ATjzFeaZi5iMLjU1QV7YXJBaDoBLRTPCQwJ+w+ifK4uMgI3P+aCiQx/xiQKEEasM/BtzooIUVRSzkvvO822eiA==</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>8PMHFJZA8MHZBHP7</RequestId><HostId>oAC7pVzwhgAI8lO8Mufzv4YTm0Nf66O/YvsRtqMydLY7Jt666pA+yRrbEMle5YiMLCoDBUO6AKU=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-1-mnl-1-reservedinstance-convertible-1y.json

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-2-mci-1-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US East (Kansas City)/Linux/index.json</Key><RequestId>8KZNGDR4JDH7K6SR</RequestId><HostId>kLLARd/iGaYuNnx0h+uiGV18Tu60UWg4ff1am/+/0zQijIgt2CTPMjmg2IKdul8knxWz2sPcqhncgduPPAIDFa/1EmYk6biDmnNTQ/qK2QU=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US East (Kansas City)/Linux/index.json</Key><RequestId>R2DE6DDQZQ9N0CTW</RequestId><HostId>omE3sE95GO2jenJuIII/LzwsOlQ3s6flo1w/8aKThYSI5gs3ye3+TyCCmRNmzSks8cSJSZhkXAkAbXH4wZq/pQ==</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-2-mci-1-ondemand.json

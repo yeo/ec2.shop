@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-southeast-1-mnl-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Philippines (Manila)/Linux/index.json</Key><RequestId>162SD3CGNGHFA20S</RequestId><HostId>87v8dhVRMvsniKLfwxleC87IEj+FxEzvg+liO0isy2p/avA7XcsNMCaWhLVoGy1zgVfsBJ7mQ60=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Philippines (Manila)/Linux/index.json</Key><RequestId>PAS5XC04TG60Y763</RequestId><HostId>l8QCdjZmeLq4oeEupRniFcaD/9LMBEsNyv8K1ee56+yxlnO4BHcFXZ1YBMR29Xd/Nqwl2BzcbS0=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-1-mnl-1-previousgen-ondemand.json

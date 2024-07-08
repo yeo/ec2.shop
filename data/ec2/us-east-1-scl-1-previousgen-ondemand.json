@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-scl-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Chile (Santiago)/Linux/index.json</Key><RequestId>HNWSQG7D8RYQ45ZH</RequestId><HostId>iJibCMdAaTs/zhUxBeRMQwgVHhTrte2Js7WhDdlb0OQWV0wUdyce/Hd1wx0x2aNbSN5Z6UNqp6ftztAW7H2WOKvrC9mcVk8g0rDnXTofFaI=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Chile (Santiago)/Linux/index.json</Key><RequestId>83YFZSXGCCQWR5K7</RequestId><HostId>cMSDWXga+RUoXj2LMhNa246vRfQsQPek86CHe8aMKYgeJchrltQgHyrRmO3jOjEiQ7eworZHMLo=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-scl-1-previousgen-ondemand.json

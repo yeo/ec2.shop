@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/me-south-1-mct-1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Oman (Muscat)/Linux/Shared/index.json</Key><RequestId>M4367JZBPW6RPW0X</RequestId><HostId>0B2Dk2JcaAd4hMGwcKmXla5Ly/MBgwIxjrmpfM4+BzGYtFHR1QY9TQaztyATUygCfI7qdDsZBpc=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Oman (Muscat)/Linux/Shared/index.json</Key><RequestId>N8PWJ102PVHYQ1C6</RequestId><HostId>uf8NIkyZieT9etbsLGbN4ZgFGY35zfQ4XJQCsFbBAz/QOsf4EUWnjelXFNrobumogyzKTFtXwzM=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/me-south-1-mct-1-reservedinstance-convertible-3y.json

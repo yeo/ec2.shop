@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-qro-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Mexico (Queretaro)/Linux/Shared/index.json</Key><RequestId>B1HFEZ0TNEJ5JGKN</RequestId><HostId>9eLOixjszj8peDsBMoKKewzUMb7hy/xJJYVmM/xLx/ARgS0Cy9d8RHhmKtzel6wTGkHFuS69batnek4wGerCH/hbcsJVFmuu</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Mexico (Queretaro)/Linux/Shared/index.json</Key><RequestId>Z20GPMN6WSXVBCNK</RequestId><HostId>dS3gRO+hMCh3YaV2uP27DCYU/HPlKfY9YjVzDwqxnFFCqjGXcIZAUDbmtU6RGGHy6+Lny0U/2Ak=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-qro-1-reservedinstance-3y.json

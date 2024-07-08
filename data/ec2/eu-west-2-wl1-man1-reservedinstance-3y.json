@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-west-2-wl1-man1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/EU (Vodafone) - Manchester/Linux/Shared/index.json</Key><RequestId>S5D6SWK3THNYM0KT</RequestId><HostId>jjAZEEIU3EDQJp8GrxQz58q/ud0/puHLIKY+w7JsYkFKHGrFPJ4tyHpwMkG4UHddKPGckQw+YyM=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/EU (Vodafone) - Manchester/Linux/Shared/index.json</Key><RequestId>M5AKFFW1K8SVA5PF</RequestId><HostId>/QmBi3lhFX1NGgtDc8z36nT4IXM6XqMurSLP9GvhUUKjDsAMYJKAvPr4pKQOpSoYOMVu9chqMw4=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-west-2-wl1-man1-reservedinstance-3y.json

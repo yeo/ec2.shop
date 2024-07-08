@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-northeast-2-wl1-sel1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Asia Pacific (SKT) - Seoul/Linux/Shared/index.json</Key><RequestId>TDR609S76SS0SK73</RequestId><HostId>7EA4G35Nsip0WZkWxxfw/n3z3vMbOkG1NooBKSeLLFWJJSs1eluWs58xKEXgl6Bko59yCqvsPao=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Asia Pacific (SKT) - Seoul/Linux/Shared/index.json</Key><RequestId>SSK6CH8DFBVH4FRB</RequestId><HostId>WhuUV1YbfpHxYSyH6ZUGHHVzA262fVQIXDv31owc10tx8uSZpLrFK4v0cHOQrjlN383vQCVH+hj9Iu62y1DGxYmux3c8fW/d</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-2-wl1-sel1-reservedinstance-1y.json

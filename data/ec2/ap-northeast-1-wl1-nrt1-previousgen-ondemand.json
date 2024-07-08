@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-northeast-1-wl1-nrt1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>0B1KTVP1VJR6C42F</RequestId><HostId>GOhI6fOe0id/tiDHLMEzZcuO9t0kvDsnr3Bv6Fz4rLzrQ/l2iW7a/5eVvWY1wlIIQoT0NzJfnH0=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>3NR80HM1BCVA2AE8</RequestId><HostId>jsDO29/tUo1ADuCjmY7UNxIqYwgh17qEmcg7iIt2r7k/yn09ecxOe4HSI41hESEXL+8rRw/PVaIQvSFRxuumLdbwkmVEXH7B</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-wl1-nrt1-previousgen-ondemand.json

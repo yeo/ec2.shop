@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-central-1-wl1-dtm1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Dortmund/Linux/index.json</Key><RequestId>571V1KB86F73X6HS</RequestId><HostId>C38MngsMV3W2lWC9ZGcDp9tcXRQ/iJVsU35wn4fKhb/rHwVMFokyo6zExjCGoH8LirGbLqVrLFs=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Dortmund/Linux/index.json</Key><RequestId>W8YRDHCGJEXQD9K8</RequestId><HostId>BtDZ75kV3ZOlxtO6qLR8PP4WONPqTFaqEckFvuC28hHE00iEgsJ5lTVZUhLMGduygKo1Kii4h0Y=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-wl1-dtm1-previousgen-ondemand.json

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/eu-central-1-waw-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Poland (Warsaw)/Linux/Shared/index.json</Key><RequestId>J0JC5J156FH46HDS</RequestId><HostId>RtGgEt8eYWFIFivjlFGxhlx71x42dkZeis3/16P6H62TM/9H5/aqf1t8WX+BLvNvEzUqt3eWFjA=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Poland (Warsaw)/Linux/Shared/index.json</Key><RequestId>CB99M7C60BA11ZCC</RequestId><HostId>ktscstnshuvO1AyoYDqkrwKfKec/Mz15Y5xj/t74A2PEXEZTpDHm8x70a17qjLp3iTFfOp0m1d4=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-waw-1-reservedinstance-1y.json

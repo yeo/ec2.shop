@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-wl1-tpa1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Verizon) - Tampa/Linux/index.json</Key><RequestId>0EZ2T79J9J01Q1BC</RequestId><HostId>D20fb7Lit1DIa46SKTBFJGI2cLXhGz4n2p6YhnHT2xtAZ7eKO1D5O0cBitjNMNmxqwFg+tgbqHF68tMSbXD+di1ahvZ8ii5m</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Verizon) - Tampa/Linux/index.json</Key><RequestId>9BV29W98BR3G7V5M</RequestId><HostId>v4oBz6pv+bwcwEXdtukI4b5c7N2Rf3M98GyIrxMlJKRaLAfFKzGZyuGC47oKxro+Cx0rOGrJzUs=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-wl1-tpa1-previousgen-ondemand.json

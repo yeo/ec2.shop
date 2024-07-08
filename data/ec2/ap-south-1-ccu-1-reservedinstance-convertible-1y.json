@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-south-1-ccu-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/India (Kolkata)/Linux/Shared/index.json</Key><RequestId>4KDZ5GHDRPA1F6MG</RequestId><HostId>PW1lTNedtprM2Cl2YFdNi6m0NE4d1d+DWrjte6cR435aTqmoH/e1BMdqiPq9PwvSuW/STcp2irEsWrxFLc25yx5Ntx+zQQn/sC0pBfI6sFs=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/India (Kolkata)/Linux/Shared/index.json</Key><RequestId>P0AWND6MHYSKHNJR</RequestId><HostId>3nxm8ZfuClqFc108v2KysUdsC7bVl8sPXvythc48O6KmyUXUZVTIhxmuJhEJ4Ah23OeOOPhWk0o=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-south-1-ccu-1-reservedinstance-convertible-1y.json

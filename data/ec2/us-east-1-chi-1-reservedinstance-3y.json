@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-east-1-chi-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Chicago)/Linux/Shared/index.json</Key><RequestId>33F8JZYZ0Y0GTD2P</RequestId><HostId>rJ7mqEC+OgoCohukOBrzTivdbNa0B6aSNMhdCJUTyqhnpB0BLngT3K+iHtZjX+6yywnpYEygXPs=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Chicago)/Linux/Shared/index.json</Key><RequestId>1SED2GYMVQY1FAW7</RequestId><HostId>5XIk/UD35aR0uUvj84syKz1pXK+G/1zhptJ9fJoOULdnXMHQAxP6VIrFmELzOBkIMFOozP8Parc=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-chi-1-reservedinstance-3y.json

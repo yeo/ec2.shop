@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/us-west-2-hnl-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Honolulu)/Linux/Shared/index.json</Key><RequestId>X9VRR30FB68RFH72</RequestId><HostId>XAGMDlAkEs508Dc0fDgxsss5n4EbxUT+2AwTkA/aQsjof9TpL0NrkzUnOhWtrsvn6VqaPve3KOo=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Honolulu)/Linux/Shared/index.json</Key><RequestId>YSXCMQNZPKW42Q64</RequestId><HostId>RsollWfpXMLlq/5dMKhoPhwsHxhcUxjW3tkkzIFLN/mZ/OmW4L+pEJN7x8DMHVcAzk7UiwGsTaE=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-hnl-1-reservedinstance-1y.json

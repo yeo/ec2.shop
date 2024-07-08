@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-south-1-ccu-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/India (Kolkata)/Linux/index.json</Key><RequestId>91HV2KQ51SPJQV75</RequestId><HostId>Jbcc/HKUG7EA9ug8Eox7WagxiqSLpbd+FKoctWylc/4ErIxpsh7ycB/Iz23vsoeMYBti+mh5bEPKkAGwLe3Jxw==</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/India (Kolkata)/Linux/index.json</Key><RequestId>3F1EBPPAMAG44848</RequestId><HostId>3EACLm+V0VF8e/d+HHWYNg6HPP2N3SOlyDGQGXmRZ2DV06KxbsFPcUHlhqJd0yHDWHqdSOEyo/rUUYTa7YlHYjWBBh1brAGuovlkviZD998=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-south-1-ccu-1-previousgen-ondemand.json

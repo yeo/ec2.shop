@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD:data/ap-northeast-1-wl1-nrt1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Tokyo/Linux/Shared/index.json</Key><RequestId>QNZ6KM74C8QNAPMR</RequestId><HostId>k2Y9PjLxPPjQNJSjQgmbinCMhlrIidWvKeD4wVtgvQkfNKhrJMWrp2al7+1XRkZiv1CKnFETuP0=</HostId></Error>
+=======
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Tokyo/Linux/Shared/index.json</Key><RequestId>SW7CGW4SYY8Y17X6</RequestId><HostId>SlQAhRynZqbc6wGjvKTOOf3tq8nYBGOrS4Q0X+yWp2yDTAZL0dKu1ggD6hSlpBGIglKJLNiT1FA=</HostId></Error>
+>>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-wl1-nrt1-reservedinstance-convertible-3y.json
