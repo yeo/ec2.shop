@@ -10,6 +10,8 @@ If you prefer json, use:
 
 ```
 curl -H 'accept: json' 'https://ec2.shop'
+# or simply
+curl -H 'accept: json' 'https://ec2.shop?json'
 ```
 
 If you want to search for a certain instance:
@@ -21,7 +23,8 @@ curl 'https://ec2.shop?filter=ssd'
 
 # Advanced Filter
 
-We also support expression in filter so you can do comparison like this
+We also support expression in filter so you can do comparison like this. Simply
+pass an expression in `filter` query
 
 ```
 curl 'https://ec2.shop?filter=ssd,mem>=32,mem<=64,cpu>=2,cpu<=4'
