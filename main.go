@@ -12,6 +12,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
+	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/ec2"
 )
 
@@ -37,11 +38,11 @@ type FriendlyPrice struct {
 	Network      string
 	Cost         float64
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
-	MonthlyPrice               float64
+	MonthlyPrice float64
 
-	SpotPrice                  string
+	SpotPrice       string
 	SpotReclaimRate string
-	SpotSavingRate string
+	SpotSavingRate  string
 
 	Reserved1yPrice            float64
 	Reserved3yPrice            float64
@@ -177,7 +178,7 @@ func GetPriceHandler(debug bool, p *ec2.PriceFinder) func(echo.Context) error {
 			"ts":            ts,
 			"priceData":     prices,
 			"currentRegion": currentRegion,
-			"regions":       ec2.AvailableRegions,
+			"regions":       common.AvailableRegions,
 		})
 	}
 }

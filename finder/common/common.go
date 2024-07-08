@@ -1,16 +1,4 @@
-package ec2
-
-func New() *PriceFinder {
-	// setup price loader
-	// Setup spot price crawlet
-	s := NewSpotPriceCrawler()
-
-	p := &PriceFinder{
-		SpotPriceFinder: s,
-	}
-
-	return p
-}
+package common
 
 var (
 	AvailableRegions = []string{

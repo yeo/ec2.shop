@@ -1,4 +1,4 @@
-package ec2
+package common
 
 import (
 	"regexp"
@@ -17,7 +17,11 @@ var (
 	termRegex = regexp.MustCompile(`(\w+)([<>=]+)(\d+(\.\d+)?)`)
 )
 
-type SearchFn func(p *Price) bool
+type AttbLookup interface {
+	GetAttb(string) float64
+}
+
+type SearchFn func(AttbLookup) bool
 type SearchTerm struct {
 	Raw  string
 	Type TermType
@@ -56,23 +60,13 @@ func NewSearchTerm(term string) *SearchTerm {
 		}
 
 		st.Type = ExprTermType
-		st.SearchFn = func(p *Price) bool {
-			lookup := float64(0)
+		st.SearchFn = func(src AttbLookup) bool {
 			target, err := strconv.ParseFloat(matches[3], 64)
 			if err != nil {
 				return false
 			}
 
-			switch matches[1] {
-			case "mem":
-				lookup = p.Attribute.MemoryGib
-			case "cpu", "vcpu":
-				lookup = p.Attribute.VCPUFloat
-			case "price":
-				lookup = p.Price
-			case "spot":
-				lookup = p.SpotPrice
-			}
+			lookup := src.GetAttb(matches[1])
 
 			switch matches[2] {
 			case ">":

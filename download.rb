@@ -23,6 +23,6 @@ regions.each do |key, region|
     puts "fetch #{instance_class[:name]}"
 
     region_price_data = HTTPX.get(instance_class[:url])
-    File.write("./data/#{region['code']}-#{instance_class[:name]}.json", region_price_data)
+    File.write("./data/ec2/#{region['code']}-#{instance_class[:name]}.json", region_price_data)
   end
 end

@@ -6,11 +6,12 @@ import (
 	"io/ioutil"
 	"maps"
 	"math"
+	"slices"
 	"strconv"
 	"strings"
-	"slices"
 
 	"github.com/labstack/echo/v4"
+	"github.com/yeo/ec2shop/finder/common"
 )
 
 type Attribute struct {
@@ -77,6 +78,22 @@ type Price struct {
 	Attribute *Attribute `json:"attributes"`
 }
 
+func (p *Price) GetAttb(key string) float64 {
+	lookup := float64(0)
+	switch key {
+	case "mem":
+		lookup = p.Attribute.MemoryGib
+	case "cpu", "vcpu", "core":
+		lookup = p.Attribute.VCPUFloat
+	case "price":
+		lookup = p.Price
+	case "spot":
+		lookup = p.SpotPrice
+	}
+
+	return lookup
+}
+
 func (p *Price) MonthlyPrice() float64 {
 	// Assume 730 hours per month, similar to aws calculator https://aws.amazon.com/calculator/calculator-assumptions/
 	value := p.Price * 730
@@ -103,11 +120,23 @@ type PriceFinder struct {
 	SpotPriceFinder *SpotPriceCrawler
 }
 
+func New() *PriceFinder {
+	// setup price loader
+	// Setup spot price crawlet
+	s := NewSpotPriceCrawler()
+
+	p := &PriceFinder{
+		SpotPriceFinder: s,
+	}
+
+	return p
+}
+
 // Load price from db for all regions
 func (p *PriceFinder) Discover() {
 	p.regions = make(map[string]map[string]*Price)
 
-	for _, r := range AvailableRegions {
+	for _, r := range common.AvailableRegions {
 		regionalPrice := make(map[string]*Price)
 		// build up a base array with server spec and on-demand price
 		// this map hold all kind of servers including previous gen
@@ -159,7 +188,7 @@ func (p *PriceFinder) loadRegion(r string, generation string) map[string]*Price 
 	fmt.Printf("load price for region %s generation %s", r, generation)
 	var priceList PriceManifest
 
-	filename := "./data/" + r + "-" + generation + ".json"
+	filename := "./data/ec2/" + r + "-" + generation + ".json"
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Printf("error %s %+v\n", filename, err)
@@ -193,10 +222,6 @@ func (p *PriceFinder) loadRegion(r string, generation string) map[string]*Price 
 	return itemPrices
 }
 
-func (p *PriceFinder) PriceListByRegion(region string) map[string]*Price {
-	return p.regions[region]
-}
-
 func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 	requestRegion := c.QueryParam("region")
 	if requestRegion == "" {
@@ -208,9 +233,9 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 	}
 
 	prices := make([]*Price, 0)
-	keywords := ParseSearchTerm(c.QueryParam("filter"))
+	keywords := common.ParseSearchTerm(c.QueryParam("filter"))
 
-	for _, price := range p.PriceListByRegion(requestRegion) {
+	for _, price := range p.regions[requestRegion] {
 		m := price.Attribute
 		// when search query is empty, match everything
 		matched := len(keywords) == 0
@@ -255,8 +280,8 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 		prices = append(prices, price)
 	}
 
-	sorters := ParseSortTerm(c.QueryParam("sort"))
-	slices.SortFunc(prices, func(a,b *Price) int {
+	sorters := common.ParseSortTerm(c.QueryParam("sort"))
+	prices = slices.SortFunc(prices, func(a, b *Price) int {
 		for _, t := range sorters {
 			switch t.Field {
 			case "price":
