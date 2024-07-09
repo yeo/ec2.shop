@@ -5,9 +5,25 @@
     <meta name="description" content="EC2 Price API - API To check ec2 prices">
 
     <meta charset="utf-8">
-    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+	<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  	</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
 
     <link rel="icon" type="image/svg+xml" href="/static/icon/favicon.svg">
     <link rel="alternate icon" href="/static/icon/favicon.ico">
@@ -29,8 +45,9 @@
     <div class="info">
       <p style="text-align: center">
             You can also search like this
-            <span style="color: red;">ssd,cpu&gt;=32,cpu&lt;=48,mem&gt;=32,price&gt;=10</span>.<a
-            href="https://github.com/yeo/ec2.shop#api-document">&nbsp;Docs&amp; API</a>
+            <span style="color:
+                  red;">ssd,cpu&gt;=32,cpu&lt;=48,mem&gt;=32,price&gt;=10</span>.&nbsp;<a
+            href="https://github.com/yeo/ec2.shop#api-document">Docs&amp; API</a>
       </p>
     </div>
 
@@ -43,29 +60,6 @@
         </select>
       <div id="price-grid"></div>
     </div>
-
-    {{/*
-    <script>
-      window._pricedata = [
-        {{ $price := index . "priceData" }}
-        {{ range $index, $val := index . "priceData" }}
-          [
-            "{{ $val.Attribute.InstanceType }}",
-            "{{ $val.Attribute.Memory }}",
-            {{ $val.Attribute.VCPU }},
-            "{{ $val.Attribute.Storage }}",
-            "{{ $val.Attribute.NetworkPerformance }}",
-            {{ $val.Price }},
-            {{ printf "%.3f" $val.MonthlyPrice }},
-            {{ printf "%s" $val.FormatSpotPrice }},
-            {{ printf "%.4f" $val.Reserved1y }},
-            {{ printf "%.4f" $val.Reserved3y }},
-            {{ printf "%.4f" $val.Reserved1yConveritble }},
-            {{ printf "%.4f" $val.Reserved3yConveritble }},
-          ],
-        {{ end }}
-      ]
-    </script>*/}}
     <script src="/static/js/app.js?ts={{ index . "ts" }}"></script>
   </body>
 </html>

@@ -1,16 +1,4 @@
 body {
-  --color-bg: #ddd;
-  --color-text: #1a1e24;
-  --color-text-subtle: #D76D77;
-
-  padding: 0; margin: 0;
-  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
-  background: rgb(213, 204, 186);
-
-  width: 100%;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .terminal-container {
