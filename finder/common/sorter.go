@@ -32,6 +32,11 @@ func ParseSortTerm(q string) []*SortTerm {
 			t.Direction = DescSort
 		}
 
+		if raw[0:1] == "+" {
+			t.Field = raw[1:]
+			t.Direction = AscSort
+		}
+
 		terms = append(terms, &t)
 	}
 

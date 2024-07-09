@@ -281,7 +281,7 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 	}
 
 	sorters := common.ParseSortTerm(c.QueryParam("sort"))
-	prices = slices.SortFunc(prices, func(a, b *Price) int {
+	slices.SortFunc(prices, func(a, b *Price) int {
 		for _, t := range sorters {
 			switch t.Field {
 			case "price":
@@ -291,16 +291,16 @@ func (p *PriceFinder) PriceListFromRequest(c echo.Context) []*Price {
 					return t.Direction
 				}
 			case "cpu":
-				if a.Attribute.VCPUFloat < a.Attribute.VCPUFloat {
+				if a.Attribute.VCPUFloat < b.Attribute.VCPUFloat {
 					return -t.Direction
-				} else if a.Price > b.Price {
+				} else if a.Attribute.VCPUFloat > b.Attribute.VCPUFloat {
 					return t.Direction
 				}
 
 			case "mem":
 				if a.Attribute.MemoryGib < b.Attribute.MemoryGib {
 					return -t.Direction
-				} else if a.Price > b.Price {
+				} else if a.Attribute.MemoryGib > b.Attribute.MemoryGib {
 					return t.Direction
 				}
 			}
