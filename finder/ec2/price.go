@@ -102,7 +102,7 @@ func (p *Price) MonthlyPrice() float64 {
 	return math.Round(value*1000) / 1000
 }
 
-func (p *Price) FormatSpotPrice() string {
+func (p *Price) SpotPriceHourly() string {
 	txtSpotPrice := "NA"
 
 	if p.SpotPrice > 0 {

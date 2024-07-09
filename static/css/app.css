@@ -1,4 +1,11 @@
 body {
+  --color-bg: #ddd;
+  --color-text: #1a1e24;
+  --color-text-subtle: #D76D77;
+
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+  background: rgb(213, 204, 186);
+
 }
 
 .terminal-container {

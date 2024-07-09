@@ -1,4 +1,3 @@
-
 function weightNetwork(value) {
   if (value == 'NA') {
     return -1001
