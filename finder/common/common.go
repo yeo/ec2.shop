@@ -1,101 +1,88 @@
 package common
 
-var (
-	AvailableRegions = []string{
-		"af-south-1",
-		"ap-east-1",
-		"ap-northeast-1",
-		"ap-northeast-2",
-		"ap-northeast-3",
-		"ap-south-1",
-		"ap-south-2",
-		"ap-southeast-1",
-		"ap-southeast-2",
-		"ap-southeast-3",
-		"ap-southeast-4",
-		"ca-central-1",
-		"ca-west-1",
-		"eu-central-1",
-		"eu-central-2",
-		"eu-north-1",
-		"eu-south-1",
-		"eu-south-2",
-		"eu-west-1",
-		"eu-west-2",
-		"eu-west-3",
-		"il-central-1",
-		"me-central-1",
-		"me-south-1",
-		"sa-east-1",
-		"us-east-1",
-		"us-east-2",
-		"us-east-2-mci-1",
-		"us-gov-east-1",
-		"us-gov-west-1",
-		"us-west-1",
-		"us-west-2",
-		"ap-northeast-1-wl1-kix1",
-		"ap-northeast-1-wl1-nrt1",
-		"ap-northeast-2-wl1-cjj1",
-		"ap-northeast-2-wl1-sel1",
-		"ca-central-1-wl1-yto1",
-		"eu-central-1-wl1-ber1",
-		"eu-central-1-wl1-dtm1",
-		"eu-central-1-wl1-muc1",
-		"eu-west-2-wl1-lon1",
-		"eu-west-2-wl1-man1",
-		"eu-west-2-wl2-man1",
-		"us-east-1-wl1",
-		"us-east-1-wl1-atl1",
-		"us-east-1-wl1-bna1",
-		"us-east-1-wl1-chi1",
-		"us-east-1-wl1-clt1",
-		"us-east-1-wl1-dfw1",
-		"us-east-1-wl1-dtw1",
-		"us-east-1-wl1-iah1",
-		"us-east-1-wl1-mia1",
-		"us-east-1-wl1-msp1",
-		"us-east-1-wl1-nyc1",
-		"us-east-1-wl1-tpa1",
-		"us-east-1-wl1-was1",
-		"us-west-2-wl1",
-		"us-west-2-wl1-den1",
-		"us-west-2-wl1-las1",
-		"us-west-2-wl1-lax1",
-		"us-west-2-wl1-phx1",
-		"us-west-2-wl1-sea1",
-		"af-south-1-los-1",
-		"ap-northeast-1-tpe-1",
-		"ap-south-1-ccu-1",
-		"ap-south-1-del-1",
-		"ap-southeast-1-bkk-1",
-		"ap-southeast-1-mnl-1",
-		"ap-southeast-2-akl-1",
-		"ap-southeast-2-per-1",
-		"eu-central-1-ham-1",
-		"eu-central-1-waw-1",
-		"eu-north-1-cph-1",
-		"eu-north-1-hel-1",
-		"me-south-1-mct-1",
-		"us-east-1-atl-1",
-		"us-east-1-bos-1",
-		"us-east-1-bue-1",
-		"us-east-1-chi-1",
-		"us-east-1-dfw-1",
-		"us-east-1-iah-1",
-		"us-east-1-lim-1",
-		"us-east-1-mci-1",
-		"us-east-1-mia-1",
-		"us-east-1-msp-1",
-		"us-east-1-nyc-1",
-		"us-east-1-phl-1",
-		"us-east-1-qro-1",
-		"us-east-1-scl-1",
-		"us-west-2-den-1",
-		"us-west-2-las-1",
-		"us-west-2-lax-1",
-		"us-west-2-pdx-1",
-		"us-west-2-phx-1",
-		"us-west-2-sea-1",
-	}
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"slices"
+	"strings"
+	"time"
 )
+
+var (
+	RegionMaps       = make(map[string]*Region)
+	AvailableRegions = []string{}
+)
+
+type Region struct {
+	Name      string `json:"name"`
+	ID        string `json:"code"`
+	Type      string `json:"type"`
+	Label     string `json:"label"`
+	Continent string `json:"continent"`
+}
+
+// LoadRegions populate our region <-> name mapping map
+func LoadRegions() error {
+	client := &http.Client{
+		Timeout: 30 * time.Second,
+	}
+	resp, err := client.Get(fmt.Sprintf("https://b0.p.awsstatic.com/locations/1.0/aws/current/locations.json?timestamp=%d", time.Now()))
+	if err != nil {
+		return err
+	}
+
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+
+	var regionData map[string]*Region
+	err = json.Unmarshal(body, &regionData)
+	if err != nil {
+		return err
+	}
+
+	for k, v := range regionData {
+		AvailableRegions = append(AvailableRegions, v.ID)
+		RegionMaps[k] = &Region{
+			Name:      v.Name,
+			ID:        v.ID,
+			Type:      v.Type,
+			Label:     v.Label,
+			Continent: v.Continent,
+		}
+	}
+
+	slices.SortFunc(AvailableRegions, func(r1, r2 string) int {
+		if strings.HasPrefix(r1, "us-") && strings.HasPrefix(r2, "us-") {
+			if r1 < r2 {
+				return -1
+			} else if r1 == r2 {
+				return 0
+			} else {
+				return 1
+			}
+		}
+		if strings.HasPrefix(r1, "us-") {
+			return -1
+		}
+
+		if strings.HasPrefix(r2, "us-") {
+			return 1
+		}
+
+		if r1 < r2 {
+			return -1
+		} else if r1 == r2 {
+			return 0
+		} else {
+			return 1
+		}
+
+	})
+	return nil
+}

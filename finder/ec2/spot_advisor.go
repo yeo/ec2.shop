@@ -58,7 +58,7 @@ type SpotAdvisorDataResp struct {
 	SpotAdvisor map[string]AdvisorRegionData `json:"spot_advisor"`
 }
 
-func (s *SpotPriceCrawler) FetchAdvisor() error {
+func (s *SpotPriceFinder) FetchAdvisor() error {
 	t0 := time.Now()
 	resp, err := s.client.Get(AWSSpotAdvisorDataUrl)
 	if err != nil {

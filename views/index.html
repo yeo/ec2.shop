@@ -30,6 +30,36 @@
     <link rel="mask-icon" href="/static/icon/favicon.svg" color="#ff8a01">
   </head>
   <body>
+
+<div>
+  <div class="sm:block">
+
+    <nav class="flex space-x-4" aria-label="Tabs">
+      <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
+      <a href="/"
+        class="{{ if eq .svc "ec2" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
+        {{ if eq .svc "ec2"}}aria-current="page"{{ end }}
+      >EC2</a>
+
+      <a href="/rds"
+        class="{{ if eq .svc "rds" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+        {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+      >RDS</a>
+
+      <a href="/mq"
+        class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+        {{ if eq .svc "mq" }}aria-current="page"{{ end }}
+      >MQ</a>
+
+      <a href="/msk"
+        class="{{ if eq .svc "msk" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+        {{ if eq .svc "msk" }}aria-current="page"{{ end }}
+      >MSK</a>
+
+
+    </nav>
+  </div>
+</div>
     <!-- the termynal container -->
     <div class="terminal-container">
       <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="padding: 0.5em; min-height: 150px;">
@@ -60,6 +90,6 @@
         </select>
       <div id="price-grid"></div>
     </div>
-    <script src="/static/js/app.js?ts={{ index . "ts" }}"></script>
+    <script src="/static/js/{{ index . "svc" }}.js?ts={{ index . "ts" }}"></script>
   </body>
 </html>

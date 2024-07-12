@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/yeo/ec2shop/finder/common"
 )
 
 const (
@@ -17,13 +19,13 @@ type SpotPrice struct {
 	Linux *float64
 	MSWin *float64
 
-	AdvisorLinux *AdvisorInfo
+	AdvisorLinux   *AdvisorInfo
 	AdvisorWindows *AdvisorInfo
 }
 
 type SpotValueColumn struct {
-	Name     string    `json:"name"`
-	RawPrice *RawPrice `json:"prices"`
+	Name     string           `json:"name"`
+	RawPrice *common.RawPrice `json:"prices"`
 }
 
 type SpotInstanceTypeSize struct {
@@ -49,21 +51,21 @@ type SpotPriceResponseWrap struct {
 	Config *SpotPriceResponse `json:"config"`
 }
 
-type SpotPriceCrawler struct {
-	client          *http.Client
-	Done            chan bool
+type SpotPriceFinder struct {
+	client *http.Client
+	Done   chan bool
 
-	// nested map of 
+	// nested map of
 	// region.instance_type => SpotPrice
 	pricePerRegions map[string]map[string]*SpotPrice
 }
 
-func NewSpotPriceCrawler() *SpotPriceCrawler {
+func NewSpotPriceFinder() *SpotPriceFinder {
 	client := &http.Client{
 		Timeout: 30 * time.Second,
 	}
 
-	s := SpotPriceCrawler{
+	s := SpotPriceFinder{
 		client:          client,
 		Done:            make(chan bool),
 		pricePerRegions: make(map[string]map[string]*SpotPrice),
@@ -72,7 +74,7 @@ func NewSpotPriceCrawler() *SpotPriceCrawler {
 	return &s
 }
 
-func (s *SpotPriceCrawler) Fetch() error {
+func (s *SpotPriceFinder) Fetch() error {
 	t0 := time.Now()
 	resp, err := s.client.Get(AWSSpotPriceUrl)
 	if err != nil {
@@ -130,7 +132,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 
 			}
 
-			log.Printf("[spot price loader] found %d server price for region %s", total, r.Region)
+			//log.Printf("[spot price loader] found %d server price for region %s", total, r.Region)
 		}
 	}
 
@@ -140,7 +142,7 @@ func (s *SpotPriceCrawler) Fetch() error {
 	return nil
 }
 
-func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) (*SpotPrice, error) {
+func (s *SpotPriceFinder) PriceForInstance(region string, instanceType string) (*SpotPrice, error) {
 	m := s.pricePerRegions[region][instanceType]
 	if m == nil {
 		return nil, errors.New("Invalid instance type or region")
@@ -149,7 +151,7 @@ func (s *SpotPriceCrawler) PriceForInstance(region string, instanceType string) 
 	return m, nil
 }
 
-func (s *SpotPriceCrawler) Run() {
+func (s *SpotPriceFinder) Run() {
 	ticker := time.NewTicker(150 * time.Second)
 
 	go func() {

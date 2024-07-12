@@ -4,6 +4,7 @@ import (
 	"errors"
 	"html/template"
 	"io"
+	"log/slog"
 	"net/http"
 	"os"
 	"time"
@@ -11,8 +12,8 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
+	"github.com/yeo/ec2shop/finder"
 	"github.com/yeo/ec2shop/finder/common"
-	"github.com/yeo/ec2shop/finder/ec2"
 )
 
 type Template struct {
@@ -29,10 +30,20 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
+var (
+	logger *slog.Logger
+)
+
 func main() {
+	logger = slog.New(slog.NewTextHandler(os.Stderr, nil))
+
 	debug := os.Getenv("DEBUG") == "1"
 
-	priceFinder := ec2.New()
+	if err := common.LoadRegions(); err != nil {
+		panic(err)
+	}
+
+	priceFinder := finder.New()
 	priceFinder.Discover()
 
 	// Echo instance
@@ -50,6 +61,8 @@ func main() {
 
 	// Routes
 	e.GET("/", GetPriceHandler(debug, priceFinder))
+	e.GET("/:svc", GetPriceHandler(debug, priceFinder))
+	e.GET("/:svc/", GetPriceHandler(debug, priceFinder))
 
 	// Start server
 
@@ -61,30 +74,34 @@ func main() {
 	e.Logger.Fatal(e.Start(listen_on))
 }
 
-func GetPriceHandler(debug bool, p *ec2.PriceFinder) func(echo.Context) error {
+func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error {
 	ts := time.Now()
 
 	return func(c echo.Context) error {
+		awsSvc := c.Param("svc")
+		if awsSvc == "" {
+			awsSvc = "ec2"
+		}
+
+		logger.Info("svc %s", awsSvc)
+
 		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		if debug {
 			ts = time.Now()
 		}
 
-		prices := p.PriceListFromRequest(c)
+		prices := p.SearchPriceFromRequest(c)
 
 		if prices == nil {
 			return errors.New("Invalid region")
 		}
 
 		if IsJson(c) {
-			return c.JSON(http.StatusOK, p.RenderJSON(prices))
+			return prices.RenderJSON(c)
 		}
 
 		if IsText(c) {
-			// When loading by shell we can pass these param
-			priceText := p.RenderText(prices)
-
-			return c.String(http.StatusOK, priceText)
+			return prices.RenderText(c)
 		}
 
 		// If user not select, default to us-east1
@@ -98,6 +115,7 @@ func GetPriceHandler(debug bool, p *ec2.PriceFinder) func(echo.Context) error {
 			"priceData":     prices,
 			"currentRegion": currentRegion,
 			"regions":       common.AvailableRegions,
+			"svc":           awsSvc,
 		})
 	}
 }

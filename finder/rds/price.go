@@ -1,4 +1,4 @@
-package ec2
+package rds
 
 import (
 	"fmt"
@@ -16,13 +16,9 @@ type PriceByInstanceType = map[string]*Price
 type Price struct {
 	ID string `json:"id"`
 
-	// RawPrice can be a float or a string or a NA
 	RawPrice *common.RawPrice `json:"price"`
 
-	Price     float64 `json:"-"`
-	SpotPrice float64 `json:"-"`
-
-	AdvisorSpotData *AdvisorInfo `json:"-"`
+	Price float64 `json:"-"`
 
 	Reserved1y            float64 `json:"-"`
 	Reserved3y            float64 `json:"-"`
@@ -41,46 +37,32 @@ func (p *Price) GetAttb(key string) float64 {
 		lookup = p.Attribute.VCPUFloat
 	case "price":
 		lookup = p.Price
-	case "spot":
-		lookup = p.SpotPrice
 	}
 
 	return lookup
 }
 
-func (p *Price) SpotPriceHourly() string {
-	txtSpotPrice := "NA"
-
-	if p.SpotPrice > 0 {
-		txtSpotPrice = fmt.Sprintf("%.4f", p.SpotPrice)
-	}
-
-	return txtSpotPrice
-}
-
 func LoadPriceForType(r, generation string) map[string]*Price {
-	filename := "./data/ec2/" + r + "-" + generation + ".json"
+	filename := "./data/rds/" + generation + ".json"
 	priceList, err := common.LoadPriceJsonManifest(filename)
 	if err != nil {
-		return map[string]*Price{}
+		panic(err)
 	}
 
 	itemPrices := make(map[string]*Price)
-	// return price data is a 2 nested map like this
-	for _, regionalPriceItems := range priceList.Regions {
-		for item, priceItem := range regionalPriceItems {
-			priceItem.Build()
+	fmt.Println("[rds] loaded price", r, priceList.Regions[r])
 
-			serverTypeParts := strings.Split(item, " ")
-			price := &Price{
-				ID:        fmt.Sprintf("%s.%s", serverTypeParts[0], serverTypeParts[1]),
-				Attribute: priceItem,
-			}
+	for _, priceItem := range priceList.Regions[r] {
+		priceItem.Build()
 
-			price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
-
-			itemPrices[price.ID] = price
+		price := &Price{
+			ID:        priceItem.InstanceType,
+			Attribute: priceItem,
 		}
+
+		price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
+
+		itemPrices[price.ID] = price
 	}
 
 	return itemPrices
@@ -90,55 +72,14 @@ func Discover(r string) map[string]*Price {
 	regionalPrice := make(map[string]*Price)
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
-	for _, generation := range []string{"ondemand", "previousgen-ondemand"} {
+	for _, generation := range []string{"postgresql-ondemand"} {
 		onDemandPrice := LoadPriceForType(r, generation)
 		maps.Copy(regionalPrice, onDemandPrice)
 	}
 
-	for id, reseveredPrice := range LoadPriceForType(r, "reservedinstance-1y") {
-		if _, ok := regionalPrice[id]; ok == true {
-			regionalPrice[id].Reserved1y = reseveredPrice.Price
-		} else {
-			fmt.Println("server has reserver data but not found in on-demand", id)
-		}
-	}
-
-	for id, reseveredPrice := range LoadPriceForType(r, "reservedinstance-3y") {
-		if _, ok := regionalPrice[id]; ok == true {
-			regionalPrice[id].Reserved3y = reseveredPrice.Price
-		} else {
-			fmt.Println("server has reserver data but not found in on-demand", id)
-		}
-	}
-
-	for id, reseveredPrice := range LoadPriceForType(r, "reservedinstance-convertible-1y") {
-		if _, ok := regionalPrice[id]; ok == true {
-			regionalPrice[id].Reserved1yConveritble = reseveredPrice.Price
-		} else {
-			fmt.Println("server has reserver data but not found in on-demand", id)
-		}
-	}
-
-	for id, reseveredPrice := range LoadPriceForType(r, "reservedinstance-convertible-3y") {
-		if _, ok := regionalPrice[id]; ok == true {
-			regionalPrice[id].Reserved3yConveritble = reseveredPrice.Price
-		} else {
-			fmt.Println("server has reserver data but not found in on-demand", id)
-		}
-	}
-	// TODO: Add other item such as reverse
-	// go p.SpotPriceFinder.Run()
+	fmt.Printf("[rds]found %d rds price for region %s\n", len(regionalPrice), r)
 
 	return regionalPrice
-}
-
-var (
-	spotPriceFinder *SpotPriceFinder
-)
-
-func MonitorSpot() {
-	spotPriceFinder = NewSpotPriceFinder()
-	spotPriceFinder.Run()
 }
 
 type SearchResult []*Price
@@ -178,14 +119,6 @@ func PriceFromRequest(priceData PriceByInstanceType, requestRegion string, keywo
 
 		if !matched {
 			continue
-		}
-
-		// Attempt to load spot price
-		if _spotPrice, err := spotPriceFinder.PriceForInstance(requestRegion, m.InstanceType); err == nil {
-			if _spotPrice != nil && _spotPrice.Linux != nil {
-				price.SpotPrice = *_spotPrice.Linux
-				price.AdvisorSpotData = _spotPrice.AdvisorLinux
-			}
 		}
 
 		prices = append(prices, price)
