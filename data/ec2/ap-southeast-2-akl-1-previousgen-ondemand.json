@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-2-akl-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>ZN3HTCM97BZGF9QG</RequestId><HostId>s1BSguEoftMhc0JsDT8l2iHm1aanEX6y7Za4dKUnV9AyEGN+fAgMw9VCO+hGRXh5/0+SHVITzyI=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>9FZMJD9P3GTBF7YG</RequestId><HostId>VfrbELG+QlujCS5LlXQW1HWYlMX/gJGJY5nihZDV2WZbdZAbMGoeZtQ24jijl0bWSgM+MqJfrzcg9fiuBu+zG6I6c7YA0Tm7</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-2-akl-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/New Zealand (Auckland)/Linux/index.json</Key><RequestId>WYAYF25PMT6CRWPA</RequestId><HostId>Qd5mGs+rJVXOz3zZ6Vk1h+bjaLNKIEkx/7lzs71h/MBQ1yvrDuZdA57mtAV9MmVn5kRI+L6L8m023GMJ3ClsGAqb1kpCTzv5</HostId></Error>

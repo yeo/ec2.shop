@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/af-south-1-los-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Nigeria (Lagos)/Linux/index.json</Key><RequestId>118VM4G4269KV6SH</RequestId><HostId>QPA2AeVblwgpRaDigsJHy4lJfVKxfzWlTMqsJCVKKGp9/rSO3k7IxWgsHCQMvraPS42UFRD/d/p+/z49p9Tt/YmUjmSWc6Q2</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Nigeria (Lagos)/Linux/index.json</Key><RequestId>WW10WAREHEC7SMX9</RequestId><HostId>tT23vTLAHWs2kG3ZHpE5x+MmtZuqSb3XHOaW47tE07fo3dBBBq0WAJgUxlnqiNJZGMEPCA/8zxI=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/af-south-1-los-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Nigeria (Lagos)/Linux/index.json</Key><RequestId>3T4GRD6KEJFMYADQ</RequestId><HostId>5vwX3bV6tKPdcs0bCiZmOptDovjwqHXgfVpO1AQmV8AuR38F+Y6cVe6XhOMbUrxzkDN/V5ZXDRw=</HostId></Error>

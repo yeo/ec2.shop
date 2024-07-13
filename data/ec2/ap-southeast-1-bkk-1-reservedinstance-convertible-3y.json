@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-1-bkk-1-reservedinstance-convertible-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Thailand (Bangkok)/Linux/Shared/index.json</Key><RequestId>162Q5FJCPCS97MNG</RequestId><HostId>iM/MhI8V9y94AE8N45vD3iSuGKHLCyHQQjxTdIit0gnpFkOqW2i92t25KWBrIh9wZOPgAxTxMiU=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Thailand (Bangkok)/Linux/Shared/index.json</Key><RequestId>PAS4HXMB1D94EW4N</RequestId><HostId>2YvfZqiU9jdwxea3gIEVyqHY7gMLn26+6iepNYhbhQQv0FU4iZDZvKOSYg6bVg7T4UUoAKf4T/8=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-1-bkk-1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Thailand (Bangkok)/Linux/Shared/index.json</Key><RequestId>WEY0W6SW8GS6ACFW</RequestId><HostId>OGQ2S9yUgbufn5najY9OSQq4oNQzp1CHmivOQz7+/ackyJpKVK10meOOy+hlZHFKIlojYY5xY1Q=</HostId></Error>

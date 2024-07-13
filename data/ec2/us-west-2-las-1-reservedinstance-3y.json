@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-west-2-las-1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US West (Las Vegas)/Linux/Shared/index.json</Key><RequestId>ZVR80GM6VPTPFCRD</RequestId><HostId>0aWqUh0DrzbrGZp7hX/zkIdHK4VdbNCoHNv4eE2txVtSgXZrnDawBNBTRVDon6PkX0DQCfI9aA0=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US West (Las Vegas)/Linux/Shared/index.json</Key><RequestId>A69ZRA0PKMJW2H1E</RequestId><HostId>NRL5z7jolFHtF88zr9HMg8TyaVP56lVkkKkZXZrH83mN7uehZIobIEHfdf7kBKXsiOvEaORNH5LNKjdimDrtM7morLB+EmHY</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-las-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US West (Las Vegas)/Linux/Shared/index.json</Key><RequestId>70DFG4PCAP9E727C</RequestId><HostId>41KCE6FS2Mjy7yIHWWyFHw8eKddEyK+dDFF6OjCqd/Yk7iv43TmEpUwbPOYg1Nc14kjKNZ0bp1k=</HostId></Error>

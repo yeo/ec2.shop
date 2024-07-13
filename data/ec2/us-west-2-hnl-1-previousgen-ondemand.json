@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-west-2-hnl-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Honolulu)/Linux/index.json</Key><RequestId>WHA1CSMQYBH8R44X</RequestId><HostId>aajRBLG1OaiSbjIGO7OFlDPd/gRQpOyCsjIWd+2dYI2cMpB87kzJOlFNDwVN0fRqFU0RbaKBDlI=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Honolulu)/Linux/index.json</Key><RequestId>GDY1RCNZQMZ702WS</RequestId><HostId>6OBX5t2RxLGFfL88Eq0F5zhlEyTxH4X7BIEZyq4nnDEwKZF4gd4zzYvnyzCM81k7xUZMQqKYuKM=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-hnl-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Honolulu)/Linux/index.json</Key><RequestId>WCXKGB4ES6HFMB45</RequestId><HostId>l6MS1DW91dE1EcAACPywpTeF294xRcQRF70CY+AH0FvjD3AyJcoyVx/A7/5MdOY4XoH2uy36LYxGSfJuSDDOOFSrCo14LBqumsLDLOJfuQ4=</HostId></Error>

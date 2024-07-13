@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-wl1-tpa1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Tampa/Linux/Shared/index.json</Key><RequestId>FYABW6XY39FP6C9F</RequestId><HostId>/FBRA+oXgtRHZkUgLK+eLx+GY4UpOAr0FQiXdbL2q8GibUty84C2ftezQxhl/Uta4ppkDbeZJXw=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Tampa/Linux/Shared/index.json</Key><RequestId>XS8D3GY1TQF12EN2</RequestId><HostId>EWwQfKEd0zx64xa+awzUfjGqgSxQpT+WygztDfN5JPHN3A8vErxBDsw7NtxK1/2Y32x+GkMVsNEy4vHy4ncmWdKXKh1s0uJXpIK/FVxC+OE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-wl1-tpa1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Tampa/Linux/Shared/index.json</Key><RequestId>7VXAJH7Y7683ETZ1</RequestId><HostId>1tGwV4zkpHjEduqXanKoy0FQY0kx5sxNWVoE8vpC3Svw1JiK5mETxFx97nMZL1ODmLiEPATfbyo=</HostId></Error>

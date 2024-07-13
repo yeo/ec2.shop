@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-mci-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Kansas City 2)/Linux/index.json</Key><RequestId>CPRKD6FFSCJE8MT6</RequestId><HostId>LWTAriOm672kPhhTbIE7D89E06EPGlA7T1CoLktEew21PV94WCLMY90vrJ5ouK+2BEFYL6H/CfYiIldedpCVLg45yHxcYbUbvUO/A5YN9m0=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Kansas City 2)/Linux/index.json</Key><RequestId>V0GR49NXGK5JXM8X</RequestId><HostId>3fU9ijJA4eRx0iO0hk6JcoAXNJxQhQuyUA6tiF9z7sc95/D7UuHo9Zfal3AVx3VxOeBbvLi2oE4=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-mci-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Kansas City 2)/Linux/index.json</Key><RequestId>F661BYMB2EAP06S3</RequestId><HostId>vdiZEwqtBRdNtclhxxUrGLkPRSTnCBo1Y8PxMoFnmIlgHodr1S8XmgJ2yANwUfQ/2Ht4x2Qkgq8=</HostId></Error>

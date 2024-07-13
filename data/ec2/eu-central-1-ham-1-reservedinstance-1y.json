@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-central-1-ham-1-reservedinstance-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Germany (Hamburg)/Linux/Shared/index.json</Key><RequestId>FRPHN6YAPZYMX84X</RequestId><HostId>bSBswgQCyUBw2Ub67D9JKtwq9UuFOxOpl1ENbUSQYkg/DlO1GtpwPS+TZfDpWoYqxOiHCNEgL5puxNJB2QXTBXfUm78hb7s+</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Germany (Hamburg)/Linux/Shared/index.json</Key><RequestId>TSRTF0C1A579PNBG</RequestId><HostId>3n70uSZuA6mzwgBt2uaTdLL8AJ2aDstI1FVtZlEPQt1B056dbpitaltq9LcCBb6RxIrk1QDjU+Y=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-ham-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Germany (Hamburg)/Linux/Shared/index.json</Key><RequestId>PMYTG5417DPQKAB5</RequestId><HostId>PjK14c8Wpq3fu8fndY4M1FFdwAxmGgIO4UK7j4g8Qu9krvem53xpmA6LilDW4JlYqYI1RCTikNY=</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-lim-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Peru (Lima)/Linux/index.json</Key><RequestId>VSXVZ5XWKN1HW929</RequestId><HostId>a9NHgrtUTVek8/CDjUnGQjdwkdOQgz06KvPsqyvelnagSdMjDGJOuWyytrRaesR9nTru00mu26k=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Peru (Lima)/Linux/index.json</Key><RequestId>BXXBTSS07FF326JR</RequestId><HostId>IPIeeYh0WsSQf0FnporurCo3lYaztvVtGYEI5ycwM8w2H3dNq/s59o8QNZ4cfSeXmoK2eRohAdA=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-lim-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Peru (Lima)/Linux/index.json</Key><RequestId>XCYHN3WDY64JWD3R</RequestId><HostId>Vq1heInIRT3y9PKcVYugnge/95+NRhp8E2AKLGHi20UaBlGF20cIHR/gjovP4Nic4gJ08Es8xiA=</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-qro-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Mexico (Queretaro)/Linux/Shared/index.json</Key><RequestId>DN0F8MY581S15V3B</RequestId><HostId>Zlm2QjZmozJh3VXzLg4LIA8LNd6Yw5mxN22uG5TmoSRR+X9kg4zqJsB8X5HZwF11iLy5ywLXlhU=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Mexico (Queretaro)/Linux/Shared/index.json</Key><RequestId>F3W948F1V7Z7AMCT</RequestId><HostId>NFP10jCen4oGkGSY6YVsKKDI9EOB8G07mWALqh1tZbItUCj66Qi9nd2p9T2zOMMOvuUSWoPyWTwYGe9R+sob0g==</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-qro-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Mexico (Queretaro)/Linux/Shared/index.json</Key><RequestId>RKWS2HKJN8Q4SBRC</RequestId><HostId>CLlZC5k6KM06cnrPys3HVl3PirKAeqaeKRuOcPjamqM6IhixlsEwrGpnDM+VVG+YuUEUeOcMbIn4S8HBAN0IBq2ezAMghfgRrYScNXBWxTs=</HostId></Error>

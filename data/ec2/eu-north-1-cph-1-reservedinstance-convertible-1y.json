@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-north-1-cph-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Denmark (Copenhagen)/Linux/Shared/index.json</Key><RequestId>QPH7X0DEXBDEXAVT</RequestId><HostId>9pWiWRz0QKEQ4wueEOWmP2Uo3UanaNg5qbeL9unzDGO/qq/NnKdoXSs7JAjVWTYTlQKnQqm8I48=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Denmark (Copenhagen)/Linux/Shared/index.json</Key><RequestId>810W225E1JVTPYN9</RequestId><HostId>1nw3siJygdbtGuPdp66vMpmyKJan2ur2MOIH7FJMT3Yy2KTX90GmV8ypCgmRW/OP1/SCNmW61Kg=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-north-1-cph-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Denmark (Copenhagen)/Linux/Shared/index.json</Key><RequestId>PZECC9S6NNB55PSX</RequestId><HostId>1k2LvKczABBDVnQNYTf1c09kS2qy16HCuMBYyWNm5dt1hLPSNvg9ysX+WWLjScPVOTXEnn+3D/M=</HostId></Error>

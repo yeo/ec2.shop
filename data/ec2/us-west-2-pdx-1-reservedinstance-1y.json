@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-west-2-pdx-1-reservedinstance-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Portland)/Linux/Shared/index.json</Key><RequestId>R993SJ5TCYQDRVPR</RequestId><HostId>gsPrqHSSCKm710S3uFx1NEC+5APS69OerjVq3sZ9xrnLs1WF7q86CtDFYLnInGu8JjN0QMqzUTU=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Portland)/Linux/Shared/index.json</Key><RequestId>0A23K7BVW3C4DV1H</RequestId><HostId>JZIHQVXBNWoiYy2/R5e4eAle87iVi4kI9bQPkVSg+s0VS8Cy6e0AS8cEvTiwVgopNaqj7nyrung=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-pdx-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Portland)/Linux/Shared/index.json</Key><RequestId>873WHT3WX5CMSBZ2</RequestId><HostId>EIcCLjqcLY7xuX8y7Kbhei3GdnUvjXdLpmDdJZRkqyJYLxG1n4/u2j3mdoHiOv7hLWQxeW3OBFE=</HostId></Error>

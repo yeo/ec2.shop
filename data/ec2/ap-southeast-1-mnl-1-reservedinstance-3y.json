@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-1-mnl-1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>WM8ETE8548GNM7KA</RequestId><HostId>vjW7yw76EyMijz1zHzHRIR4cjSEgNZrdqSY1lFhAni9WhsAZR/4Ytz7m75EqEWNnwN6qm69nW1CPObr3vF0n/Q==</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>DX0N73ZGGACSBWFV</RequestId><HostId>b7CKvvZJ5dtT49gSzWRTdNzNo3tqno4fglXCyDuuVmSv/s7mAa6npaNvBpbRzmBX1YO7+I4fTy258oKCPwmclFTWON130mahZjslrrbRRY8=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-1-mnl-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Philippines (Manila)/Linux/Shared/index.json</Key><RequestId>QSVVDA1JYHAARFWY</RequestId><HostId>rQQgIl6CIk8j/RvqaBSb3fj3qOJ12SHiUkHuD15c0hmL7omjvtKS8LDfQO2RwmiXXpGDIZDbozQ=</HostId></Error>

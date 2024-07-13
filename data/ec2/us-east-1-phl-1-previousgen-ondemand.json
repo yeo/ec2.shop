@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-phl-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Philadelphia)/Linux/index.json</Key><RequestId>ZAZ0K4TR143BNKMH</RequestId><HostId>CZHTYroi6FhFqBGVYYE1zgXXpRFJvgZs9Q7s8ExVdUuZb1qP5XHQ3dzSdQ7WJ8nM6dfsoZEiCFE=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Philadelphia)/Linux/index.json</Key><RequestId>QQG9AB43Y09CD2C8</RequestId><HostId>TMBo8EWL00k8a4OzZ2Xg0P07dZsrPiTI8eUGnSHLFtrsJ9BRfMYQddPkvfQjL2DuB70fP3vy1UY=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-phl-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US East (Philadelphia)/Linux/index.json</Key><RequestId>9AXVBM53VECWCNT1</RequestId><HostId>MR+xBb89mlesWOlFA/G4ykehvRNjUQQEjnZB2xq2lGKuT16xp4ueGdDR7k7q0Qe3e+vRw/v26Bg=</HostId></Error>

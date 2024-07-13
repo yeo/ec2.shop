@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-2-per-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Australia (Perth)/Linux/Shared/index.json</Key><RequestId>M2X2MFGFM7KPQTMC</RequestId><HostId>s4Cd0Bj4Ivk0+EBjreadhKLukp6peuLH9k8nsJ9sRO1uH6DAD2f3UZUwk3WiQfXvrszmV9igqRA=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Australia (Perth)/Linux/Shared/index.json</Key><RequestId>8Z72BX27RBM5QE1T</RequestId><HostId>m9jil3eEQ7+/r6qxwRLGsZlhgV78UKXSBNq2dVivBW9NNri3I4oC4BM2DZHn76cfaYdj8OkM7Jc=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-2-per-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Australia (Perth)/Linux/Shared/index.json</Key><RequestId>9N7A9M4PF6EFY69Z</RequestId><HostId>o1+G1eAj7jFllcdJoN6dTl4ImHVreiumFJs01/OH/lMwb9UL5+uOpfZnOYbv/AG3I9BB8/3Do2iJzc77gyHH2DwIZaepNZXn</HostId></Error>

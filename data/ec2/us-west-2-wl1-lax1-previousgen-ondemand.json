@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-west-2-wl1-lax1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Los Angeles/Linux/index.json</Key><RequestId>G3AQZ85T369M89WT</RequestId><HostId>ojkN8qKt4KJ3jkSKVTcz60I8vOMmkgz2hFDAz49FEnCRg3A215ezLyDuxElNFxtEp08ddnCJNMeOgGq59WnUhNb7xegNOZUDMq4Mq7lVSRE=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Los Angeles/Linux/index.json</Key><RequestId>2M5R3A4HW3PA6C2F</RequestId><HostId>ImssnMZeYeWk/U3h26b2VFHqtL0V85i+Ejd2xtm0MNCvuRqoar2w8YcfJNkkAnVmN/QVxmC9qbw=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-wl1-lax1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Los Angeles/Linux/index.json</Key><RequestId>RVX3AJAG7PPD3YP0</RequestId><HostId>mI5Jzx5xVD+fDb+x4UXRBdMfyYzisnoYlBOLCaOIAFE65noqlmqEicGibExWlNwVU1zdSrL78JI=</HostId></Error>

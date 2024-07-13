@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-wl1-dtw1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Detroit/Linux/Shared/index.json</Key><RequestId>QKWF1B6FQE4Z4WZ9</RequestId><HostId>SCy95Sw3f933arYciOdQOmQ9W5vmdpqErGoYRFTe7wuAqmG/pUKZ6L2oXM8Df6hae4VFDKaycec=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Detroit/Linux/Shared/index.json</Key><RequestId>AQHMK8CXG79PKBQ0</RequestId><HostId>sMHqslu/bY+kedIRl3VFb8xACmNsq8u5x61LguEO3jvJbQ2Ej1br/Jmnmq3X/gmuL8Rpmn56EOs=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-wl1-dtw1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/US East (Verizon) - Detroit/Linux/Shared/index.json</Key><RequestId>256N7XXV3QPP8D64</RequestId><HostId>yCysjvF1CWM4k7neYbXI6oSSciFe0iOog0hiInyzS9YO1TjDmGlS1dft9q6qmR5Z26zB4cUVsaVFIldqwK59E9ntG6qwyqjZ</HostId></Error>

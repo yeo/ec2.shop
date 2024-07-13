@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-1-bkk-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Thailand (Bangkok)/Linux/index.json</Key><RequestId>HDHQENSPET639V3Z</RequestId><HostId>hNUl7Ai4aS/i1K5rQ7DBhKs4hFgO0cMoC097TChRnVACDCR/BDhk+l8aCCSpfLWZheoibsfBZf0=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Thailand (Bangkok)/Linux/index.json</Key><RequestId>T2DYRPT66FS93ZT3</RequestId><HostId>yBXdGl34fBR9wxXKL8XsRoovdEgiKJ3YWY8WoWvuVuX+Yw0wntvN9Nl5iN7MXsqopphxCsdC4iroKrLbZy2kAzO9gHAverTV</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-1-bkk-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Thailand (Bangkok)/Linux/index.json</Key><RequestId>BHXBHZVXJGJGXY2H</RequestId><HostId>G8GKj41sAt5WIj7FjNhF9oGXZV3CV7hbFrWfEolDkg9thEPGfY3+2XRhPkm6hTvdmTpFhX5kYQg=</HostId></Error>

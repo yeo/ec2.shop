@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/af-south-1-los-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>895KHD79P9BDSSBM</RequestId><HostId>TktS827SGACH//Q3zJ0AdNwI7AQGn/Hu32zESJ/JSmi1Qglxofw8f/wf5MKEowgHsyyYBkd3FBo=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>FQAYBW3H2FGNKY9H</RequestId><HostId>v6lfy85o7lX+EUE9JYHLJZWNKxxzJOTY4GnR4/kDZSESbr5yrZO8kDFFPevrjNkRJ0wVzwVhHRwcqE4ZSDALBjs+O5I9GotB</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/af-south-1-los-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Nigeria (Lagos)/Linux/Shared/index.json</Key><RequestId>80A57AW3XMG1X4XW</RequestId><HostId>Mp0VViAGHuamcVaPQlGXnpgRjJuei1fL2dtmNT7pO4B2dEDYVt01gUBnf+y2mYJeatN9rIXKh5k=</HostId></Error>

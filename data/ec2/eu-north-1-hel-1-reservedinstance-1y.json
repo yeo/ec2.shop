@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-north-1-hel-1-reservedinstance-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Finland (Helsinki)/Linux/Shared/index.json</Key><RequestId>2B8Z7011YFK5DSKZ</RequestId><HostId>f239ppptEUcDg6+oS0lyHxDIabJ0075r7FdJ5XJlvoNHzmSwLsBRXeIhbVa6jhdoDkRLZfM2w3A=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Finland (Helsinki)/Linux/Shared/index.json</Key><RequestId>VRKE7244X21WTW2Q</RequestId><HostId>QZBTC/ht4ZYmEx2NCliqezhG8RKeeTTHdoIwVoWJeSmXu5z2DtUeXWKfjT7zuZ4WJEO5LieGq+E=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-north-1-hel-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/Finland (Helsinki)/Linux/Shared/index.json</Key><RequestId>YJKPVDGDY3PQ17H5</RequestId><HostId>VjsNW43VeVb/S6qSh2wP+9N1ZlVjfwJL34/vFL41Mqr4edTzg32o4OR0GSDxxlnWkKuCaj1LAiM=</HostId></Error>

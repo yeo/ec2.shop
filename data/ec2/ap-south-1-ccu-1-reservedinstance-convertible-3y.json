@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-south-1-ccu-1-reservedinstance-convertible-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/India (Kolkata)/Linux/Shared/index.json</Key><RequestId>82NSZV3FDW05MQTJ</RequestId><HostId>8o9KI6fK8Ww4gIGzWvWE+3lynnyZZBDgNvEw1aLZ+jWY1j+jVP3s7Hec+Hep43mBpV9iocm+gyA=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/India (Kolkata)/Linux/Shared/index.json</Key><RequestId>DR2SDV884R87TNE4</RequestId><HostId>GahLPHfn4nonlS9dCKv7zllRMJBoVXaZZkg64ZiND4bh3HMpuE9ywRivFC4MdfqXVJGDv7CqLBQ=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-south-1-ccu-1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/India (Kolkata)/Linux/Shared/index.json</Key><RequestId>43NMAFNEDNP7GMRS</RequestId><HostId>6w0KHdImAaNjCV+c2nmoJ3Cmaees0L0+TJqi1Min4pXm/ygDiv4769BOgn8I5MfGn5y5b+uMUwTNRKgkLhgfmeV+JV/Qwcvp</HostId></Error>

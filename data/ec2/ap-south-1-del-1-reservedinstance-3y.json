@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-south-1-del-1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/India (Delhi)/Linux/Shared/index.json</Key><RequestId>TGJH8BKG5E5CB9MP</RequestId><HostId>q30sAbO51LgNvvthe0W7eBS8yFrq7mYQxV/uWj535JQgHzKWldxXUiCaw76u9RX9CVUFnl/QJLE=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/India (Delhi)/Linux/Shared/index.json</Key><RequestId>NKKN2RWH26TXG773</RequestId><HostId>jYwr+hL1ZnRZpEwiUPqtbKnrpDjoJodxU+KO2puLzCXt0TcYGfHDvp0T7eaTFQlA5doL2sJtTcE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-south-1-del-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/India (Delhi)/Linux/Shared/index.json</Key><RequestId>09SS8YZ7VETH20HV</RequestId><HostId>l/4dFhiT/NNaPU67TK9Tx10yO80yucRAvvXG5Q7/KvuOF6KvMhE7gfiSdByATwscIG/HqfuKGCVbK+hcbd4aKTCMHWP8rNGv</HostId></Error>

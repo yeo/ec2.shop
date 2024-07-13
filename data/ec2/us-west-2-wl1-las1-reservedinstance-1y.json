@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-west-2-wl1-las1-reservedinstance-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Verizon) - Las Vegas/Linux/Shared/index.json</Key><RequestId>F74DKW3ZV7JEMT40</RequestId><HostId>yd2wWuQY6rmL66Qp/8g4b3uMTrFcDM2EXDJUDBKWYbp0Kgio0SLsADdw/ZhIBQeGRYVQtu0ozVPCnAJMHkrHBz2/yF7A5+MsFm++7PfznAw=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Verizon) - Las Vegas/Linux/Shared/index.json</Key><RequestId>VA9Q7NMSMWRG136S</RequestId><HostId>pIPzMQJhMX/tuy+igmY9xBvYoqscywzrZL5bucFfS0fvXfG4lp96Rn/aRziMSRsQGwZyg6zJ8fs=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-west-2-wl1-las1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Verizon) - Las Vegas/Linux/Shared/index.json</Key><RequestId>7ZTZMRPVFF60VGNA</RequestId><HostId>lk+TrmyRrZPPFRJk8Y5T+fhLjiCHjt3seFVJ+qITmAQBYwfmGbCdyjVov2jvOqQ9o3wfn84LSYc+++e2Pp616w==</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-1-tpe-1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Taiwan (Taipei)/Linux/Shared/index.json</Key><RequestId>ZB0FE8SMAKX47K9X</RequestId><HostId>KgfMZbPWZ9c9ZFET9WCW50w8xtjE2JZbXeyEBd+1LgoP8cML5jXYUUWQsOCtzbny8nHgsGVnQHA=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Taiwan (Taipei)/Linux/Shared/index.json</Key><RequestId>J0G8JRHW6F78Q7TD</RequestId><HostId>t1HwcbgVC9YD3D4UXVF0XHNuf7T9uc2UtAmLUcJCvJyf0bqV7YCcbySsNr7Fdjfby2+ZiOXvEjk=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-tpe-1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Taiwan (Taipei)/Linux/Shared/index.json</Key><RequestId>ZFG5W6Z63R5JSTVF</RequestId><HostId>zUU9Xb1xBBbchm7QsUK83uA5nRQKDTQsNo+D6fMBJNXsDauy6pxDhQENe6gBuI5J/Alq1nKdYBo=</HostId></Error>

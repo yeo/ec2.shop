@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-central-1-waw-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Poland (Warsaw)/Linux/index.json</Key><RequestId>KHNTMBGV4HTTEZ06</RequestId><HostId>UPdKdUfVvOCubHH6vFSSvRZCswNBxEhi33TVYlP1E0rGHk3GMYcW+yRB9BSnTRJ5fxFzJ1WONcQ=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Poland (Warsaw)/Linux/index.json</Key><RequestId>ZG98ZKTR1ZZWBFEY</RequestId><HostId>iNJjV376HQz/f28pUckLf8mQ9R91IYEWULQhRb/mus2NYWZ5GosQwGH7Nf0am3DYJyQYARiF8zlo35jHxnJC5s5bSxbeQn24</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-waw-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Poland (Warsaw)/Linux/index.json</Key><RequestId>X81B21FHT1J0PE2M</RequestId><HostId>W3LLzMW5XL/KInunvHSMueOKswnzsewYw/Al6hMjqLpjCOJcFXtKxiI5O/Ge1yR1KImab8yelFI=</HostId></Error>

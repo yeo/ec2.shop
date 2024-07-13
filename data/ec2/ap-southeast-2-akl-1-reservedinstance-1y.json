@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-2-akl-1-reservedinstance-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/New Zealand (Auckland)/Linux/Shared/index.json</Key><RequestId>S7JXJF17Y0Z3D57A</RequestId><HostId>zBFdaMNFXaC5hdufkX5fEhVo/2b9G8AY2QiI0hI6Wrn+WCsOjegf/LBd7+9OJ2i87iLalMJO65g=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/New Zealand (Auckland)/Linux/Shared/index.json</Key><RequestId>QTSZXWQJWN8QH3SF</RequestId><HostId>ath55xSthDOtOvQDIj0vIoL8WBLa0Ztd0zj1vSnD0+e0Z9B0pOEdnUxRSWFThqHgq7PqhVttHuo=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-2-akl-1-reservedinstance-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/New Zealand (Auckland)/Linux/Shared/index.json</Key><RequestId>FSNGK7EM8XGS692M</RequestId><HostId>jX8Fq5f3WVSvOg7KAaIOHcAXRPF4I5ZCv8hokWp03Pp4YFBZAtiePPcOBAC9UUB6DYl2Ab30nRc=</HostId></Error>

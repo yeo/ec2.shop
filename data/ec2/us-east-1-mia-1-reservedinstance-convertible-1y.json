@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-mia-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Miami)/Linux/Shared/index.json</Key><RequestId>DFDTQKC3PSWVXNK7</RequestId><HostId>n+K1bLInqvjRasW9C7iDMLHqKzSK7gva6mTeeEcjV6hPTDnUrP5hTKl9Oe+emCSQgRYeuTCaSpm8fsmsJCUrORY1cy4Q3jmVyiSIDmU2cwc=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Miami)/Linux/Shared/index.json</Key><RequestId>Y7X2926NZ56H8EXT</RequestId><HostId>lwKBzXCeLwP1BYP5sQAwjSOuOBUs+HZo2Jpf4Fyl5A5QoU2ox258a2nQticWKA/8b1IA5rHHnycNccjB71EG/EKhbnhuIxdz</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-mia-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Miami)/Linux/Shared/index.json</Key><RequestId>HCG7X9NXEB1B1QKB</RequestId><HostId>IWpXwWC6nta1dUQJXEk1WeNgs4zfsL4hWG2oqlhqBDhcCg7lCiFPPLRGxhse6Z+CQRQtQA6TGFba0Q8EiOuRQhmgCx0NXh2WFEBA+EjZXOk=</HostId></Error>

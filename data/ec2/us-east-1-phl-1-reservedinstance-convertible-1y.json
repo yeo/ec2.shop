@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-phl-1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Philadelphia)/Linux/Shared/index.json</Key><RequestId>YF75W0QRE2ABZ5K7</RequestId><HostId>MhZ5QONEh1vNIPNamQ9bNofWbI2TtExMX8NY4fvmt/hMaDr3GRCDUAhecN6n3Jh08aj/JlIgtso=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Philadelphia)/Linux/Shared/index.json</Key><RequestId>63BXF8FHFXCX2C15</RequestId><HostId>jv4svbjDJ2Jq+SaUOntbiPszA9aDgJgzjv6O1bXnoUJ3ukVpcpCbwI4Scd98ZqhIGPDwkN/+SwE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-phl-1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/US East (Philadelphia)/Linux/Shared/index.json</Key><RequestId>3Y8016JKVN18NSMD</RequestId><HostId>urVc4SGRVaSFdy9+IKQW7IkWoxnIBRUOpvZ3HdzvOVrVEWW9Wddd7j+W0ErR74IXdmahBuG3wqye4rhvR4dxXbMd7Yvl/o/NNdWclxJO1No=</HostId></Error>

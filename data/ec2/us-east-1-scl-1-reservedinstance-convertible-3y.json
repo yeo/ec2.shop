@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-scl-1-reservedinstance-convertible-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Chile (Santiago)/Linux/Shared/index.json</Key><RequestId>0HH3402MARW4KHP6</RequestId><HostId>P5UAx6hdUbqjc7nue/hGhKU97pKbabFoohzzKGFVEJxfQXdXz0KqYHD5Z87ROOjhi7vPpkhGpyo=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Chile (Santiago)/Linux/Shared/index.json</Key><RequestId>ZJAMP42MVJFSYH39</RequestId><HostId>4U9SMJzWWvsrdvbwXuxe7JFUxZ7SvYUn4gkiH4MlN1Yo5kIyZUr8bM9pdgN2dRdgIcsh8e1cI4k=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-scl-1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Chile (Santiago)/Linux/Shared/index.json</Key><RequestId>XR4RMNDD5YQGM7EG</RequestId><HostId>dYL8dBJOrXwSHOTH/RcSbidpyeLLlZtOJB6IAY2xb5D19ume1bQ8PMf899Nf9sr3Kbj2K5qmyKA=</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/us-east-1-qro-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Mexico (Queretaro)/Linux/index.json</Key><RequestId>B1H8DCYQNAHZ3587</RequestId><HostId>eicKqS5CEwiHl6vldjP5cb0jZqhQbBQ+cRuLyGpR4z/SuKvaJb8HMKoBQvJCOFKh9TfS0nAOPV4pvF6T17AoYw==</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Mexico (Queretaro)/Linux/index.json</Key><RequestId>SPA3EF1JGN5EPJA4</RequestId><HostId>HuycA2GN0YROQ65JFex5q3OpSSgJnb9vYwNe2J9ff8YmsU/QIXW01kNI5pvp0b8Civ87cWmKM5A=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/us-east-1-qro-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Mexico (Queretaro)/Linux/index.json</Key><RequestId>SQD1AHP1PVVT91VE</RequestId><HostId>5Lj9IHN+87Y0cIpjDohvrfdDWKmR+xR0/c41sxm4/6hOWsXAKypKdjgLGW/qJOc9VS01BbpMfkMKnlHpjmzw/UVGKqffeZjySaywUu85YMk=</HostId></Error>
