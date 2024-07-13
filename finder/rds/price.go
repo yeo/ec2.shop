@@ -122,9 +122,9 @@ func PriceFromRequest(priceData PriceByInstanceType, requestRegion string, keywo
 
 		for _, kw := range keywords {
 			if kw.IsText() {
-				if strings.Contains(m.InstanceType, kw.Text()) ||
-					strings.Contains(m.Storage, kw.Text()) ||
-					strings.Contains(m.NetworkPerformance, kw.Text()) {
+				if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) ||
+					strings.Contains(strings.ToLower(m.Storage), kw.Text()) ||
+					strings.Contains(strings.ToLower(m.NetworkPerformance), kw.Text()) {
 					matched = true
 					// For text base, we do an OR, therefore we bait as soon as
 					// we matched
