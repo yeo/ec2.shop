@@ -149,6 +149,20 @@ new gridjs.Grid({
       columns: [{
         name: 'Hourly',
         width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
+
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+        }
+
       }, {
         name: 'Monthly',
         width: '40px',
@@ -173,9 +187,35 @@ new gridjs.Grid({
       columns: [{
         name: "1 standby",
         width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
+
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+        }
       }, {
         name: "2 standby",
         width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
+
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+        }
       }]
     },
     {

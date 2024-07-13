@@ -45,7 +45,7 @@
                {{ if eq .svc "rds" }}aria-current="page"{{ end }}
                >RDS</a>
 
-            <a href="/mq"
+            <!--<a href="/mq"
                class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
                {{ if eq .svc "mq" }}aria-current="page"{{ end }}
                >MQ</a>
@@ -53,7 +53,7 @@
             <a href="/msk"
                class="{{ if eq .svc "msk" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
                {{ if eq .svc "msk" }}aria-current="page"{{ end }}
-               >MSK</a>
+               >MSK</a>-->
           </nav>
         </div>
       </div>
@@ -75,10 +75,11 @@
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">price</span>
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">spot_price</span>.
             </p>
-            <h3 class="text-base font-semibold leading-6 text-gray-900 content-center">
-              <a href="https://github.com/yeo/ec2.shop#api-document" class="focus:outline-none">Docs&amp; API</a>&nbsp;
-			</h3>
             <p class="mt-2 text-sm text-gray-500">
+              <a href="https://github.com/yeo/ec2.shop#api-document"
+                  class="rounded bg-white px-2 py-1 text-xs font-semibold
+                  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                  hover:bg-gray-50">Docs&amp; API</a>&nbsp;
 			  <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/yeo/ec2.shop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star yeo/ec2.shop on GitHub">Star ec2.shop on Github</a> 
             </p>

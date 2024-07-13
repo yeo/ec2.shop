@@ -155,7 +155,22 @@ new gridjs.Grid({
       name: 'Price',
       width: '90px',
       columns: [
-        { name: 'Hourly' },
+        {
+          name: 'Hourly',
+          sort: {
+            compare: (a, b) => {
+              const code = (x) => parseFloat(x)
+
+              if (code(a) > code(b)) {
+                return 1;
+              } else if (code(b) > code(a)) {
+                return -1;
+              } else {
+                return 0;
+              }
+            }
+          }
+        },
         {
           name: 'Monthly',
           sort: {
@@ -204,9 +219,9 @@ new gridjs.Grid({
                   "NA": -1,
                   "<5%": 0,
                   "5-10%": 1,
-	              "10-15%": 2,
-	              "15-20%": 3,
-	              ">20%": 4,
+                  "10-15%": 2,
+                  "15-20%": 3,
+                  ">20%": 4,
               }
 
               const code = (x) => range[x]
