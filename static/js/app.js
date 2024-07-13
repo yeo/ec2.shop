@@ -116,7 +116,7 @@ let params = new URL(document.location.toString()).searchParams;
 const dataGridOptions = {}
 dataGridOptions.ec2 = {
   server: {
-    url: '/?json&' + params.toString(),
+    url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
       //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [
@@ -248,9 +248,9 @@ dataGridOptions.ec2 = {
   ],
 }
 
-dataGridOptions.rds = {
+dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariadb"] = {
   server: {
-    url: '/rds?json&' + params.toString(),
+    url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
       //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [

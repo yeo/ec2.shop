@@ -42,7 +42,17 @@
             <a href="/rds"
                class="{{ if eq .svc "rds" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
                {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-               >RDS</a>
+               >RDS(Postgres)</a>
+
+            <a href="/rds-mysql"
+               class="{{ if eq .svc "rds-mysql" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >RDS(MySQL)</a>
+
+            <a href="/rds-mariadb"
+               class="{{ if eq .svc "rds-mariadb" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >RDS(MariaDB)</a>
 
             <!--<a href="/mq"
                class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
@@ -72,7 +82,7 @@
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">mem</span>
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">cpu</span>
             <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">price</span>
-            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">spot_price</span>.
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">spot_price</span>
               <a href="https://github.com/yeo/ec2.shop#api-document"
                   class="rounded bg-white px-2 py-1 text-xs font-semibold
                   text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
@@ -83,17 +93,25 @@
 			  <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/yeo/ec2.shop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star yeo/ec2.shop on GitHub">Star ec2.shop on Github</a> 
             </p>
+
+            <p class="mt-4 text-sm text-orange-700">
+              <a href="https://hetzner.cloud/?ref=1v914Zy82wkv">Looking for more
+                  affordable server? Try Hetzner Cloud and receive € 20 in
+                  Hetzner Cloud credits</a>
+            </p>
           </div>
         </div>
         <div class="group relative bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
           <div class="">
             <div class="overflow-hidden">
               <div class="terminal-container">
-                <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="padding: 0.5em; max-height: 200px;">
+                <div id="termynal" data-termynal data-ty-typeDelay="40"
+                    data-ty-lineDelay="700" style="padding: 0.5em; max-height: 220px;">
                   <span data-ty="input">curl -L 'ec2.shop'</span>
                   <span data-ty="input">curl -L 'ec2.shop' -H 'accept: json'</span>
                   <span data-ty="input">curl -L 'ec2.shop?region=us-west-2'</span>
                   <span data-ty="input">curl -L 'ec2.shop?region=us-west-2&filter=m4,m5,ssd,mem&gt;=3,mem&lt;=4,vcpu&gt;=2&sort=-price,+cpu'</span>
+                  <span data-ty="input">curl -L 'ec2.shop?price&lt;=0.05&sort=-price,+cpu'</span>
                 </div>
               </div>
             </div>
