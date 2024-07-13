@@ -2,32 +2,13 @@ body {
   --color-bg: #ddd;
   --color-text: #1a1e24;
   --color-text-subtle: #D76D77;
-
-  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
-  background: rgb(213, 204, 186);
-
 }
 
 .terminal-container {
   display: flex;
   justify-content: center;
-  margin: 2em 0;
 }
 
-.info {
-  display: flex;
-  justify-content: center;
-  margin:0;
-}
-
-.info a {
-  color: #D76D77;
-  font-size: 1.2em;
-}
-
-
-#price-grid-container {
-}
 
 .region-picker {
   float: left;
@@ -229,6 +210,7 @@ td.gridjs-td {
   padding: 12px 24px;
   background-color: #fff;
   box-sizing: content-box;
+  font-size: 0.9rem;
 }
 td.gridjs-td:first-child {
   border-left: none;

@@ -11,17 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 
-	<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
           }
         }
       }
-    }
-  	</script>
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
 
@@ -30,66 +30,92 @@
     <link rel="mask-icon" href="/static/icon/favicon.svg" color="#ff8a01">
   </head>
   <body>
+    <div class="bg-white">
+      <div>
+        <div class="sm:block">
+          <nav class="flex space-x-4" aria-label="Tabs">
+            <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
+            <a href="/"
+               class="{{ if eq .svc "ec2" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
+               {{ if eq .svc "ec2"}}aria-current="page"{{ end }}
+               >EC2</a>
 
-<div>
-  <div class="sm:block">
+            <a href="/rds"
+               class="{{ if eq .svc "rds" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >RDS</a>
 
-    <nav class="flex space-x-4" aria-label="Tabs">
-      <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
-      <a href="/"
-        class="{{ if eq .svc "ec2" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
-        {{ if eq .svc "ec2"}}aria-current="page"{{ end }}
-      >EC2</a>
+            <a href="/mq"
+               class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "mq" }}aria-current="page"{{ end }}
+               >MQ</a>
 
-      <a href="/rds"
-        class="{{ if eq .svc "rds" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-        {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-      >RDS</a>
+            <a href="/msk"
+               class="{{ if eq .svc "msk" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "msk" }}aria-current="page"{{ end }}
+               >MSK</a>
+          </nav>
+        </div>
+      </div>
 
-      <a href="/mq"
-        class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-        {{ if eq .svc "mq" }}aria-current="page"{{ end }}
-      >MQ</a>
-
-      <a href="/msk"
-        class="{{ if eq .svc "msk" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-        {{ if eq .svc "msk" }}aria-current="page"{{ end }}
-      >MSK</a>
-
-
-    </nav>
-  </div>
-</div>
-    <!-- the termynal container -->
-    <div class="terminal-container">
-      <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="padding: 0.5em; min-height: 150px;">
-        <span data-ty="input">curl 'https://ec2.shop'</span>
-        <span data-ty="input">curl 'https://ec2.shop?region=us-west-2'</span>
-        <span data-ty="input">curl 'https://ec2.shop?region=us-west-2&filter=m4,m5,ssd'</span>
-        <span data-ty="input">curl 'https://ec2.shop' -H 'accept: json'</span>
-        <span data-ty="input">curl
-            'https://ec2.shop?region=us-west-2&filter=m4,m5,ssd,mem&gt;=3,mem&lt;=4,vcpu&gt;=2'</span>
+      <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+        <div class="group relative rounded-tl-lg rounded-tr-lg bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-none">
+          <div class="m-8">
+            <p class="mt-2 text-sm text-gray-500">
+            You can also search like this in the search box, or pass to the API filter. <span style="color:red;">r5,cpu&lt;=16,mem&gt;=16,price&lt;=4</span>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+            Or to find server with ssd, but limit cpu, mem, and price range
+            <span style="color:red;">ssd,cpu&gt;=32,cpu&lt;=48,mem&gt;=32,price&gt;=10</span>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+            Supported variable:
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">mem</span>
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">cpu</span>
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">price</span>
+            <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">spot_price</span>.
+            </p>
+            <h3 class="text-base font-semibold leading-6 text-gray-900 content-center">
+              <a href="https://github.com/yeo/ec2.shop#api-document" class="focus:outline-none">Docs&amp; API</a>&nbsp;
+			</h3>
+            <p class="mt-2 text-sm text-gray-500">
+			  <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/yeo/ec2.shop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star yeo/ec2.shop on GitHub">Star ec2.shop on Github</a> 
+            </p>
+          </div>
+        </div>
+        <div class="group relative bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
+          <div class="">
+            <div class="overflow-hidden">
+              <div class="terminal-container">
+                <div id="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700" style="padding: 0.5em; max-height: 200px;">
+                  <span data-ty="input">curl -L 'ec2.shop'</span>
+                  <span data-ty="input">curl -L 'ec2.shop' -H 'accept: json'</span>
+                  <span data-ty="input">curl -L 'ec2.shop?region=us-west-2'</span>
+                  <span data-ty="input">curl -L 'ec2.shop?region=us-west-2&filter=m4,m5,ssd,mem&gt;=3,mem&lt;=4,vcpu&gt;=2&sort=-price,+cpu'</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="info">
-      <p style="text-align: center">
-            You can also search like this
-            <span style="color:
-                  red;">ssd,cpu&gt;=32,cpu&lt;=48,mem&gt;=32,price&gt;=10</span>.&nbsp;<a
-            href="https://github.com/yeo/ec2.shop#api-document">Docs&amp; API</a>
-      </p>
-    </div>
-
     <div id="price-grid-container">
-      <select name="region" id="region-picker" class="region-picker" onchange="window.location = '?region=' + this.value">
+      <select name="region" id="region-picker" class="region-picker rounded border border-grey-500" onchange="window.location = '?region=' + this.value">
         {{ $currentRegion := index . "currentRegion" }}
         {{ range $index, $val := index . "regions" }}
-          <option {{ if eq $currentRegion $val }}selected{{ end }} value="{{ $val }}">{{ $val }}</option>
+        <option {{ if eq $currentRegion $val }}selected{{ end }} value="{{ $val }}">{{ $val }}</option>
         {{ end }}
-        </select>
+      </select>
       <div id="price-grid"></div>
     </div>
+    </div>
+
     <script src="/static/js/{{ index . "svc" }}.js?ts={{ index . "ts" }}"></script>
+    <script src="/static/js/termynal.min.js?ts={{ index . "ts" }}"  data-termynal-container="#termynal"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
+
