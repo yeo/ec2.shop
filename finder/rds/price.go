@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"maps"
 	"slices"
-	"strconv"
 	"strings"
 
 	"github.com/yeo/ec2shop/finder/common"
@@ -52,7 +51,6 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 	}
 
 	itemPrices := make(map[string]*Price)
-	fmt.Println("[rds] loaded price", r, priceList.Regions[r])
 
 	for name, priceItem := range priceList.Regions[r] {
 		priceItem.Build()
@@ -71,14 +69,11 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 		}
 
 		if strings.Contains(name, "Multi-AZ readable") {
-			itemPrices[price.ID].MultiAZ2, _ = strconv.ParseFloat(priceItem.Price, 64)
-			fmt.Println("[rds] load multi-az2 price", price.ID, itemPrices[price.ID].MultiAZ2)
+			itemPrices[price.ID].MultiAZ2 = priceItem.PriceFloat
 		} else if strings.Contains(name, "Single-AZ") {
-			itemPrices[price.ID].Price, _ = strconv.ParseFloat(priceItem.Price, 64)
-			fmt.Println("[rds] load single-az price", price.ID, itemPrices[price.ID].Price)
+			itemPrices[price.ID].Price = priceItem.PriceFloat
 		} else {
-			itemPrices[price.ID].MultiAZ, _ = strconv.ParseFloat(priceItem.Price, 64)
-			fmt.Println("[rds] load multi-az price", price.ID, itemPrices[price.ID].MultiAZ)
+			itemPrices[price.ID].MultiAZ = priceItem.PriceFloat
 		}
 
 	}
@@ -97,13 +92,34 @@ func Discover(r string) map[string]*Price {
 		maps.Copy(regionalPrice, onDemandPrice)
 	}
 
-	//for _, generation := range []string{
-	//	"rds-postgresql-reservedinstance-multi-az-1y",
-	//	"rds-postgresql-reservedinstance-multi-az-3y",
-	//	"rds-postgresql-reservedinstance-single-az-1y",
-	//	"rds-postgresql-reservedinstance-single-az-3y",
-	//} {
-	//}
+	for _, generation := range []string{
+		"rds-postgresql-reservedinstance-multi-az-1y",
+		"rds-postgresql-reservedinstance-multi-az-3y",
+		"rds-postgresql-reservedinstance-single-az-1y",
+		"rds-postgresql-reservedinstance-single-az-3y",
+	} {
+		filename := "./data/rds/" + r + "-" + generation + ".json"
+		riPriceList, err := common.LoadPriceJsonManifest(filename)
+		if err != nil {
+			continue
+		}
+
+		for _, priceItem := range riPriceList.Regions[r] {
+			priceItem.Build()
+
+			switch generation {
+			case "rds-postgresql-reservedinstance-multi-az-1y":
+				regionalPrice[priceItem.InstanceType].Reserved1yMultiAZ = priceItem.PriceFloat * 2
+			case "rds-postgresql-reservedinstance-multi-az-3y":
+				regionalPrice[priceItem.InstanceType].Reserved3yMultiAZ = priceItem.PriceFloat * 2
+			case "rds-postgresql-reservedinstance-single-az-1y":
+				regionalPrice[priceItem.InstanceType].Reserved1y = priceItem.PriceFloat
+			case "rds-postgresql-reservedinstance-single-az-3y":
+				regionalPrice[priceItem.InstanceType].Reserved3y = priceItem.PriceFloat
+			}
+		}
+
+	}
 
 	fmt.Printf("[rds]found %d rds price for region %s\n", len(regionalPrice), r)
 

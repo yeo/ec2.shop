@@ -67,7 +67,7 @@ func (p SearchResult) RenderText(c echo.Context) error {
 		"Price",
 		"Monthly",
 		"MultiAZ",
-		"MultiAZ 2 standby",
+		"MultiAZ(2 standby)",
 	)
 
 	for _, price := range p {

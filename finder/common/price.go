@@ -32,6 +32,8 @@ type PriceAttribute struct {
 	RawVCPU string `json:"vCPU"`
 	VCPU    int64  `json:"-"`
 
+	PriceFloat float64 `json:"-"`
+
 	MemoryGib float64 `json:"-"`
 	VCPUFloat float64 `json:"-"`
 
@@ -50,6 +52,8 @@ func (a *PriceAttribute) Build() {
 	}
 	a.VCPU, _ = strconv.ParseInt(a.RawVCPU, 10, 64)
 	a.VCPUFloat = float64(a.VCPU)
+
+	a.PriceFloat, _ = strconv.ParseFloat(a.Price, 64)
 }
 
 type PriceMap = map[string]*PriceAttribute
@@ -84,7 +88,7 @@ func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
 
 func ValueOrNA(v float64) string {
 	if v > 0 {
-		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 4, 64))
+		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 20, 64))
 	}
 
 	return "NA"

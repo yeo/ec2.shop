@@ -65,6 +65,8 @@ new gridjs.Grid({
         price.MultiAZ2,
         price.Reserved1yPrice,
         price.Reserved3yPrice,
+        price.Reserved1yMultiAZ,
+        price.Reserved3yMultiAZ,
       ])
     }
   },
