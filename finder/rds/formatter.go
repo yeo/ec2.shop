@@ -13,14 +13,16 @@ type FriendlyPrice struct {
 	Memory       string
 	VCPUS        int64
 	Network      string
-	Cost         float64
+	Cost         string
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
-	MonthlyPrice float64
+	MonthlyPrice string
+	MultiAZ      string
+	MultiAZ2     string
 
-	Reserved1yPrice            float64
-	Reserved3yPrice            float64
-	Reserved1yConveritblePrice float64
-	Reserved3yConveritblePrice float64
+	Reserved1yPrice   float64
+	Reserved3yPrice   float64
+	Reserved1yMultiAZ float64
+	Reserved3yMultiAZ float64
 }
 
 type FriendlyPriceResponse struct {
@@ -34,16 +36,18 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 
 	for i, v := range p {
 		formattedResp.Prices[i] = &FriendlyPrice{
-			InstanceType:               v.Attribute.InstanceType,
-			Memory:                     v.Attribute.Memory,
-			VCPUS:                      v.Attribute.VCPU,
-			Network:                    v.Attribute.NetworkPerformance,
-			Cost:                       v.Price,
-			MonthlyPrice:               common.MonthlyPrice(v.Price),
-			Reserved1yPrice:            v.Reserved1y,
-			Reserved3yPrice:            v.Reserved3y,
-			Reserved1yConveritblePrice: v.Reserved1yConveritble,
-			Reserved3yConveritblePrice: v.Reserved3yConveritble,
+			InstanceType:      v.Attribute.InstanceType,
+			Memory:            v.Attribute.Memory,
+			VCPUS:             v.Attribute.VCPU,
+			Network:           v.Attribute.NetworkPerformance,
+			Cost:              common.ValueOrNA(v.Price),
+			MonthlyPrice:      common.ValueOrNA(common.MonthlyPrice(v.Price)),
+			MultiAZ:           common.ValueOrNA(v.MultiAZ),
+			MultiAZ2:          common.ValueOrNA(v.MultiAZ2),
+			Reserved1yPrice:   v.Reserved1y,
+			Reserved3yPrice:   v.Reserved3y,
+			Reserved1yMultiAZ: v.Reserved1yMultiAZ,
+			Reserved3yMultiAZ: v.Reserved3yMultiAZ,
 		}
 	}
 
@@ -62,6 +66,8 @@ func (p SearchResult) RenderText(c echo.Context) error {
 		"Network",
 		"Price",
 		"Monthly",
+		"MultiAZ",
+		"MultiAZ 2 standby",
 	)
 
 	for _, price := range p {
@@ -72,7 +78,9 @@ func (p SearchResult) RenderText(c echo.Context) error {
 			m.VCPU,
 			m.NetworkPerformance,
 			price.Price,
-			common.MonthlyPrice(price.Price))
+			common.MonthlyPrice(price.Price),
+			price.MultiAZ,
+			price.MultiAZ2)
 	}
 
 	return c.String(http.StatusOK, priceText)

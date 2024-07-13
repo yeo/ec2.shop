@@ -2,6 +2,7 @@ package common
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"math"
 	"strconv"
@@ -79,4 +80,12 @@ func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
 	}
 
 	return &priceList, err
+}
+
+func ValueOrNA(v float64) string {
+	if v > 0 {
+		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 4, 64))
+	}
+
+	return "NA"
 }

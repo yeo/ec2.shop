@@ -18,12 +18,14 @@ type Price struct {
 
 	RawPrice *common.RawPrice `json:"price"`
 
-	Price float64 `json:"-"`
+	Price    float64 `json:"-"`
+	MultiAZ  float64 `json:"-"`
+	MultiAZ2 float64 `json:"-"`
 
-	Reserved1y            float64 `json:"-"`
-	Reserved3y            float64 `json:"-"`
-	Reserved1yConveritble float64 `json:"-"`
-	Reserved3yConveritble float64 `json:"-"`
+	Reserved1y        float64 `json:"-"`
+	Reserved3y        float64 `json:"-"`
+	Reserved1yMultiAZ float64 `json:"-"`
+	Reserved3yMultiAZ float64 `json:"-"`
 
 	Attribute *common.PriceAttribute `json:"attributes"`
 }
@@ -46,13 +48,13 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 	filename := "./data/rds/" + generation + ".json"
 	priceList, err := common.LoadPriceJsonManifest(filename)
 	if err != nil {
-		panic(err)
+		panic(fmt.Errorf("error load json manifest: %w", err))
 	}
 
 	itemPrices := make(map[string]*Price)
 	fmt.Println("[rds] loaded price", r, priceList.Regions[r])
 
-	for _, priceItem := range priceList.Regions[r] {
+	for name, priceItem := range priceList.Regions[r] {
 		priceItem.Build()
 
 		price := &Price{
@@ -60,9 +62,25 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 			Attribute: priceItem,
 		}
 
-		price.Price, _ = strconv.ParseFloat(priceItem.Price, 64)
+		if price.ID == "" {
+			continue
+		}
 
-		itemPrices[price.ID] = price
+		if _, ok := itemPrices[price.ID]; !ok {
+			itemPrices[price.ID] = price
+		}
+
+		if strings.Contains(name, "Multi-AZ readable") {
+			itemPrices[price.ID].MultiAZ2, _ = strconv.ParseFloat(priceItem.Price, 64)
+			fmt.Println("[rds] load multi-az2 price", price.ID, itemPrices[price.ID].MultiAZ2)
+		} else if strings.Contains(name, "Single-AZ") {
+			itemPrices[price.ID].Price, _ = strconv.ParseFloat(priceItem.Price, 64)
+			fmt.Println("[rds] load single-az price", price.ID, itemPrices[price.ID].Price)
+		} else {
+			itemPrices[price.ID].MultiAZ, _ = strconv.ParseFloat(priceItem.Price, 64)
+			fmt.Println("[rds] load multi-az price", price.ID, itemPrices[price.ID].MultiAZ)
+		}
+
 	}
 
 	return itemPrices
@@ -72,10 +90,20 @@ func Discover(r string) map[string]*Price {
 	regionalPrice := make(map[string]*Price)
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
-	for _, generation := range []string{"postgresql-ondemand"} {
+	for _, generation := range []string{
+		"postgresql-ondemand",
+	} {
 		onDemandPrice := LoadPriceForType(r, generation)
 		maps.Copy(regionalPrice, onDemandPrice)
 	}
+
+	//for _, generation := range []string{
+	//	"rds-postgresql-reservedinstance-multi-az-1y",
+	//	"rds-postgresql-reservedinstance-multi-az-3y",
+	//	"rds-postgresql-reservedinstance-single-az-1y",
+	//	"rds-postgresql-reservedinstance-single-az-3y",
+	//} {
+	//}
 
 	fmt.Printf("[rds]found %d rds price for region %s\n", len(regionalPrice), r)
 
