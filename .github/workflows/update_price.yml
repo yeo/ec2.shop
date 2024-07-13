@@ -20,6 +20,7 @@ jobs:
     - name: Download price
       run: |
         ruby download.rb
+        ruby download_rds.rb
  
     - name: Add new price data
       run: |
