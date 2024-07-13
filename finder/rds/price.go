@@ -81,22 +81,22 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 	return itemPrices
 }
 
-func Discover(r string) map[string]*Price {
+func Discover(rdsType, r string) map[string]*Price {
 	regionalPrice := make(map[string]*Price)
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
 	for _, generation := range []string{
-		"postgresql-ondemand",
+		rdsType + "-ondemand",
 	} {
 		onDemandPrice := LoadPriceForType(r, generation)
 		maps.Copy(regionalPrice, onDemandPrice)
 	}
 
 	for _, generation := range []string{
-		"rds-postgresql-reservedinstance-multi-az-1y",
-		"rds-postgresql-reservedinstance-multi-az-3y",
-		"rds-postgresql-reservedinstance-single-az-1y",
-		"rds-postgresql-reservedinstance-single-az-3y",
+		rdsType + "-reservedinstance-multi-az-1y",
+		rdsType + "-reservedinstance-multi-az-3y",
+		rdsType + "-reservedinstance-single-az-1y",
+		rdsType + "-reservedinstance-single-az-3y",
 	} {
 		filename := "./data/rds/" + r + "-" + generation + ".json"
 		riPriceList, err := common.LoadPriceJsonManifest(filename)
@@ -108,13 +108,13 @@ func Discover(r string) map[string]*Price {
 			priceItem.Build()
 
 			switch generation {
-			case "rds-postgresql-reservedinstance-multi-az-1y":
+			case rdsType + "-reservedinstance-multi-az-1y":
 				regionalPrice[priceItem.InstanceType].Reserved1yMultiAZ = priceItem.PriceFloat
-			case "rds-postgresql-reservedinstance-multi-az-3y":
+			case rdsType + "-reservedinstance-multi-az-3y":
 				regionalPrice[priceItem.InstanceType].Reserved3yMultiAZ = priceItem.PriceFloat
-			case "rds-postgresql-reservedinstance-single-az-1y":
+			case rdsType + "-reservedinstance-single-az-1y":
 				regionalPrice[priceItem.InstanceType].Reserved1y = priceItem.PriceFloat
-			case "rds-postgresql-reservedinstance-single-az-3y":
+			case rdsType + "-reservedinstance-single-az-3y":
 				regionalPrice[priceItem.InstanceType].Reserved3y = priceItem.PriceFloat
 			}
 		}

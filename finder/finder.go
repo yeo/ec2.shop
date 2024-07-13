@@ -1,6 +1,8 @@
 package finder
 
 import (
+	"sync"
+
 	"github.com/labstack/echo/v4"
 
 	"github.com/yeo/ec2shop/finder/common"
@@ -10,7 +12,10 @@ import (
 
 type PriceByService struct {
 	EC2 ec2.PriceByInstanceType
-	RDS rds.PriceByInstanceType
+
+	RDS        rds.PriceByInstanceType
+	RDSMariaDB rds.PriceByInstanceType
+	RDSMySQL   rds.PriceByInstanceType
 }
 
 type PriceFinder struct {
@@ -35,10 +40,19 @@ func New() *PriceFinder {
 // Load price from db for all regions
 func (p *PriceFinder) Discover() {
 	// Load price for all supported service
+
+	var wg sync.WaitGroup
 	for r, _ := range p.Regions {
-		p.Regions[r].EC2 = ec2.Discover(r)
-		p.Regions[r].RDS = rds.Discover(r)
+		wg.Add(1)
+		go func(loadedRegion string) {
+			defer wg.Done()
+			p.Regions[loadedRegion].EC2 = ec2.Discover(loadedRegion)
+			p.Regions[loadedRegion].RDS = rds.Discover("rds-postgresql", loadedRegion)
+			p.Regions[loadedRegion].RDSMariaDB = rds.Discover("rds-mariadb", loadedRegion)
+			p.Regions[loadedRegion].RDSMySQL = rds.Discover("rds-mysql", loadedRegion)
+		}(r)
 	}
+	wg.Wait()
 
 	go ec2.MonitorSpot()
 }
@@ -64,6 +78,11 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 	switch awsSvc {
 	case "rds":
 		return rds.PriceFromRequest(p.Regions[requestRegion].RDS, requestRegion, keywords, sorters)
+	case "rds-mariadb":
+		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters)
+	case "rds-mysql":
+		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters)
+
 	case "ec2":
 		return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
 	}
