@@ -45,6 +45,9 @@ new gridjs.Grid({
   width: '100%',
   fixedHeader: true,
   height: '800px',
+  className: {
+    td: 'align-top mt-2',
+  },
 
   sort: true,
   server: {
@@ -58,10 +61,10 @@ new gridjs.Grid({
         price.Network,
         price.Cost,
         price.MonthlyPrice,
+        price.MultiAZ,
+        price.MultiAZ2,
         price.Reserved1yPrice,
         price.Reserved3yPrice,
-        price.Reserved1yConveritblePrice,
-        price.Reserved3yConveritblePrice,
       ])
     }
   },
@@ -141,94 +144,117 @@ new gridjs.Grid({
       }
     },
     {
-      name: 'Hourly Price',
-      width: '90px',
-    },
-    {
-      name: 'Monthly',
+      name: 'SingleAZ',
       width: '80px',
-      sort: {
-        compare: (a, b) => {
-          const code = (x) => parseFloat(x)
+      columns: [{
+        name: 'Hourly',
+        width: '40px',
+      }, {
+        name: 'Monthly',
+        width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
 
-          if (code(a) > code(b)) {
-            return 1;
-          } else if (code(b) > code(a)) {
-            return -1;
-          } else {
-            return 0;
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
           }
         }
-      }
+      }],
     },
     {
-      name: "Reserved 1y",
+      name: 'MultiAZ',
       width: '80px',
-      sort: {
-        compare: (a, b) => {
-          const code = (x) => parseFloat(x)
-
-          if (code(a) > code(b)) {
-            return 1;
-          } else if (code(b) > code(a)) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      }
+      columns: [{
+        name: "1 standby",
+        width: '40px',
+      }, {
+        name: "2 standby",
+        width: '40px',
+      }]
     },
     {
-      name: "Reserved 3y",
+      name: "SingleAZ Reserved",
       width: '80px',
-      sort: {
-        compare: (a, b) => {
-          const code = (x) => parseFloat(x)
+      columns: [{
+        name: '1y NoUpfront',
+        width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
 
-          if (code(a) > code(b)) {
-            return 1;
-          } else if (code(b) > code(a)) {
-            return -1;
-          } else {
-            return 0;
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
           }
         }
-      }
+      }, {
+        name: '3y Partial',
+        width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
+
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+        }
+
+      }]
     },
     {
-      name: "1y Convertible Reser",
+      name: "MultiAZ Reserved",
       width: '80px',
-      sort: {
-        compare: (a, b) => {
-          const code = (x) => parseFloat(x)
+      columns: [{
+        name: '1y NoUpfront',
+        width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
 
-          if (code(a) > code(b)) {
-            return 1;
-          } else if (code(b) > code(a)) {
-            return -1;
-          } else {
-            return 0;
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
           }
         }
-      }
-    },
-    {
-      name: "3y Convertible Reser",
-      width: '80px',
-      sort: {
-        compare: (a, b) => {
-          const code = (x) => parseFloat(x)
+      }, {
+        name: '3y Partial',
+        width: '40px',
+        sort: {
+          compare: (a, b) => {
+            const code = (x) => parseFloat(x)
 
-          if (code(a) > code(b)) {
-            return 1;
-          } else if (code(b) > code(a)) {
-            return -1;
-          } else {
-            return 0;
+            if (code(a) > code(b)) {
+              return 1;
+            } else if (code(b) > code(a)) {
+              return -1;
+            } else {
+              return 0;
+            }
           }
         }
-      }
+
+      }]
     },
+
   ],
 
 }).render(document.getElementById('price-grid'));
