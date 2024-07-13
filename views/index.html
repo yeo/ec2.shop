@@ -9,8 +9,11 @@
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="/static/icon/favicon.svg">
+    <link rel="alternate icon" href="/static/icon/favicon.ico">
+    <link rel="mask-icon" href="/static/icon/favicon.svg" color="#ff8a01">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -23,12 +26,8 @@
       }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
-
-    <link rel="icon" type="image/svg+xml" href="/static/icon/favicon.svg">
-    <link rel="alternate icon" href="/static/icon/favicon.ico">
-    <link rel="mask-icon" href="/static/icon/favicon.svg" color="#ff8a01">
   </head>
+
   <body>
     <div class="bg-white">
       <div>
@@ -114,9 +113,9 @@
     </div>
     </div>
 
-    <script src="/static/js/{{ index . "svc" }}.js?ts={{ index . "ts" }}"></script>
-    <script src="/static/js/termynal.min.js?ts={{ index . "ts" }}"  data-termynal-container="#termynal"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <script data-svc="aws:{{ .svc }}" src="/static/js/app.js?ts={{ index . "ts" }}"></script>
+    <script async defer src="/static/js/termynal.min.js?ts={{ index . "ts" }}" data-termynal-container="#termynal"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
