@@ -109,9 +109,9 @@ func Discover(r string) map[string]*Price {
 
 			switch generation {
 			case "rds-postgresql-reservedinstance-multi-az-1y":
-				regionalPrice[priceItem.InstanceType].Reserved1yMultiAZ = priceItem.PriceFloat * 2
+				regionalPrice[priceItem.InstanceType].Reserved1yMultiAZ = priceItem.PriceFloat
 			case "rds-postgresql-reservedinstance-multi-az-3y":
-				regionalPrice[priceItem.InstanceType].Reserved3yMultiAZ = priceItem.PriceFloat * 2
+				regionalPrice[priceItem.InstanceType].Reserved3yMultiAZ = priceItem.PriceFloat
 			case "rds-postgresql-reservedinstance-single-az-1y":
 				regionalPrice[priceItem.InstanceType].Reserved1y = priceItem.PriceFloat
 			case "rds-postgresql-reservedinstance-single-az-3y":

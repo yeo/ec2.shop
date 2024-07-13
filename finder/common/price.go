@@ -88,7 +88,7 @@ func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
 
 func ValueOrNA(v float64) string {
 	if v > 0 {
-		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 20, 64))
+		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 5, 64))
 	}
 
 	return "NA"

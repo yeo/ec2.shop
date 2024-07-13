@@ -19,10 +19,10 @@ type FriendlyPrice struct {
 	MultiAZ      string
 	MultiAZ2     string
 
-	Reserved1yPrice   float64
-	Reserved3yPrice   float64
-	Reserved1yMultiAZ float64
-	Reserved3yMultiAZ float64
+	Reserved1yPrice   string
+	Reserved3yPrice   string
+	Reserved1yMultiAZ string
+	Reserved3yMultiAZ string
 }
 
 type FriendlyPriceResponse struct {
@@ -44,10 +44,10 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 			MonthlyPrice:      common.ValueOrNA(common.MonthlyPrice(v.Price)),
 			MultiAZ:           common.ValueOrNA(v.MultiAZ),
 			MultiAZ2:          common.ValueOrNA(v.MultiAZ2),
-			Reserved1yPrice:   v.Reserved1y,
-			Reserved3yPrice:   v.Reserved3y,
-			Reserved1yMultiAZ: v.Reserved1yMultiAZ,
-			Reserved3yMultiAZ: v.Reserved3yMultiAZ,
+			Reserved1yPrice:   common.ValueOrNA(v.Reserved1y),
+			Reserved3yPrice:   common.ValueOrNA(v.Reserved3y),
+			Reserved1yMultiAZ: common.ValueOrNA(v.Reserved1yMultiAZ),
+			Reserved3yMultiAZ: common.ValueOrNA(v.Reserved3yMultiAZ),
 		}
 	}
 
