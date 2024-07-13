@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-1-wl1-kix1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>V6AN7S0F90EVE4P4</RequestId><HostId>1KYuCHET19e/VHyRXbvaSISZaUrc/z9ubiwinnzUtXVCZC1gHP8Wk5yIUWxVCopoo3v6RTR5k6c=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>HEECFRQ2RSG0VKGW</RequestId><HostId>C8YrT/5UISLysEoFRNmMJ2gfToD+AstMqL5gZlz+6riNB0bf5SX1iamVq2BWm05TvaiWQAVPsxE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-wl1-kix1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>58EEN87N0K266N2S</RequestId><HostId>2QmYVLEvRddanaEnS9z9nsBPyZjK3xrsf7i8WYHyTy71RlBwVU5R38fO0JXcfiyA4l1whMsQpSM=</HostId></Error>

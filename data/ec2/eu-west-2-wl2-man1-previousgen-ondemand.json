@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-west-2-wl2-man1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (British Telecom) - Manchester/Linux/index.json</Key><RequestId>Z620ZQ9VKZ4Y8RTX</RequestId><HostId>69rhY6ZBAuVqFerbsnIQNRVFZK2Ei5S0YYo9jq104kRJK5Y0AzZyxqhMxsouUwXOHPn8XXLtzro=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (British Telecom) - Manchester/Linux/index.json</Key><RequestId>785YNJJJ27BV4BTY</RequestId><HostId>71AevBZWv/28l8+DcqK4X7Qp+oheHM36dK52qprMxV5FRYFeLJ9/DLQw0kmexpQ9tFIE0NOBtJw=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-west-2-wl2-man1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (British Telecom) - Manchester/Linux/index.json</Key><RequestId>MYDH7DDVSXK2NTTS</RequestId><HostId>Ftq9YBrlM4ck6nbvvEVQ8we71d2wEsazVf//r2+tnK72181g0UEd6hr+pwz/F8L7jANxLibULOo=</HostId></Error>

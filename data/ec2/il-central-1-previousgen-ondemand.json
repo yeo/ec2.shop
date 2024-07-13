@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/il-central-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Israel (Tel Aviv)/Linux/index.json</Key><RequestId>7DW9Q7ACN28WSE02</RequestId><HostId>OoSoVPmhS+rt2ZcFN8Ko+VNSmgUjrm74w9CuAUtMJt83JgFGRRvpOFotCOSKskTfCB7H5od3D1I=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Israel (Tel Aviv)/Linux/index.json</Key><RequestId>FCDR5PTT4R1V6AWR</RequestId><HostId>TC64KWJSevBpVOksJOhbfd15Cey21UIdqo738N2rCoZKXJSDig5H/wO8ddME+CGjfGfhlf1pmA9uk6MtvznJET5/tW+R9GIvlcVselEBzTo=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/il-central-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Israel (Tel Aviv)/Linux/index.json</Key><RequestId>D67BQH9KM246P3GB</RequestId><HostId>qQ5DO+olZYbihtqidZLvd9tnRqyL0cqZ/zUhDFs+oQdpnsL6oWRSmujoOSX6XK17NWHr8kwMzWY=</HostId></Error>

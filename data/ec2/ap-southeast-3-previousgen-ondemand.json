@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-southeast-3-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (Jakarta)/Linux/index.json</Key><RequestId>5PE04B6T5DAG5W4N</RequestId><HostId>zZIudE88HhkuRhBJ2mAtRlxRaKiD5IBmuo7cqOwlFElbMXVkxHrcSK2juVZ2lhVln9yuSApQJW4=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (Jakarta)/Linux/index.json</Key><RequestId>1W47D9NZ94XPG1GB</RequestId><HostId>cYLuoWbUyXft3H3A/1k2/StJFgLPK2S4q0yuBxtVgmvotNOhKsgbbC9vMkYz0W723NiyNlKdv44=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-southeast-3-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (Jakarta)/Linux/index.json</Key><RequestId>FVM1QQSHPJJD20NT</RequestId><HostId>vfKpyWHCMU9jjpOQOKT+vN4MdA4qTzhlHzOtQx3NqVMLEiVPkpVGYSAUl+29Yt2s0vX0fLh5g8RDD22S00m9dxux1oHWFRNI</HostId></Error>

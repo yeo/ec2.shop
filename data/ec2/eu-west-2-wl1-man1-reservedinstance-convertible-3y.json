@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-west-2-wl1-man1-reservedinstance-convertible-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/EU (Vodafone) - Manchester/Linux/Shared/index.json</Key><RequestId>7PXD0K7J106PTWQS</RequestId><HostId>cDNPZ+siwxs+X+PttcCdyuQWO790BtSef4gp8zDg77uOOxEbWPLzUhlvfBubAU/Y/H49zsNWlQtT0l1J7UGMkJxy8HrAS1o+lgl99e6XmQ0=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/EU (Vodafone) - Manchester/Linux/Shared/index.json</Key><RequestId>785ND6J299GZ5QDK</RequestId><HostId>N2vLckz7OzJymowxIGg4TGGQkRg0uMCtRbZoyNWcJ+TArbL1BzPFZ3Tl1TVybOIzayQVTcDLMcw=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-west-2-wl1-man1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/EU (Vodafone) - Manchester/Linux/Shared/index.json</Key><RequestId>W5K4P8SC1WE4KVPD</RequestId><HostId>3yhMn59P9sgZPYrxEEa93fcMF6QC0HHldR8cmRGygkmozJI7gVXk7tWpoJO4lJJlkjka12dHviI=</HostId></Error>

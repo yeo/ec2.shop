@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-1-wl1-kix1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Osaka/Linux/index.json</Key><RequestId>V6AZHRF2BK8YNXGR</RequestId><HostId>B+LN3gn8S5sHF3SNm8WfYi+xGIwqxdYo0n8x1nB5SHsdkCe5+yMid4hxYYxd+w3mazoeWcBcLZM=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Osaka/Linux/index.json</Key><RequestId>HEE7CP5SJRB6BARR</RequestId><HostId>H6WvIhW+TBQGroJdCs7KDQDPMK4CuwD2+6YqGY2MncGTjSZpxKZP1b4pclNY0+9N3mJHDN+nQW8=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-wl1-kix1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Osaka/Linux/index.json</Key><RequestId>58E111DWHAYQV0KK</RequestId><HostId>YXUPMubJCQ9kQkevYHuzCCGlS5AjnjFTh6Q559AuaUW71yjQJTkFAgRBM24Rwzl9UU6ntH57Ns4=</HostId></Error>

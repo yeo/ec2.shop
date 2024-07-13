@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-2-wl1-cjj1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (SKT) - Daejeon/Linux/index.json</Key><RequestId>45V55GHJHDAA4FE4</RequestId><HostId>ZQYZfF10gtdHgVbcbYQD0mNP6tstsdudjxU9aJ/EYxXiICvIZUA4tgTzJb7tRyWTd4/OIFR7AqU=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (SKT) - Daejeon/Linux/index.json</Key><RequestId>06SPTKV61V8Z8AKD</RequestId><HostId>99T+8gixQwUgkDzjzGmbOCxEmNLxuU1TL9bkPnq8BM4h55A5Ye5WYU3NavBmt43ueloIF6S+OLE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-2-wl1-cjj1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (SKT) - Daejeon/Linux/index.json</Key><RequestId>96Z9XC47WH0Z1367</RequestId><HostId>nEYN8tU5uP+XhDh54NT2FNXtizWPKyB8rSlhv6SH6y++/r6tHWogu9OaqAT5Ww6e0Atmy2I7FUk=</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ca-central-1-wl1-yto1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Canada (BELL) - Toronto/Linux/Shared/index.json</Key><RequestId>N2MR0NS88TN5SYEY</RequestId><HostId>SBdpSAuZu8au6VR1yX1zjug9GcdeSnauS3G/8mrGdGSMecWNKkMlYu4Na0j/lnYDFn1Xwf4lEm8=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Canada (BELL) - Toronto/Linux/Shared/index.json</Key><RequestId>A70P3CJ6679SH948</RequestId><HostId>g1SjfmzT7b/LY9yVrHkzZY6AB43XIcV8w6RiPFTOL7otlF+gDWHx4j5ULeFws9l7fCEqmuxmtq/LtWJwaudKYFlKsvWqK163oi2fwDgg2UY=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ca-central-1-wl1-yto1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/Canada (BELL) - Toronto/Linux/Shared/index.json</Key><RequestId>RJDJYHW12E2CZBKN</RequestId><HostId>HICE2nhWxx7ukHxA0eqMGG1EhjOQLzP98CxvgO19fdl7eERZyW6Vuch62oKOU+9RetvuPHAh3jEwKrQhCMZFeQ==</HostId></Error>

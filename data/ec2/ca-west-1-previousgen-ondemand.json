@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ca-west-1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada West (Calgary)/Linux/index.json</Key><RequestId>Y752F1VH7PBP31AV</RequestId><HostId>+hEiNtQ56imE1ZHMj4uVHrOFW3i3mGa30SXZnWC1AoF6xtq2UgougrKicy95c67WXLMaQAu3bYc9DP6yTbJsDw==</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada West (Calgary)/Linux/index.json</Key><RequestId>Q7AYWH0VY822V64J</RequestId><HostId>/CXdieaf/ZpbJ9rfS7yMc0zZ6EW1TJurouseBhzlAKwgIq4iReWJ2RCnHE6xl5mdiUNdKjw0Ak0=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ca-west-1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Canada West (Calgary)/Linux/index.json</Key><RequestId>J68HM69ZZY7683SS</RequestId><HostId>Puc4HGfFdGoH5tm1PZUw4hic2Kw3zC4MJdDskznBwfussrtMYYUM9xwTa7aPO4JAEKJ3Xo/dTzY=</HostId></Error>

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-west-2-wl2-man1-reservedinstance-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/EU (British Telecom) - Manchester/Linux/Shared/index.json</Key><RequestId>Z6269KA3RSTA0ECW</RequestId><HostId>s8QgQcIexZPsbNFJzahWwI/9TQWd0bEhAZeH4FQ7pUgKILSNzJQ6OMXQ80HlJ+mZ8GHOpNyhF4k=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/EU (British Telecom) - Manchester/Linux/Shared/index.json</Key><RequestId>HMKEJ3ATFJ4B7Z0B</RequestId><HostId>7fKRTMioIrnUNY6DoKjE6Yh4H/JDaEc+nuC6oQsPtGSeBMkXvzOyavj7ubkVL+TmTUjBUqQgjme6CCki0W3GfDXnxrHHGRAg</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-west-2-wl2-man1-reservedinstance-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/3 year/No Upfront/EU (British Telecom) - Manchester/Linux/Shared/index.json</Key><RequestId>MYDNQXJ18T0A4WDZ</RequestId><HostId>8WvznIgadcM4//Y+6hGxRvwNzyWEsLObDBNfMGlSu7wabpXZqO4LHPwIehCDnB3o+VNpZP/J+zXeJhSK/nU2qqot09jPliyw</HostId></Error>

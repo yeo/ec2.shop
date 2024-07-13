@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-1-wl1-kix1-reservedinstance-convertible-3y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>0B1H9VGNNB6ZFV50</RequestId><HostId>+VA04qAh+4oDVdEAd971PJ+yBiL5XF1iAAMvf3josxGLLTJ6JcFCAOE/t+154sjEPBBqqgMor2Suqa/hN6zg0w==</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>E6Z2JA6VRF2C51TH</RequestId><HostId>sMl8Bm9fddMfoAEL3qomwB2FqbYGfC7hCQ6b58ABpa5570bYl75Sf+vczg4TpRurfYnSxJkk/oKM3D6585HRclJoiJIFRyWa3fb0X4YGmSc=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-1-wl1-kix1-reservedinstance-convertible-3y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/3 year/No Upfront/Asia Pacific (KDDI) - Osaka/Linux/Shared/index.json</Key><RequestId>YB7JWVGDNQ7A1AYV</RequestId><HostId>Ay/RQPTEOzfhuGrlZFlQ6fetXNKZTiJf/ZYRT6cQ8FvAeFsul25RIG+b++hX4K3di1FE4QgT5Wd33fSS2TOsufru12EPJX2T8JC+kt7rg+0=</HostId></Error>

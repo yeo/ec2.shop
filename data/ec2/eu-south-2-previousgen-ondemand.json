@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-south-2-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Spain)/Linux/index.json</Key><RequestId>KWKEMCPCH8373ZS7</RequestId><HostId>kcFRmdGWzFOMjJ0vC6a26qEKfs1jgZTMMcWu8YtrUyxmNadJpqN8WxxJGbv6jxx2lTlXY+FXV98=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Spain)/Linux/index.json</Key><RequestId>WWAXSCP00GXMK43E</RequestId><HostId>McLjbox66yiUD9vyLFAfCTADNbP0rMfJqDNyUg/vCd0QtaZlrAyspeXhFK5qJhNYRNxljjfv4oFk9yL3jh1TE/IPcS/n70/b</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-south-2-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Spain)/Linux/index.json</Key><RequestId>NJ43G7V4Q3P55HKW</RequestId><HostId>x8wTk4rk14B++FNC3lQHQv2CGAv18Wg7B45P7fwlCotyx0tRUYur2EF1gbJLsZ28tcQXnYfzw7E=</HostId></Error>

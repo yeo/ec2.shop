@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/eu-central-1-wl1-ber1-previousgen-ondemand.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Berlin/Linux/index.json</Key><RequestId>A3RG7BBSPJCTBMNW</RequestId><HostId>BcgXIFA2hMgB8RvzoqK7Si8yRnqcsiQ9bRAlipfvxhs+xwY4EBDjdrN5vLzBKkm6Nj20Y7Oe2CDb6TgBNU5mutHvMvkxIsOG/2zCcBJiFQo=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Berlin/Linux/index.json</Key><RequestId>HDCQ88G0CBR7FQSY</RequestId><HostId>fosrWkvM53QkUAd77+y4JCTyaMvQeG5egyX7fvBd7uW6aEFR0prNfB/QosifF9Yti9H7tYfcgKE=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/eu-central-1-wl1-ber1-previousgen-ondemand.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Vodafone) - Berlin/Linux/index.json</Key><RequestId>RQFC93AXRS6TJCS6</RequestId><HostId>En5qymQ0XlFkUEKMMs60Bdewc2h5Av06pmeiuf4pM3yX4TFOG9im3/jg4UpBvW1ShnyHxjTqibs=</HostId></Error>

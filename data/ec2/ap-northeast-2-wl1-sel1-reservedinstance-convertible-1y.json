@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:data/ap-northeast-2-wl1-sel1-reservedinstance-convertible-1y.json
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Asia Pacific (SKT) - Seoul/Linux/Shared/index.json</Key><RequestId>31BHV2KKY4YEBRCA</RequestId><HostId>PpXdoZeuCBhJKN5eDohpZIzBLCbJmehiVTwCFXGfS931ps49xJ/VVKCdfjZMqpukdVeApQ8zQv8=</HostId></Error>
-=======
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Asia Pacific (SKT) - Seoul/Linux/Shared/index.json</Key><RequestId>6PEYYGWF1HTJX6MS</RequestId><HostId>i5ObXXezDu4XJ6NV4GBjccSoxua67tfEdC0VzpXHsgTn8IsdPoVe/KxYf+7s1LwF3t4EhTaOUbo=</HostId></Error>
->>>>>>> 3e31183 (start move data into sub directory):data/ec2/ap-northeast-2-wl1-sel1-reservedinstance-convertible-1y.json
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance-convertible/1 year/No Upfront/Asia Pacific (SKT) - Seoul/Linux/Shared/index.json</Key><RequestId>ACGEMNQXNKTHZ513</RequestId><HostId>ZUNjyQ8gYjAZQv0ijOq2r680l1gnnJgTfQVUF5Qclik+GXA8ttlV4GYC3rC11slwyH5urBRJHzE=</HostId></Error>
