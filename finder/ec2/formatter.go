@@ -47,10 +47,10 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 			Cost:                       v.Price,
 			MonthlyPrice:               common.MonthlyPrice(v.Price),
 			SpotPrice:                  v.SpotPriceHourly(),
-			Reserved1yPrice:            v.Reserved1y,
-			Reserved3yPrice:            v.Reserved3y,
-			Reserved1yConveritblePrice: v.Reserved1yConveritble,
-			Reserved3yConveritblePrice: v.Reserved3yConveritble,
+			Reserved1yPrice:            common.ValueOrNA(v.Reserved1y),
+			Reserved3yPrice:            common.ValueOrNA(v.Reserved3y),
+			Reserved1yConveritblePrice: common.ValueOrNA(v.Reserved1yConveritble),
+			Reserved3yConveritblePrice: common.ValueOrNA(v.Reserved3yConveritble),
 		}
 
 		if v.AdvisorSpotData != nil {
