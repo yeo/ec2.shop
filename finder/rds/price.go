@@ -121,8 +121,6 @@ func Discover(r string) map[string]*Price {
 
 	}
 
-	fmt.Printf("[rds]found %d rds price for region %s\n", len(regionalPrice), r)
-
 	return regionalPrice
 }
 

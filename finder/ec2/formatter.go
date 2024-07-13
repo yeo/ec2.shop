@@ -22,10 +22,10 @@ type FriendlyPrice struct {
 	SpotReclaimRate string
 	SpotSavingRate  string
 
-	Reserved1yPrice            float64
-	Reserved3yPrice            float64
-	Reserved1yConveritblePrice float64
-	Reserved3yConveritblePrice float64
+	Reserved1yPrice            string
+	Reserved3yPrice            string
+	Reserved1yConveritblePrice string
+	Reserved3yConveritblePrice string
 }
 
 type FriendlyPriceResponse struct {
