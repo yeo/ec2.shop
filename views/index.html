@@ -7,7 +7,6 @@
     <meta charset="utf-8">
 
     <link href="/static/css/app.css?ts={{ index . "ts" }}" rel="stylesheet" />
-    <link href="/static/css/termynal.css?ts={{ index . "ts" }}" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/static/icon/favicon.svg">
     <link rel="alternate icon" href="/static/icon/favicon.ico">
@@ -32,7 +31,7 @@
     <div class="bg-white">
       <div>
         <div class="sm:block">
-          <nav class="flex space-x-4" aria-label="Tabs">
+          <nav class="flex space-x-1" aria-label="Tabs">
             <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
             <a href="/"
                class="{{ if eq .svc "ec2" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
@@ -54,15 +53,20 @@
                {{ if eq .svc "rds" }}aria-current="page"{{ end }}
                >RDS(MariaDB)</a>
 
-            <!--<a href="/mq"
-               class="{{ if eq .svc "mq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "mq" }}aria-current="page"{{ end }}
-               >MQ</a>
+            <a href="/memcache"
+               class="{{ if eq .svc "redis" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >Memcache</a>
 
-            <a href="/msk"
-               class="{{ if eq .svc "msk" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "msk" }}aria-current="page"{{ end }}
-               >MSK</a>-->
+            <a href="/redis"
+               class="{{ if eq .svc "redis" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >Redis</a>
+
+            <a href="/rabbitmq"
+               class="{{ if eq .svc "rabbitmq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
+               >RabbitMQ</a>
           </nav>
         </div>
       </div>
@@ -101,17 +105,23 @@
             </p>
           </div>
         </div>
-        <div class="group relative bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
-          <div class="">
-            <div class="overflow-hidden">
-              <div class="terminal-container">
-                <div id="termynal" data-termynal data-ty-typeDelay="40"
-                    data-ty-lineDelay="700" style="padding: 0.5em; max-height: 220px;">
-                  <span data-ty="input">curl -L 'ec2.shop'</span>
-                  <span data-ty="input">curl -L 'ec2.shop' -H 'accept: json'</span>
-                  <span data-ty="input">curl -L 'ec2.shop?region=us-west-2'</span>
-                  <span data-ty="input">curl -L 'ec2.shop?region=us-west-2&filter=m4,m5,ssd,mem&gt;=3,mem&lt;=4,vcpu&gt;=2&sort=-price,+cpu'</span>
-                  <span data-ty="input">curl -L 'ec2.shop?price&lt;=0.05&sort=-price,+cpu'</span>
+        <div class="group relative bg-yellow-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-lg">
+          <div class="rounded-md  p-4">
+            <div class="flex">
+          	   <div class="flex-shrink-0">
+                <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-3">
+          	  <h3 class="text-sm font-medium text-green-800">curl right from your terminal</h3>
+                <div class="mt-2 text-sm text-yellow-700">
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop' -H 'accept: json'</span>
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop?region=us-west-2'</span>
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop?region=us-west-2&filter=m4,m5,ssd,mem&gt;=3,mem&lt;=4,vcpu&gt;=2&sort=-price,+cpu'</span>
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop?price&lt;=0.05&sort=-price,+cpu'</span>
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop/rds?price&lt;=0.05&sort=-price,+cpu'</span>
+                  <p class="mt-2 text-sm ">$ curl -L 'ec2.shop/rds-mysql?price&lt;=0.05&sort=-price,-mem'</span>
                 </div>
               </div>
             </div>
@@ -131,9 +141,7 @@ rounded border border-grey-500" onchange="window.location = '?region=' + this.va
           {{ end }}
         </select>
 
-		<button type="button" class="inline-flex items-center rounded bg-white px-1 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          Share Link
-        </button>
+		<button type="button" class="inline-flex items-center rounded bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" onclick="sharelink(this)">Share Link</button>
       </div>
       <div id="price-grid"></div>
     </div>
@@ -141,7 +149,6 @@ rounded border border-grey-500" onchange="window.location = '?region=' + this.va
 
     <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
     <script data-svc="aws:{{ .svc }}" src="/static/js/app.js?ts={{ index . "ts" }}"></script>
-    <script async defer src="/static/js/termynal.min.js?ts={{ index . "ts" }}" data-termynal-container="#termynal"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>

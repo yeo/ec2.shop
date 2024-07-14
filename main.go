@@ -32,6 +32,7 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 
 var (
 	logger *slog.Logger
+	e      *echo.Echo
 )
 
 func main() {
@@ -47,7 +48,7 @@ func main() {
 	priceFinder.Discover()
 
 	// Echo instance
-	e := echo.New()
+	e = echo.New()
 
 	t := &Template{
 		templates: template.Must(template.ParseGlob("views/*.html")),
@@ -78,12 +79,18 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 	ts := time.Now()
 
 	return func(c echo.Context) error {
+		if debug {
+			ts = time.Now()
+
+			e.Renderer = &Template{
+				templates: template.Must(template.ParseGlob("views/*.html")),
+			}
+		}
+
 		awsSvc := c.Param("svc")
 		if awsSvc == "" {
 			awsSvc = "ec2"
 		}
-
-		logger.Info("svc %s", awsSvc)
 
 		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		if debug {

@@ -403,7 +403,7 @@ new gridjs.Grid({
             // TODO: load from cookie ?
             params.set("region", "us-east-1");
         }
-        //window.history.pushState(params, 'unused', '?');
+        window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString());
         return `?json&${params.toString()}`
       }
     }
@@ -419,3 +419,12 @@ new gridjs.Grid({
     },
   },
 }).render(document.getElementById('price-grid'))
+
+function sharelink(button) {
+    navigator.clipboard.writeText(window.location.href)
+    console.log(button);
+    button.innerText = "copied"
+    setTimeout(() => {
+      button.innerText = "Share Link"
+    }, 5000);
+}
