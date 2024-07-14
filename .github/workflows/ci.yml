@@ -55,8 +55,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" != "pull_request" ]; then
             echo "DEPLOY=1" >> "$GITHUB_OUTPUT"
-            echo ${{ steps.build-push.outputs.tags }}
-            echo ${{ steps.build-push.outputs.version }}
+            echo $DOCKER_METADATA_OUTPUT_TAGS | tail -n 1
           fi
 
   deploy:
@@ -66,6 +65,8 @@ jobs:
     steps:
       - name: Deploy image to k8s
         run: |
-          echo deploy
+          export rev=$(rev)
+          envsubst < k8s/deployment.yaml
+          #| kubectl apply -f -
 
           
