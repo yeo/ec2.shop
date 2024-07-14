@@ -112,7 +112,6 @@ func Discover(rdsType, r string) map[string]*Price {
 
 		for _, priceItem := range riPriceList.Regions[r] {
 			priceItem.Build()
-			fmt.Println(generation, priceItem.PriceFloat)
 
 			switch generation {
 			case rdsType + "-reservedinstance-multi-az-1y":
