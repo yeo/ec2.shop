@@ -61,7 +61,7 @@ jobs:
           fi
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: home
     needs: [build-docker]
     if: ${{ needs.build-docker.outputs.deploy == '1' }}
     steps:
