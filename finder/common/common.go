@@ -12,6 +12,7 @@ import (
 
 var (
 	RegionMaps       = make(map[string]*Region)
+	RegionIDToNames  = make(map[string]string)
 	AvailableRegions = []string{}
 )
 
@@ -55,6 +56,7 @@ func LoadRegions() error {
 			Label:     v.Label,
 			Continent: v.Continent,
 		}
+		RegionIDToNames[v.ID] = v.Name
 	}
 
 	slices.SortFunc(AvailableRegions, func(r1, r2 string) int {
