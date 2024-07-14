@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       deploy: ${{ steps.set-output.outputs.DEPLOY }}
+      image_tag: ${{ steps.set-output.outputs.IMAGE_TAG }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -64,10 +65,11 @@ jobs:
     needs: [build-docker]
     if: ${{ needs.build-docker.outputs.deploy == '1' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Deploy image to k8s
         run: |
-          export rev=$(rev)
+          export rev=${{ needs.build-docker.outputs.image_tag}}
           envsubst < k8s/deployment.yaml
           #| kubectl apply -f -
-
-          
