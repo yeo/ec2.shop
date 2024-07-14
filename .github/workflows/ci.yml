@@ -62,7 +62,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build-docker]
-    if: ${{ needs.build-docker.outputs.deploy == "1" }}
+    if: ${{ needs.build-docker.outputs.deploy == '1' }}
     steps:
       - name: Deploy image to k8s
         run: |
