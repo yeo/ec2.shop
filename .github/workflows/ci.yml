@@ -70,6 +70,6 @@ jobs:
 
       - name: Deploy image to k8s
         run: |
-          export rev=${{ needs.build-docker.outputs.image_tag}}
+          export rev=$(echo ${{ needs.build-docker.outputs.image_tag}} | awk -F: '{print $2}')
           envsubst < k8s/deployment.yaml
           #| kubectl apply -f -
