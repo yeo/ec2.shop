@@ -17,8 +17,9 @@ type FriendlyPrice struct {
 	// On-demand price
 	Cost         string
 	MonthlyPrice string
-	MultiAZ      string
-	MultiAZ2     string
+
+	MultiAZ  string
+	MultiAZ2 string
 
 	// Reserve price
 	Reserved1yPrice   string
