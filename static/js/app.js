@@ -381,7 +381,7 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
 }
 
 
-new gridjs.Grid({
+var g = window.g = new gridjs.Grid({
   ...(dataGridOptions[awsSvc]),
   width: '100%',
   fixedHeader: true,
@@ -392,6 +392,8 @@ new gridjs.Grid({
   },
 
   sort: true,
+
+  //store: {search: {keyword: 'bar'}},
 
   search: {
     server: {
@@ -427,4 +429,9 @@ function sharelink(button) {
     setTimeout(() => {
       button.innerText = "Share Link"
     }, 5000);
+}
+
+if (params.get("filter")) {
+  // load the parameter on ui to search box
+  g.config.store.state.search = {keyword: params.get("filter")};
 }
