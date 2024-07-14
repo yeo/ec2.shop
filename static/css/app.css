@@ -11,8 +11,8 @@ body {
 
 .region-picker {
   position: relative;
-  left: 300px;
-  top: 37px;
+  left: 350px;
+  top: 43px;
   font-size: 1.2em;
   z-index: 10;
 }
@@ -79,9 +79,9 @@ input.gridjs-input {
   background-color: #fff;
   border: 1px solid #d2d6dc;
   border-radius: 5px;
-  padding: 10px 13px;
-  font-size: 14px;
-  line-height: 1.45;
+  padding: 7px 13px;
+  font-size: 0.9rem;
+  line-height: 1.2;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -304,10 +304,10 @@ th.gridjs-th:last-child {
 }
 
 .gridjs-search {
-  float: left;
 }
+
 .gridjs-search-input {
-  width: 250px;
+  width: 330px;
 }
 
 .gridjs-loading-bar {

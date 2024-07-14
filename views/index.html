@@ -123,7 +123,7 @@
     <div id="price-grid-container">
       <div class="region-picker">
         <select name="region" id="region-picker" class="
-inline-flex items-center rounded bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50
+inline-flex items-center rounded bg-white px-1 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50
 rounded border border-grey-500" onchange="window.location = '?region=' + this.value">
           {{ $currentRegion := index . "currentRegion" }}
           {{ range $index, $val := index . "regions" }}
@@ -131,7 +131,7 @@ rounded border border-grey-500" onchange="window.location = '?region=' + this.va
           {{ end }}
         </select>
 
-		<button type="button" class="inline-flex items-center rounded bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+		<button type="button" class="inline-flex items-center rounded bg-white px-1 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
           Share Link
         </button>
       </div>
