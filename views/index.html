@@ -90,7 +90,7 @@
               </a>
             </p>
             <p class="mt-4 text-sm text-gray-500">
-			  <!-- Place this tag where you want the button to render. -->
+              <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/yeo/ec2.shop" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star yeo/ec2.shop on GitHub">Star ec2.shop on Github</a> 
             </p>
 
@@ -121,12 +121,20 @@
     </div>
 
     <div id="price-grid-container">
-      <select name="region" id="region-picker" class="region-picker rounded border border-grey-500" onchange="window.location = '?region=' + this.value">
-        {{ $currentRegion := index . "currentRegion" }}
-        {{ range $index, $val := index . "regions" }}
-        <option {{ if eq $currentRegion $val }}selected{{ end }} value="{{ $val }}">{{ $val }}</option>
-        {{ end }}
-      </select>
+      <div class="region-picker">
+        <select name="region" id="region-picker" class="
+inline-flex items-center rounded bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50
+rounded border border-grey-500" onchange="window.location = '?region=' + this.value">
+          {{ $currentRegion := index . "currentRegion" }}
+          {{ range $index, $val := index . "regions" }}
+          <option {{ if eq $currentRegion $val }}selected{{ end }} value="{{ $val }}">{{ $val }}</option>
+          {{ end }}
+        </select>
+
+		<button type="button" class="inline-flex items-center rounded bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+          Share Link
+        </button>
+      </div>
       <div id="price-grid"></div>
     </div>
     </div>

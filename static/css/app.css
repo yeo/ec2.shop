@@ -9,9 +9,7 @@ body {
   justify-content: center;
 }
 
-
 .region-picker {
-  float: left;
   position: relative;
   left: 300px;
   top: 37px;
@@ -224,11 +222,11 @@ td.gridjs-message {
 
 th.gridjs-th {
   position: relative;
-  color: #6b7280;
+  /*color: #6b7280;*/
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
   border-top: none;
-  padding: 14px 24px;
+  padding: 5px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;

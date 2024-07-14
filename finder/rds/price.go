@@ -22,9 +22,12 @@ type Price struct {
 	MultiAZ2 float64 `json:"-"`
 
 	Reserved1y        float64 `json:"-"`
+	Reserved1yPartial float64 `json:"-"`
 	Reserved3y        float64 `json:"-"`
-	Reserved1yMultiAZ float64 `json:"-"`
-	Reserved3yMultiAZ float64 `json:"-"`
+
+	ReservedMultiAZ1y        float64 `json:"-"`
+	ReservedMultiAZ1yPartial float64 `json:"-"`
+	ReservedMultiAZ3y        float64 `json:"-"`
 
 	Attribute *common.PriceAttribute `json:"attributes"`
 }
@@ -94,8 +97,11 @@ func Discover(rdsType, r string) map[string]*Price {
 
 	for _, generation := range []string{
 		rdsType + "-reservedinstance-multi-az-1y",
+		rdsType + "-reservedinstance-multi-az-1y-partial",
 		rdsType + "-reservedinstance-multi-az-3y",
+
 		rdsType + "-reservedinstance-single-az-1y",
+		rdsType + "-reservedinstance-single-az-1y-partial",
 		rdsType + "-reservedinstance-single-az-3y",
 	} {
 		filename := "./data/rds/" + r + "-" + generation + ".json"
@@ -106,16 +112,22 @@ func Discover(rdsType, r string) map[string]*Price {
 
 		for _, priceItem := range riPriceList.Regions[r] {
 			priceItem.Build()
+			fmt.Println(generation, priceItem.PriceFloat)
 
 			switch generation {
 			case rdsType + "-reservedinstance-multi-az-1y":
-				regionalPrice[priceItem.InstanceType].Reserved1yMultiAZ = priceItem.PriceFloat
+				regionalPrice[priceItem.InstanceType].ReservedMultiAZ1y = priceItem.PriceFloat
+			case rdsType + "-reservedinstance-multi-az-1y-partial":
+				regionalPrice[priceItem.InstanceType].ReservedMultiAZ1yPartial = priceItem.RiEffectiveHourlyRate
 			case rdsType + "-reservedinstance-multi-az-3y":
-				regionalPrice[priceItem.InstanceType].Reserved3yMultiAZ = priceItem.PriceFloat
+				regionalPrice[priceItem.InstanceType].ReservedMultiAZ3y = priceItem.RiEffectiveHourlyRate
+
 			case rdsType + "-reservedinstance-single-az-1y":
 				regionalPrice[priceItem.InstanceType].Reserved1y = priceItem.PriceFloat
+			case rdsType + "-reservedinstance-single-az-1y-partial":
+				regionalPrice[priceItem.InstanceType].Reserved1yPartial = priceItem.RiEffectiveHourlyRate
 			case rdsType + "-reservedinstance-single-az-3y":
-				regionalPrice[priceItem.InstanceType].Reserved3y = priceItem.PriceFloat
+				regionalPrice[priceItem.InstanceType].Reserved3y = priceItem.RiEffectiveHourlyRate
 			}
 		}
 

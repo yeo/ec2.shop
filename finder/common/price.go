@@ -41,6 +41,12 @@ type PriceAttribute struct {
 	Memory             string `json:"Memory"`
 	Storage            string `json:"Storage"`
 	NetworkPerformance string `json:"Network Performance"`
+
+	// Reverse Instance price
+	RiUpfront             string  `json:"riupfront:PricePerUnit"`
+	RiEffectiveHourlyRate float64 `json:"-"`
+	RiUpfrontFloat        float64 `json:"-"`
+	PurchaseOption        string  `json:"PurchaseOption"`
 }
 
 // Build internal data structure for price to make it searchable. Such as
@@ -54,6 +60,12 @@ func (a *PriceAttribute) Build() {
 	a.VCPUFloat = float64(a.VCPU)
 
 	a.PriceFloat, _ = strconv.ParseFloat(a.Price, 64)
+
+	if a.RiUpfront != "" {
+		a.RiUpfrontFloat, _ = strconv.ParseFloat(a.RiUpfront, 64)
+		a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24)
+		a.RiEffectiveHourlyRate = math.Floor(a.RiEffectiveHourlyRate*1000) / 1000
+	}
 }
 
 type PriceMap = map[string]*PriceAttribute
@@ -88,7 +100,7 @@ func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
 
 func ValueOrNA(v float64) string {
 	if v > 0 {
-		return fmt.Sprintf("%v", strconv.FormatFloat(v, 'g', 4, 64))
+		return fmt.Sprintf("%.3f", v)
 	}
 
 	return "NA"

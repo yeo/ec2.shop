@@ -82,7 +82,6 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters)
 	case "rds-mysql":
 		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters)
-
 	case "ec2":
 		return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
 	}

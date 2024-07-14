@@ -13,16 +13,21 @@ type FriendlyPrice struct {
 	Memory       string
 	VCPUS        int64
 	Network      string
+
+	// On-demand price
 	Cost         string
-	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
 	MonthlyPrice string
 	MultiAZ      string
 	MultiAZ2     string
 
+	// Reserve price
 	Reserved1yPrice   string
+	Reserved1yPartial string
 	Reserved3yPrice   string
-	Reserved1yMultiAZ string
-	Reserved3yMultiAZ string
+
+	ReservedMultiAZ1y        string
+	ReservedMultiAZ1yPartial string
+	ReservedMultiAZ3y        string
 }
 
 type FriendlyPriceResponse struct {
@@ -36,18 +41,23 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 
 	for i, v := range p {
 		formattedResp.Prices[i] = &FriendlyPrice{
-			InstanceType:      v.Attribute.InstanceType,
-			Memory:            v.Attribute.Memory,
-			VCPUS:             v.Attribute.VCPU,
-			Network:           v.Attribute.NetworkPerformance,
-			Cost:              common.ValueOrNA(v.Price),
-			MonthlyPrice:      common.ValueOrNA(common.MonthlyPrice(v.Price)),
-			MultiAZ:           common.ValueOrNA(v.MultiAZ),
-			MultiAZ2:          common.ValueOrNA(v.MultiAZ2),
+			InstanceType: v.Attribute.InstanceType,
+			Memory:       v.Attribute.Memory,
+			VCPUS:        v.Attribute.VCPU,
+			Network:      v.Attribute.NetworkPerformance,
+
+			Cost:         common.ValueOrNA(v.Price),
+			MonthlyPrice: common.ValueOrNA(common.MonthlyPrice(v.Price)),
+			MultiAZ:      common.ValueOrNA(v.MultiAZ),
+			MultiAZ2:     common.ValueOrNA(v.MultiAZ2),
+
 			Reserved1yPrice:   common.ValueOrNA(v.Reserved1y),
+			Reserved1yPartial: common.ValueOrNA(v.Reserved1yPartial),
 			Reserved3yPrice:   common.ValueOrNA(v.Reserved3y),
-			Reserved1yMultiAZ: common.ValueOrNA(v.Reserved1yMultiAZ),
-			Reserved3yMultiAZ: common.ValueOrNA(v.Reserved3yMultiAZ),
+
+			ReservedMultiAZ1y:        common.ValueOrNA(v.ReservedMultiAZ1y),
+			ReservedMultiAZ1yPartial: common.ValueOrNA(v.ReservedMultiAZ1yPartial),
+			ReservedMultiAZ3y:        common.ValueOrNA(v.ReservedMultiAZ3y),
 		}
 	}
 

@@ -263,9 +263,11 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
         price.MultiAZ,
         price.MultiAZ2,
         price.Reserved1yPrice,
+        price.Reserved1yPartial,
         price.Reserved3yPrice,
-        price.Reserved1yMultiAZ,
-        price.Reserved3yMultiAZ,
+        price.ReservedMultiAZ1y,
+        price.ReservedMultiAZ1yPartial,
+        price.ReservedMultiAZ3y,
       ])
     }
   },
@@ -295,7 +297,7 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
       }
     },
     {
-      name: 'SingleAZ',
+      name: 'SingleAZ Price',
       width: '80px',
       columns: [{
         name: 'Hourly',
@@ -312,7 +314,7 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
       }],
     },
     {
-      name: 'MultiAZ',
+      name: 'MultiAZ Price',
       width: '80px',
       columns: [{
         name: "1 standby",
@@ -329,38 +331,49 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
       }]
     },
     {
-      name: "SingleAZ Reserved",
-      width: '80px',
+      name: "SingleAZ RI(Hourly)",
+      width: '150px',
       columns: [{
         name: '1y NoUpfront',
-        width: '40px',
+        width: '90px',
+        sort: {
+          compare: compareFloat
+        }
+      }, {
+        name: '1y Partial',
+        width: '30px',
         sort: {
           compare: compareFloat
         }
       }, {
         name: '3y Partial',
-        width: '40px',
+        width: '30px',
         sort: {
           compare: compareFloat
         }
       }]
     },
     {
-      name: "MultiAZ Reserved",
-      width: '80px',
+      name: "MultiAZ RI(Hourly)",
+      width: '150px',
       columns: [{
         name: '1y NoUpfront',
-        width: '40px',
+        width: '90px',
+        sort: {
+          compare: compareFloat
+        }
+      }, {
+        name: '1y Partial',
+        width: '30px',
         sort: {
           compare: compareFloat
         }
       }, {
         name: '3y Partial',
-        width: '40px',
+        width: '30px',
         sort: {
           compare: compareFloat
         }
-
       }]
     },
 
@@ -375,6 +388,7 @@ new gridjs.Grid({
   height: '800px',
   className: {
     td: 'align-top mt-2',
+    th: 'text-yellow-600',
   },
 
   sort: true,
@@ -398,7 +412,6 @@ new gridjs.Grid({
   style: {
     header: {
       'font-size': '0.8rem',
-      'color': 'red',
     },
     th: {
       'font-size': '0.8rem',
