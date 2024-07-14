@@ -55,7 +55,8 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" != "pull_request" ]; then
             echo "DEPLOY=1" >> "$GITHUB_OUTPUT"
-            echo $DOCKER_METADATA_OUTPUT_TAGS | tail -n 1
+            echo "IMAGE_TAG=$(echo $DOCKER_METADATA_OUTPUT_TAGS | awk '{print $NF}')" >> "$GITHUB_OUTPUT"
+            echo $DOCKER_METADATA_OUTPUT_TAGS | awk '{print $NF}'
           fi
 
   deploy:
