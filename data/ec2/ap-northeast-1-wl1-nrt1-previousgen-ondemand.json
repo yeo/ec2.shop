@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>1JNQY2P9J8KK5K05</RequestId><HostId>ZtZ6eWWYIqfSTxujuTEKv6XHBhSkn3vwjEcW12qNIK31l41LykxsMg+7ZKe/Ob3dwjFok5s/TUE=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>GHA5SE6DAMVSK6Z4</RequestId><HostId>vcpBrIkR8pn4Q5UOmBQfZrlDCk+lzkCqv6p8ktSeIIRCfEZf+sQ5dvVB+ruFDL7k7e8CH3VJolo=</HostId></Error>

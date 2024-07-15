@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Multi-AZ/1 year/No Upfront/Australia (Perth)/index.json</Key><RequestId>RXXSGP5W5C243GFD</RequestId><HostId>KMuf0T01SI9UNoJcqteb0FaXNC6RfEKBecKsceO88KwQ5Zgr9piPzpK+1jVX0zinquhV7HJ/wHg=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Multi-AZ/1 year/No Upfront/Australia (Perth)/index.json</Key><RequestId>REG2295K795MSJPT</RequestId><HostId>Kefet+2Frmi0a9srvq4mjnPkxkvRhYxO7fHI2zhPkLhBXg6sz80OEg7l58itorGpaJARgDsX68A=</HostId></Error>
