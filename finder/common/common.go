@@ -8,6 +8,8 @@ import (
 	"slices"
 	"strings"
 	"time"
+
+	"github.com/labstack/echo/v4"
 )
 
 var (
@@ -23,6 +25,16 @@ type Region struct {
 	Label     string `json:"label"`
 	Continent string `json:"continent"`
 }
+
+type SearchResult interface {
+	RenderJSON(echo.Context) error
+	RenderText(echo.Context) error
+}
+type Inventory interface {
+	GetAttribute() *PriceAttribute
+	GetAttb(string) float64
+}
+type PriceByInstanceType[T Inventory] map[string]T
 
 // LoadRegions populate our region <-> name mapping map
 func LoadRegions() error {

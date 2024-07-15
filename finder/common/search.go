@@ -17,11 +17,7 @@ var (
 	termRegex = regexp.MustCompile(`(\w+)([<>=]+)(\d+(\.\d+)?)`)
 )
 
-type AttbLookup interface {
-	GetAttb(string) float64
-}
-
-type SearchFn func(AttbLookup) bool
+type SearchFn func(Inventory) bool
 type SearchTerm struct {
 	Raw  string
 	Type TermType
@@ -60,7 +56,8 @@ func NewSearchTerm(term string) *SearchTerm {
 		}
 
 		st.Type = ExprTermType
-		st.SearchFn = func(src AttbLookup) bool {
+		//st.SearchFn = func(src AttbLookup) bool {
+		st.SearchFn = func(src Inventory) bool {
 			target, err := strconv.ParseFloat(matches[3], 64)
 			if err != nil {
 				return false

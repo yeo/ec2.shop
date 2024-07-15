@@ -13,16 +13,8 @@ type RawPrice struct {
 	USD string `json:"USD"`
 }
 
-func (r *RawPrice) Price() (float64, error) {
-	return strconv.ParseFloat(r.USD, 64)
-}
-
-func MonthlyPrice(p float64) float64 {
-	// Assume 730 hours per month, similar to aws calculator https://aws.amazon.com/calculator/calculator-assumptions/
-	value := p * 730
-
-	// workaround to round a float64 to 4 decimals
-	return math.Round(value*1000) / 1000
+type PriceManifest struct {
+	Regions map[string]PriceMap `json:"regions"`
 }
 
 type PriceAttribute struct {
@@ -48,6 +40,11 @@ type PriceAttribute struct {
 	RiUpfrontFloat        float64 `json:"-"`
 	PurchaseOption        string  `json:"PurchaseOption"`
 }
+type PriceMap = map[string]*PriceAttribute
+
+func (r *RawPrice) Price() (float64, error) {
+	return strconv.ParseFloat(r.USD, 64)
+}
 
 // Build internal data structure for price to make it searchable. Such as
 // convert string to float
@@ -66,12 +63,6 @@ func (a *PriceAttribute) Build() {
 		a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24)
 		a.RiEffectiveHourlyRate = math.Floor(a.RiEffectiveHourlyRate*1000) / 1000
 	}
-}
-
-type PriceMap = map[string]*PriceAttribute
-
-type PriceManifest struct {
-	Regions map[string]PriceMap `json:"regions"`
 }
 
 // LoadPriceJsonManifest parses the price data on json file
@@ -104,4 +95,12 @@ func ValueOrNA(v float64) string {
 	}
 
 	return "NA"
+}
+
+func MonthlyPrice(p float64) float64 {
+	// Assume 730 hours per month, similar to aws calculator https://aws.amazon.com/calculator/calculator-assumptions/
+	value := p * 730
+
+	// workaround to round a float64 to 4 decimals
+	return math.Round(value*1000) / 1000
 }

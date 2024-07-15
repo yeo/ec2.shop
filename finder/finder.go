@@ -11,11 +11,12 @@ import (
 )
 
 type PriceByService struct {
-	EC2 ec2.PriceByInstanceType
+	EC2 common.PriceByInstanceType[*ec2.Price]
 
-	RDS        rds.PriceByInstanceType
-	RDSMariaDB rds.PriceByInstanceType
-	RDSMySQL   rds.PriceByInstanceType
+	//RDS        rds.PriceByInstanceType
+	RDS        common.PriceByInstanceType[*rds.Price]
+	RDSMariaDB common.PriceByInstanceType[*rds.Price]
+	RDSMySQL   common.PriceByInstanceType[*rds.Price]
 }
 
 type PriceFinder struct {
@@ -77,14 +78,13 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	switch awsSvc {
 	case "rds":
-		return rds.PriceFromRequest(p.Regions[requestRegion].RDS, requestRegion, keywords, sorters)
+		data := common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDS, requestRegion, keywords, sorters)
+		return rds.SearchResult(data)
 	case "rds-mariadb":
-		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters)
+		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters))
 	case "rds-mysql":
-		return rds.PriceFromRequest(p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters)
-	case "ec2":
-		return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
+		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters))
 	}
 
-	return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
+	return ec2.SearchResult(common.PriceFromRequest[*ec2.Price](p.Regions[requestRegion].EC2, requestRegion, keywords, sorters))
 }

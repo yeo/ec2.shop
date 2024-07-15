@@ -3,13 +3,10 @@ package rds
 import (
 	"fmt"
 	"maps"
-	"slices"
 	"strings"
 
 	"github.com/yeo/ec2shop/finder/common"
 )
-
-type PriceByInstanceType = map[string]*Price
 
 // Price structure for a given ec2 instance
 type Price struct {
@@ -30,6 +27,11 @@ type Price struct {
 	ReservedMultiAZ3y        float64 `json:"-"`
 
 	Attribute *common.PriceAttribute `json:"attributes"`
+}
+type SearchResult []*Price
+
+func (p *Price) GetAttribute() *common.PriceAttribute {
+	return p.Attribute
 }
 
 func (p *Price) GetAttb(key string) float64 {
@@ -133,77 +135,4 @@ func Discover(rdsType, r string) map[string]*Price {
 	}
 
 	return regionalPrice
-}
-
-type SearchResult []*Price
-
-func PriceFromRequest(priceData PriceByInstanceType, requestRegion string, keywords []*common.SearchTerm, sorters []*common.SortTerm) SearchResult {
-	prices := make([]*Price, 0)
-
-	for _, price := range priceData {
-		m := price.Attribute
-		// when search query is empty, match everything
-		matched := len(keywords) == 0
-
-		for _, kw := range keywords {
-			if kw.IsText() {
-				if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) ||
-					strings.Contains(strings.ToLower(m.Storage), kw.Text()) ||
-					strings.Contains(strings.ToLower(m.NetworkPerformance), kw.Text()) {
-					matched = true
-					// For text base, we do an OR, therefore we bait as soon as
-					// we matched
-					break
-				}
-			}
-		}
-
-		// For expression, we do `AND` we bail as soon as we failed to match
-		for _, kw := range keywords {
-			if kw.IsExpr() {
-				if kw.SearchFn(price) {
-					matched = true
-				} else {
-					matched = false
-					break
-				}
-			}
-		}
-
-		if !matched {
-			continue
-		}
-
-		prices = append(prices, price)
-	}
-
-	slices.SortFunc(prices, func(a, b *Price) int {
-		for _, t := range sorters {
-			switch t.Field {
-			case "price":
-				if a.Price < b.Price {
-					return -t.Direction
-				} else if a.Price > b.Price {
-					return t.Direction
-				}
-			case "cpu":
-				if a.Attribute.VCPUFloat < b.Attribute.VCPUFloat {
-					return -t.Direction
-				} else if a.Attribute.VCPUFloat > b.Attribute.VCPUFloat {
-					return t.Direction
-				}
-
-			case "mem":
-				if a.Attribute.MemoryGib < b.Attribute.MemoryGib {
-					return -t.Direction
-				} else if a.Attribute.MemoryGib > b.Attribute.MemoryGib {
-					return t.Direction
-				}
-			}
-		}
-
-		return 0
-	})
-
-	return prices
 }
