@@ -6,7 +6,9 @@ import (
 	"github.com/labstack/echo/v4"
 
 	"github.com/yeo/ec2shop/finder/common"
+	"github.com/yeo/ec2shop/finder/common/simpleri"
 	"github.com/yeo/ec2shop/finder/ec2"
+	"github.com/yeo/ec2shop/finder/elasticache"
 	"github.com/yeo/ec2shop/finder/rds"
 )
 
@@ -17,6 +19,9 @@ type PriceByService struct {
 	RDS        common.PriceByInstanceType[*rds.Price]
 	RDSMariaDB common.PriceByInstanceType[*rds.Price]
 	RDSMySQL   common.PriceByInstanceType[*rds.Price]
+
+	// Elasticache
+	Elasticache common.PriceByInstanceType[*simpleri.Price]
 }
 
 type PriceFinder struct {
@@ -48,9 +53,12 @@ func (p *PriceFinder) Discover() {
 		go func(loadedRegion string) {
 			defer wg.Done()
 			p.Regions[loadedRegion].EC2 = ec2.Discover(loadedRegion)
+
 			p.Regions[loadedRegion].RDS = rds.Discover("rds-postgresql", loadedRegion)
 			p.Regions[loadedRegion].RDSMariaDB = rds.Discover("rds-mariadb", loadedRegion)
 			p.Regions[loadedRegion].RDSMySQL = rds.Discover("rds-mysql", loadedRegion)
+
+			p.Regions[loadedRegion].Elasticache = elasticache.Discover("Redis", loadedRegion)
 		}(r)
 	}
 	wg.Wait()
@@ -78,12 +86,14 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	switch awsSvc {
 	case "rds":
-		data := common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDS, requestRegion, keywords, sorters)
-		return rds.SearchResult(data)
+		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDS, requestRegion, keywords, sorters))
 	case "rds-mariadb":
 		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters))
 	case "rds-mysql":
 		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters))
+
+	case "elasticache":
+		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Elasticache, requestRegion, keywords, sorters))
 	}
 
 	return ec2.SearchResult(common.PriceFromRequest[*ec2.Price](p.Regions[requestRegion].EC2, requestRegion, keywords, sorters))

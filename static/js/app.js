@@ -380,6 +380,119 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
   ],
 }
 
+dataGridOptions.elasticache = {
+  server: {
+    url: `${window.location.pathname}?json&${params.toString()}`,
+    then: (data) => {
+      //window.history.pushState(params, 'unused', '?');
+      return data.Prices.map(price => [
+        price.InstanceType,
+        price.Memory,
+        price.VCPUS,
+        price.Network,
+        price.Cost,
+        price.MonthlyPrice,
+        price.Reserved1y,
+        price.Reserved1yPartial,
+        price.Reserved1yAll,
+        price.Reserved3y,
+        price.Reserved3yPartial,
+        price.Reserved3yAll,
+      ])
+    }
+  },
+
+  columns: [
+    {
+      name: 'Type',
+      width: '90px',
+    },
+    {
+      name: "Mem (GiB)",
+      width: '70px',
+      sort: {
+        compare: compareFloatFirst
+      }
+    },
+
+    {
+      name: 'vCPUS',
+      width: '60px',
+    },
+    {
+      name: 'Network',
+      width: '90px',
+      sort: {
+        compare: compareNetwork
+      }
+    },
+    {
+      name: 'Ondemand Price',
+      width: '80px',
+      columns: [{
+        name: 'Hourly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }, {
+        name: 'Monthly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }],
+    },
+    {
+      name: 'Reserved 1y',
+      width: '120px',
+      columns: [{
+        name: "Noupfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }, {
+        name: "Partial Upfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      },{
+        name: "All Upfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }]
+    },
+    {
+      name: 'Reserved 3y',
+      width: '120px',
+      columns: [{
+        name: "Noupfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }, {
+        name: "Partial Upfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      },{
+        name: "All Upfront",
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }]
+    },
+  ],
+}
+
+
 
 var g = window.g = new gridjs.Grid({
   ...(dataGridOptions[awsSvc]),

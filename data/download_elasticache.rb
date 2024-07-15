@@ -23,17 +23,18 @@ puts "found #{regions.length} regions"
 
 regions.each do |key, region|
   rn = CGI.escape(region['name'])
+  rc = CGI.escape(region['code'])
 
   puts "[elasticache] fetching #{region['name']}"
 
   %w(1%20year 3%20year).each do |y|
-    %w(No%20Upfront Partial%20Upfront).each do |p|
+    %w(No%20Upfront Partial%20Upfront All%20Upfront).each do |p|
       %w(Standard Network%20optimized Memory%20optimized).each do |t|
         url = "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/#{y}/#{p}/#{rn}/#{t}/index.json?timestamp=#{ts}"
         puts "fetch #{url}"
         region_price_data = HTTPX.get url
 
-        File.write("data/elasticache/elasticache-reservedinstance-#{y}-#{p}-#{rn}-#{t}.json", region_price_data)
+        File.write("data/elasticache/elasticache-reservedinstance-#{y}-#{p}-#{rc}-#{t}.json", region_price_data)
       end
     end
   end

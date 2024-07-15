@@ -35,6 +35,7 @@ type PriceAttribute struct {
 	NetworkPerformance string `json:"Network Performance"`
 
 	// Reverse Instance price
+	LeaseContractLength   string  `json:"LeaseContractLength"`
 	RiUpfront             string  `json:"riupfront:PricePerUnit"`
 	RiEffectiveHourlyRate float64 `json:"-"`
 	RiUpfrontFloat        float64 `json:"-"`
@@ -60,7 +61,12 @@ func (a *PriceAttribute) Build() {
 
 	if a.RiUpfront != "" {
 		a.RiUpfrontFloat, _ = strconv.ParseFloat(a.RiUpfront, 64)
-		a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24)
+		if a.LeaseContractLength == "1yr" {
+			a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24)
+		} else if a.LeaseContractLength == "3yr" {
+			a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24 / 3)
+		}
+
 		a.RiEffectiveHourlyRate = math.Floor(a.RiEffectiveHourlyRate*1000) / 1000
 	}
 }
