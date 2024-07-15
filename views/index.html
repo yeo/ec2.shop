@@ -58,6 +58,11 @@
                {{ if eq .svc "elasticache" }}aria-current="page"{{ end }}
                >Elasticache</a>
 
+            <a href="/opensearch"
+               class="{{ if eq .svc "opensearch" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
+               {{ if eq .svc "opensearch" }}aria-current="page"{{ end }}
+               >Opensearch</a>
+
             <!--
             <a href="/rabbitmq"
                class="{{ if eq .svc "rabbitmq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
