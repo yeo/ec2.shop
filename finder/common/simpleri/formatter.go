@@ -13,6 +13,7 @@ type FriendlyPrice struct {
 	Memory       string
 	VCPUS        int64
 	Network      string
+	Storage      string
 
 	// On-demand price
 	Cost         string
@@ -43,6 +44,7 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 			Memory:       v.Attribute.Memory,
 			VCPUS:        v.Attribute.VCPU,
 			Network:      v.Attribute.NetworkPerformance,
+			Storage:      v.Attribute.Storage,
 
 			Cost:         common.ValueOrNA(v.Price),
 			MonthlyPrice: common.ValueOrNA(common.MonthlyPrice(v.Price)),

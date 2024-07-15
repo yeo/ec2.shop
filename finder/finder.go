@@ -7,8 +7,10 @@ import (
 
 	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
+
 	"github.com/yeo/ec2shop/finder/ec2"
 	"github.com/yeo/ec2shop/finder/elasticache"
+	"github.com/yeo/ec2shop/finder/es"
 	"github.com/yeo/ec2shop/finder/rds"
 )
 
@@ -22,6 +24,8 @@ type PriceByService struct {
 
 	// Elasticache
 	Elasticache common.PriceByInstanceType[*simpleri.Price]
+
+	Opensearch common.PriceByInstanceType[*simpleri.Price]
 }
 
 type PriceFinder struct {
@@ -59,6 +63,7 @@ func (p *PriceFinder) Discover() {
 			p.Regions[loadedRegion].RDSMySQL = rds.Discover("rds-mysql", loadedRegion)
 
 			p.Regions[loadedRegion].Elasticache = elasticache.Discover("Redis", loadedRegion)
+			p.Regions[loadedRegion].Opensearch = es.Discover(loadedRegion)
 		}(r)
 	}
 	wg.Wait()
@@ -94,6 +99,9 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	case "elasticache":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Elasticache, requestRegion, keywords, sorters))
+
+	case "opensearch":
+		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Opensearch, requestRegion, keywords, sorters))
 	}
 
 	return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
