@@ -7,10 +7,10 @@ import (
 
 	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
+	"github.com/yeo/ec2shop/finder/es"
 
 	"github.com/yeo/ec2shop/finder/ec2"
 	"github.com/yeo/ec2shop/finder/elasticache"
-	"github.com/yeo/ec2shop/finder/es"
 	"github.com/yeo/ec2shop/finder/rds"
 )
 
