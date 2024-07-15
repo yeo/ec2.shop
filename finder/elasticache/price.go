@@ -45,7 +45,7 @@ func Discover(elasticacheFamily, r string) map[string]*simpleri.Price {
 				continue
 			}
 
-			for name, priceItem := range riPriceList.Regions[r] {
+			for _, priceItem := range riPriceList.Regions[r] {
 				priceItem.Build()
 
 				if priceItem.InstanceType == "" {
