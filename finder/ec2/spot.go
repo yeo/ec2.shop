@@ -131,12 +131,10 @@ func (s *SpotPriceFinder) Fetch() error {
 				}
 
 			}
-
-			//log.Printf("[spot price loader] found %d server price for region %s", total, r.Region)
 		}
 	}
 
-	//log.Printf("Spot Price %+v", s.pricePerRegions)
+	//log.Printf("Spot Price %+v", *(s.pricePerRegions["us-east-1"]["c5ad.2xlarge"].Linux))
 	log.Println("Fetched spot price in", time.Now().Sub(t0), "at", time.Now())
 
 	return nil

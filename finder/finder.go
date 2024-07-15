@@ -96,5 +96,5 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Elasticache, requestRegion, keywords, sorters))
 	}
 
-	return ec2.SearchResult(common.PriceFromRequest[*ec2.Price](p.Regions[requestRegion].EC2, requestRegion, keywords, sorters))
+	return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
 }
