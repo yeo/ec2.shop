@@ -21,6 +21,8 @@ jobs:
       run: |
         ruby data/download.rb
         ruby data/download_rds.rb
+        ruby data/download_es.rb
+        ruby data/download_elasticache.rb
  
     - name: Add new price data
       run: |
