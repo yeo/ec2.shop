@@ -1,8 +1,6 @@
 package simpleri
 
 import (
-	"fmt"
-
 	"github.com/yeo/ec2shop/finder/common"
 )
 
@@ -42,38 +40,4 @@ func (p *Price) GetAttb(key string) float64 {
 	}
 
 	return lookup
-}
-
-func LoadPriceForType(filename string, r string, resourceClassFamily string, filter func(string) bool) map[string]*Price {
-	priceList, err := common.LoadPriceJsonManifest(filename)
-	if err != nil {
-		panic(fmt.Errorf("error load json manifest: %w", err))
-	}
-
-	itemPrices := make(map[string]*Price)
-
-	for name, priceItem := range priceList.Regions[r] {
-		priceItem.Build()
-
-		price := &Price{
-			ID:        priceItem.InstanceType,
-			Attribute: priceItem,
-		}
-
-		if price.ID == "" {
-			continue
-		}
-
-		if !filter(name) {
-			continue
-		}
-
-		if _, ok := itemPrices[price.ID]; !ok {
-			itemPrices[price.ID] = price
-		}
-
-		itemPrices[price.ID].Price = priceItem.PriceFloat
-	}
-
-	return itemPrices
 }

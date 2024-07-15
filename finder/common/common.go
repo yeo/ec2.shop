@@ -26,6 +26,11 @@ type Region struct {
 	Continent string `json:"continent"`
 }
 
+type AwsSvc struct {
+	Name string
+	Code string
+}
+
 type SearchResult interface {
 	RenderJSON(echo.Context) error
 	RenderText(echo.Context) error
