@@ -67,7 +67,7 @@ func (a *PriceAttribute) Build() {
 			a.RiEffectiveHourlyRate = a.PriceFloat + (a.RiUpfrontFloat / 365 / 24 / 3)
 		}
 
-		a.RiEffectiveHourlyRate = math.Floor(a.RiEffectiveHourlyRate*1000) / 1000
+		a.RiEffectiveHourlyRate = math.Round(a.RiEffectiveHourlyRate*10000) / 10000
 	}
 }
 
@@ -97,7 +97,7 @@ func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
 
 func ValueOrNA(v float64) string {
 	if v > 0 {
-		return fmt.Sprintf("%.3f", v)
+		return fmt.Sprintf("%.4f", math.Round(v*10000)/10000)
 	}
 
 	return "NA"
@@ -108,5 +108,5 @@ func MonthlyPrice(p float64) float64 {
 	value := p * 730
 
 	// workaround to round a float64 to 4 decimals
-	return math.Round(value*1000) / 1000
+	return math.Round(value*10000) / 10000
 }
