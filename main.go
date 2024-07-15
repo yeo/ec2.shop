@@ -118,12 +118,13 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 		}
 
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
-			"ts":              ts,
-			"priceData":       prices,
-			"currentRegion":   currentRegion,
-			"regions":         common.AvailableRegions,
-			"regionIDToNames": common.RegionIDToNames,
-			"svc":             awsSvc,
+			"ts":                ts,
+			"priceData":         prices,
+			"currentRegion":     currentRegion,
+			"regions":           common.AvailableRegions,
+			"regionIDToNames":   common.RegionIDToNames,
+			"svc":               awsSvc,
+			"availableServices": finder.AvailableServices,
 		})
 	}
 }

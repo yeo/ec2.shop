@@ -8,6 +8,7 @@ import (
 	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
 	"github.com/yeo/ec2shop/finder/es"
+	"github.com/yeo/ec2shop/finder/redshift"
 
 	"github.com/yeo/ec2shop/finder/ec2"
 	"github.com/yeo/ec2shop/finder/elasticache"
@@ -26,10 +27,42 @@ type PriceByService struct {
 	Elasticache common.PriceByInstanceType[*simpleri.Price]
 
 	Opensearch common.PriceByInstanceType[*simpleri.Price]
+	Redshift   common.PriceByInstanceType[*simpleri.Price]
 }
 
 type PriceFinder struct {
 	Regions map[string]*PriceByService
+}
+
+var AvailableServices = []common.AwsSvc{
+	common.AwsSvc{
+		Code: "ec2",
+		Name: "EC2",
+	},
+	common.AwsSvc{
+		Code: "rds",
+		Name: "RDS Postgres",
+	},
+	common.AwsSvc{
+		Code: "rds-mysql",
+		Name: "RDS MySQL",
+	},
+	common.AwsSvc{
+		Code: "rds-mariadb",
+		Name: "RDS MariaDB",
+	},
+	common.AwsSvc{
+		Code: "elasticache",
+		Name: "Elasticache",
+	},
+	common.AwsSvc{
+		Code: "opensearch",
+		Name: "Opensearch",
+	},
+	common.AwsSvc{
+		Code: "redshift",
+		Name: "Redshift",
+	},
 }
 
 func New() *PriceFinder {
@@ -64,6 +97,7 @@ func (p *PriceFinder) Discover() {
 
 			p.Regions[loadedRegion].Elasticache = elasticache.Discover("Redis", loadedRegion)
 			p.Regions[loadedRegion].Opensearch = es.Discover(loadedRegion)
+			p.Regions[loadedRegion].Redshift = redshift.Discover(loadedRegion)
 		}(r)
 	}
 	wg.Wait()
@@ -99,6 +133,9 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	case "elasticache":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Elasticache, requestRegion, keywords, sorters))
+
+	case "redshift":
+		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Redshift, requestRegion, keywords, sorters))
 
 	case "opensearch":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Opensearch, requestRegion, keywords, sorters))

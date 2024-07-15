@@ -56,11 +56,11 @@ function compareFloat(a, b) {
   const code = (x) => parseFloat(x)
 
   if (code(a) > code(b)) {
-    return 1;
+    return 1
   } else if (code(b) > code(a)) {
-    return -1;
+    return -1
   } else {
-    return 0;
+    return 0
   }
 }
 
@@ -77,48 +77,47 @@ function compareRange(a, b) {
   const code = (x) => range[x]
 
   if (code(a) > code(b)) {
-    return 1;
+    return 1
   } else if (code(b) > code(a)) {
-    return -1;
+    return -1
   } else {
-    return 0;
+    return 0
   }
 }
 
 // compare two string by the first float part
 function compareFloatFirst(a, b) {
   if (a == "NA") {
-    return -1;
+    return -1
   }
   if (b == "NA") {
-    return 1;
+    return 1
   }
 
   const code = (x) => parseFloat(x.split(' ')[0])
 
   if (code(a) > code(b)) {
-    return 1;
+    return 1
   } else if (code(b) > code(a)) {
-    return -1;
+    return -1
   } else {
-    return 0;
+    return 0
   }
 }
 
-let awsSvc = "ec2";
+let awsSvc = "ec2"
 if (document.currentScript.hasAttribute('data-svc')) {
     // svc has this format provider:svc such as aws:rds aws:rds-pg or gcp:vm
-    const svc = document.currentScript.getAttribute('data-svc');
-    awsSvc = svc.split(":")[1];
+    const svc = document.currentScript.getAttribute('data-svc')
+    awsSvc = svc.split(":")[1]
 }
-let params = new URL(document.location.toString()).searchParams;
+let params = new URL(document.location.toString()).searchParams
 
 const dataGridOptions = {}
 dataGridOptions.ec2 = {
   server: {
     url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
-      //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [
         price.InstanceType,
         price.Memory,
@@ -252,7 +251,6 @@ dataGridOptions.rds = dataGridOptions["rds-mysql"] = dataGridOptions["rds-mariad
   server: {
     url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
-      //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [
         price.InstanceType,
         price.Memory,
@@ -384,7 +382,6 @@ dataGridOptions.elasticache = {
   server: {
     url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
-      //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [
         price.InstanceType,
         price.Memory,
@@ -496,7 +493,6 @@ dataGridOptions.opensearch = {
   server: {
     url: `${window.location.pathname}?json&${params.toString()}`,
     then: (data) => {
-      //window.history.pushState(params, 'unused', '?');
       return data.Prices.map(price => [
         price.InstanceType,
         price.Memory,
@@ -604,7 +600,7 @@ dataGridOptions.opensearch = {
   ],
 }
 
-
+dataGridOptions.redshift = dataGridOptions.opensearch
 
 
 var g = window.g = new gridjs.Grid({
@@ -619,19 +615,17 @@ var g = window.g = new gridjs.Grid({
 
   sort: true,
 
-  //store: {search: {keyword: 'bar'}},
-
   search: {
     server: {
       url: (prev, keyword) => {
-        let params = new URL(document.location.toString()).searchParams;
-        params.set("filter", keyword);
+        let params = new URL(document.location.toString()).searchParams
+        params.set("filter", keyword)
         if (!params.get("region")) {
             // default to us-east-1
             // TODO: load from cookie ?
-            params.set("region", "us-east-1");
+            params.set("region", "us-east-1")
         }
-        window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString());
+        window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString())
         return `?json&${params.toString()}`
       }
     }
@@ -650,14 +644,13 @@ var g = window.g = new gridjs.Grid({
 
 function sharelink(button) {
     navigator.clipboard.writeText(window.location.href)
-    console.log(button);
     button.innerText = "copied"
     setTimeout(() => {
       button.innerText = "Share Link"
-    }, 5000);
+    }, 5000)
 }
 
 if (params.get("filter")) {
   // load the parameter on ui to search box
-  g.config.store.state.search = {keyword: params.get("filter")};
+  g.config.store.state.search = {keyword: params.get("filter")}
 }

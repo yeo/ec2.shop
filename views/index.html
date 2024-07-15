@@ -33,35 +33,13 @@
         <div class="sm:block">
           <nav class="flex space-x-1" aria-label="Tabs">
             <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
-            <a href="/"
-               class="{{ if eq .svc "ec2" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
-               {{ if eq .svc "ec2"}}aria-current="page"{{ end }}
-               >EC2</a>
-
-            <a href="/rds"
-               class="{{ if eq .svc "rds" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-               >RDS(Postgres)</a>
-
-            <a href="/rds-mysql"
-               class="{{ if eq .svc "rds-mysql" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-               >RDS(MySQL)</a>
-
-            <a href="/rds-mariadb"
-               class="{{ if eq .svc "rds-mariadb" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-               >RDS(MariaDB)</a>
-
-            <a href="/elasticache"
-               class="{{ if eq .svc "elasticache" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "elasticache" }}aria-current="page"{{ end }}
-               >Elasticache</a>
-
-            <a href="/opensearch"
-               class="{{ if eq .svc "opensearch" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "opensearch" }}aria-current="page"{{ end }}
-               >Opensearch</a>
+            {{ $currentSvc := index . "svc" }}
+            {{ range $idx, $svc := index . "availableServices" }}
+            <a href="{{ if eq $svc.Code "ec2"}}/{{ else }}{{ $svc.Code }}{{ end }}"
+               class="{{ if eq $currentSvc $svc.Code }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800"
+               {{ if eq $currentSvc $svc.Code }}aria-current="page"{{ end }}
+               >{{ $svc.Name}}</a>
+            {{ end }}
 
             <!--
             <a href="/rabbitmq"
