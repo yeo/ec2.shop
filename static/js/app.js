@@ -712,6 +712,32 @@ dataGridOptions.activemq = {
 
 dataGridOptions.msk = dataGridOptions.rabbitmq
 
+dataGridOptions.ebs = {
+  server: {
+    url: `${window.location.pathname}?json&${params.toString()}`,
+    then: (data) => {
+      return data.Prices.map(price => [
+        price.InstanceType,
+        price.Cost,
+      ])
+    }
+  },
+
+  columns: [
+    {
+      name: 'Type',
+      width: '90px',
+    },
+    {
+      name: 'Price',
+      width: '80px',
+        sort: {
+          compare: compareFloat
+        }
+    }
+  ],
+}
+
 var g = window.g = new gridjs.Grid({
   ...(dataGridOptions[awsSvc]),
   width: '100%',
