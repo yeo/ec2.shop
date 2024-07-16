@@ -7,6 +7,7 @@ import (
 
 	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/common/activestandby"
+	"github.com/yeo/ec2shop/finder/common/multiaz"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
 	"github.com/yeo/ec2shop/finder/es"
 	"github.com/yeo/ec2shop/finder/mq"
@@ -21,9 +22,9 @@ type PriceByService struct {
 	EC2 common.PriceByInstanceType[*ec2.Price]
 
 	//RDS        rds.PriceByInstanceType
-	RDS        common.PriceByInstanceType[*rds.Price]
-	RDSMariaDB common.PriceByInstanceType[*rds.Price]
-	RDSMySQL   common.PriceByInstanceType[*rds.Price]
+	RDS        common.PriceByInstanceType[*multiaz.Price]
+	RDSMariaDB common.PriceByInstanceType[*multiaz.Price]
+	RDSMySQL   common.PriceByInstanceType[*multiaz.Price]
 
 	// Elasticache
 	Elasticache common.PriceByInstanceType[*simpleri.Price]
@@ -141,11 +142,11 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	switch awsSvc {
 	case "rds":
-		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDS, requestRegion, keywords, sorters))
+		return multiaz.SearchResult(common.PriceFromRequest[*multiaz.Price](p.Regions[requestRegion].RDS, requestRegion, keywords, sorters))
 	case "rds-mariadb":
-		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters))
+		return multiaz.SearchResult(common.PriceFromRequest[*multiaz.Price](p.Regions[requestRegion].RDSMariaDB, requestRegion, keywords, sorters))
 	case "rds-mysql":
-		return rds.SearchResult(common.PriceFromRequest[*rds.Price](p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters))
+		return multiaz.SearchResult(common.PriceFromRequest[*multiaz.Price](p.Regions[requestRegion].RDSMySQL, requestRegion, keywords, sorters))
 
 	case "elasticache":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Elasticache, requestRegion, keywords, sorters))

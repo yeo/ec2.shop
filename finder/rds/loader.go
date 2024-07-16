@@ -6,61 +6,22 @@ import (
 	"strings"
 
 	"github.com/yeo/ec2shop/finder/common"
+	"github.com/yeo/ec2shop/finder/common/multiaz"
 )
 
-// Price structure for a given ec2 instance
-type Price struct {
-	ID string `json:"id"`
-
-	RawPrice *common.RawPrice `json:"price"`
-
-	Price    float64 `json:"-"`
-	MultiAZ  float64 `json:"-"`
-	MultiAZ2 float64 `json:"-"`
-
-	Reserved1y        float64 `json:"-"`
-	Reserved1yPartial float64 `json:"-"`
-	Reserved3y        float64 `json:"-"`
-
-	ReservedMultiAZ1y        float64 `json:"-"`
-	ReservedMultiAZ1yPartial float64 `json:"-"`
-	ReservedMultiAZ3y        float64 `json:"-"`
-
-	Attribute *common.PriceAttribute `json:"attributes"`
-}
-type SearchResult []*Price
-
-func (p *Price) GetAttribute() *common.PriceAttribute {
-	return p.Attribute
-}
-
-func (p *Price) GetAttb(key string) float64 {
-	lookup := float64(0)
-	switch key {
-	case "mem":
-		lookup = p.Attribute.MemoryGib
-	case "cpu", "vcpu", "core":
-		lookup = p.Attribute.VCPUFloat
-	case "price":
-		lookup = p.Price
-	}
-
-	return lookup
-}
-
-func LoadPriceForType(r, generation string) map[string]*Price {
+func LoadPriceForType(r, generation string) map[string]*multiaz.Price {
 	filename := "./data/rds/" + generation + ".json"
 	priceList, err := common.LoadPriceJsonManifest(filename)
 	if err != nil {
 		panic(fmt.Errorf("error load json manifest: %w", err))
 	}
 
-	itemPrices := make(map[string]*Price)
+	itemPrices := make(map[string]*multiaz.Price)
 
 	for name, priceItem := range priceList.Regions[r] {
 		priceItem.Build()
 
-		price := &Price{
+		price := &multiaz.Price{
 			ID:        priceItem.InstanceType,
 			Attribute: priceItem,
 		}
@@ -86,8 +47,8 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 	return itemPrices
 }
 
-func Discover(rdsType, r string) map[string]*Price {
-	regionalPrice := make(map[string]*Price)
+func Discover(rdsType, r string) map[string]*multiaz.Price {
+	regionalPrice := make(map[string]*multiaz.Price)
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
 	for _, generation := range []string{

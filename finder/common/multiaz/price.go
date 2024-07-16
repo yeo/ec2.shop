@@ -1,4 +1,5 @@
-package multi2
+// package multiaz provide price definition for service that support multiaz
+package multiaz
 
 import (
 	"github.com/yeo/ec2shop/finder/common"

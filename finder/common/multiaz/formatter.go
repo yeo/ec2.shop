@@ -1,4 +1,4 @@
-package multiaz2
+package multiaz
 
 import (
 	"fmt"
