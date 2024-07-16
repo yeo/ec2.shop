@@ -40,12 +40,6 @@
                {{ if eq $currentSvc $svc.Code }}aria-current="page"{{ end }}
                >{{ $svc.Name}}</a>
             {{ end }}
-
-            <!--
-            <a href="/rabbitmq"
-               class="{{ if eq .svc "rabbitmq" }}rounded-md bg-gray-200{{ else }}text-gray-600 hover:text-gray-800{{ end }} px-3 py-2 text-sm font-medium text-gray-800 "
-               {{ if eq .svc "rds" }}aria-current="page"{{ end }}
-               >RabbitMQ</a>-->
           </nav>
         </div>
       </div>
@@ -142,4 +136,3 @@ rounded border border-grey-500" onchange="window.location = '?region=' + this.va
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
-
