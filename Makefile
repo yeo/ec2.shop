@@ -13,3 +13,6 @@ deploy:
 docker:
 	docker build --platform=linux/amd64 -t yeospace/ec2shop:$(rev) .
 	docker push yeospace/ec2shop:$(rev)
+
+run:
+	DEBUG=1 go run .
