@@ -710,6 +710,7 @@ dataGridOptions.activemq = {
   ],
 }
 
+dataGridOptions.msk = dataGridOptions.rabbitmq
 
 var g = window.g = new gridjs.Grid({
   ...(dataGridOptions[awsSvc]),
