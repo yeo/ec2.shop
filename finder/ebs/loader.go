@@ -1,9 +1,8 @@
-package msk
+package ebs
 
 import (
 	"fmt"
 	"maps"
-	"strings"
 
 	"github.com/yeo/ec2shop/finder/common"
 	"github.com/yeo/ec2shop/finder/common/activestandby"
@@ -18,30 +17,20 @@ func LoadPriceForType(filename string, r string, family string) map[string]*acti
 	itemPrices := make(map[string]*activestandby.Price)
 
 	for name, priceItem := range priceList.Regions[r] {
-		if !strings.Contains(name, "RunBroker") {
-			// Active Standby mq m5.4xlarge
-			// Single Instance mq t3.micro
-			// "Active Standby mqCRDR m5.xlarge ActiveMQ CRDR
-			continue
-		}
 		priceItem.Build()
 
-		nameParts := strings.Split(name, " ")
-		id := nameParts[len(nameParts)-1]
-		if strings.Contains(id, "-") {
-			continue
-		}
-
+		priceItem.InstanceType = name
 		price := &activestandby.Price{
-			ID:        fmt.Sprintf("kafka.%s", id),
+			ID:        name,
 			Attribute: priceItem,
 		}
 
-		price.Attribute.InstanceType = price.ID
-		if _, ok := itemPrices[price.ID]; !ok {
-			itemPrices[price.ID] = price
+		itemPrices[price.ID] = price
+		if _, ok := itemPrices[price.ID]; ok {
+			itemPrices[price.ID].Price = priceItem.PriceFloat
+		} else {
+			fmt.Println("missing id", price.ID)
 		}
-		itemPrices[price.ID].Price = priceItem.PriceFloat
 	}
 
 	return itemPrices
@@ -53,7 +42,7 @@ func Discover(family, region string) map[string]*activestandby.Price {
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
 	onDemandPrice := LoadPriceForType(
-		"./data/msk/msk.json",
+		"./data/ebs/ebs.json",
 		region,
 		family)
 

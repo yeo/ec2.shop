@@ -9,6 +9,7 @@ import (
 	"github.com/yeo/ec2shop/finder/common/activestandby"
 	"github.com/yeo/ec2shop/finder/common/multiaz"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
+	"github.com/yeo/ec2shop/finder/ebs"
 	"github.com/yeo/ec2shop/finder/es"
 	"github.com/yeo/ec2shop/finder/mq"
 	"github.com/yeo/ec2shop/finder/msk"
@@ -37,6 +38,7 @@ type PriceByService struct {
 	RabbitMQ common.PriceByInstanceType[*activestandby.Price]
 
 	MSK common.PriceByInstanceType[*activestandby.Price]
+	EBS common.PriceByInstanceType[*activestandby.Price]
 }
 
 type PriceFinder struct {
@@ -84,6 +86,10 @@ var AvailableServices = []common.AwsSvc{
 		Code: "msk",
 		Name: "MSK",
 	},
+	common.AwsSvc{
+		Code: "ebs",
+		Name: "EBS",
+	},
 }
 
 func New() *PriceFinder {
@@ -121,6 +127,8 @@ func (p *PriceFinder) Discover() {
 			p.Regions[loadedRegion].ActiveMQ = mq.Discover("ActiveMQ", loadedRegion)
 
 			p.Regions[loadedRegion].MSK = msk.Discover("msk", loadedRegion)
+
+			p.Regions[loadedRegion].EBS = ebs.Discover("ebs", loadedRegion)
 		}(r)
 	}
 	wg.Wait()
@@ -171,6 +179,10 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	case "opensearch":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Opensearch, requestRegion, keywords, sorters))
+
+	case "ebs":
+		return activestandby.SearchResult(common.PriceFromRequest[*activestandby.Price](p.Regions[requestRegion].EBS, requestRegion, keywords, sorters))
+
 	}
 
 	return ec2.PriceFromRequest(p.Regions[requestRegion].EC2, requestRegion, keywords, sorters)
