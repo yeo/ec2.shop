@@ -600,7 +600,115 @@ dataGridOptions.opensearch = {
   ],
 }
 
-dataGridOptions.redshift = dataGridOptions.opensearch
+dataGridOptions.redshift = dataGridOptions.opensearch;
+
+dataGridOptions.rabbitmq = {
+  server: {
+    url: `${window.location.pathname}?json&${params.toString()}`,
+    then: (data) => {
+      return data.Prices.map(price => [
+        price.InstanceType,
+        price.Memory,
+        price.VCPUS,
+        price.Cost,
+        price.MonthlyPrice,
+      ])
+    }
+  },
+
+  columns: [
+    {
+      name: 'Type',
+      width: '90px',
+    },
+    {
+      name: "Mem (GiB)",
+      width: '70px',
+      sort: {
+        compare: compareFloatFirst
+      }
+    },
+    {
+      name: 'vCPUS',
+      width: '60px',
+    },
+    {
+      name: 'Price',
+      width: '80px',
+      columns: [{
+        name: 'Hourly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      },{
+        name: 'Monthly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }],
+    },
+  ],
+}
+
+dataGridOptions.activemq = {
+  server: {
+    url: `${window.location.pathname}?json&${params.toString()}`,
+    then: (data) => {
+      return data.Prices.map(price => [
+        price.InstanceType,
+        price.Memory,
+        price.VCPUS,
+        price.Cost,
+        price.MonthlyPrice,
+        price.ActiveStandbyPrice,
+      ])
+    }
+  },
+
+  columns: [
+    {
+      name: 'Type',
+      width: '90px',
+    },
+    {
+      name: "Mem (GiB)",
+      width: '70px',
+      sort: {
+        compare: compareFloatFirst
+      }
+    },
+    {
+      name: 'vCPUS',
+      width: '60px',
+    },
+    {
+      name: 'Price',
+      width: '80px',
+      columns: [{
+        name: 'Hourly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      },{
+        name: 'Monthly',
+        width: '40px',
+        sort: {
+          compare: compareFloat
+        }
+      }],
+    },
+    {
+      name: 'Active Standby Price',
+      width: '80px',
+      sort: {
+        compare: compareFloat
+      },
+    }
+  ],
+}
 
 
 var g = window.g = new gridjs.Grid({
