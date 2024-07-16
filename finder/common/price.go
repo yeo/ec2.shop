@@ -1,9 +1,7 @@
 package common
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"math"
 	"strconv"
 	"strings"
@@ -42,6 +40,7 @@ type PriceAttribute struct {
 	PurchaseOption        string  `json:"PurchaseOption"`
 }
 type PriceMap = map[string]*PriceAttribute
+type FilterFunc func(string, *PriceAttribute) bool
 
 func (r *RawPrice) Price() (float64, error) {
 	return strconv.ParseFloat(r.USD, 64)
@@ -69,30 +68,6 @@ func (a *PriceAttribute) Build() {
 
 		a.RiEffectiveHourlyRate = math.Round(a.RiEffectiveHourlyRate*10000) / 10000
 	}
-}
-
-// LoadPriceJsonManifest parses the price data on json file
-func LoadPriceJsonManifest(filename string) (*PriceManifest, error) {
-	content, err := ioutil.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
-
-	var _priceList PriceManifest
-	err = json.Unmarshal(content, &_priceList)
-
-	if err != nil {
-		return nil, err
-	}
-
-	var priceList PriceManifest
-	priceList.Regions = make(map[string]map[string]*PriceAttribute)
-
-	for region, value := range _priceList.Regions {
-		priceList.Regions[RegionMaps[region].ID] = value
-	}
-
-	return &priceList, err
 }
 
 func ValueOrNA(v float64) string {

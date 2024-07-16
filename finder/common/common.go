@@ -39,6 +39,7 @@ type Inventory interface {
 	GetAttribute() *PriceAttribute
 	GetAttb(string) float64
 }
+
 type PriceByInstanceType[T Inventory] map[string]T
 
 // LoadRegions populate our region <-> name mapping map

@@ -1,6 +1,4 @@
-// packageri provides a common primitive to load price for resource that just
-// have a price, no az or ative/standby setup and also suppoer reserver instance
-package simpleri
+package activestandby
 
 import (
 	"github.com/yeo/ec2shop/finder/common"
@@ -14,13 +12,7 @@ type Price struct {
 
 	Price float64 `json:"-"`
 
-	Reserved1y        float64 `json:"-"`
-	Reserved1yPartial float64 `json:"-"`
-	Reserved1yAll     float64 `json:"-"`
-
-	Reserved3y        float64 `json:"-"`
-	Reserved3yPartial float64 `json:"-"`
-	Reserved3yAll     float64 `json:"-"`
+	ActiveStandbyPrice float64 `json:"-"`
 
 	Attribute *common.PriceAttribute `json:"attributes"`
 }

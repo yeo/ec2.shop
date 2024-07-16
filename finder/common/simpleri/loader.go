@@ -7,19 +7,17 @@ import (
 	"github.com/yeo/ec2shop/finder/common"
 )
 
-type FilterFunc func(string, *common.PriceAttribute) bool
-
 type DiscoverRequest struct {
 	OndemandFile string
 	Region       string
 	Family       string
 	RiPrefixPath string
-	FilterFunc   FilterFunc
+	FilterFunc   common.FilterFunc
 
 	NodeTypes []string
 }
 
-func LoadPriceForType(filename string, r string, resourceClassFamily string, filter FilterFunc) map[string]*Price {
+func LoadPriceForType(filename string, r string, resourceClassFamily string, filter common.FilterFunc) map[string]*Price {
 	priceList, err := common.LoadPriceJsonManifest(filename)
 	if err != nil {
 		panic(fmt.Errorf("error load json manifest: %w", err))

@@ -6,8 +6,10 @@ import (
 	"github.com/labstack/echo/v4"
 
 	"github.com/yeo/ec2shop/finder/common"
+	"github.com/yeo/ec2shop/finder/common/activestandby"
 	"github.com/yeo/ec2shop/finder/common/simpleri"
 	"github.com/yeo/ec2shop/finder/es"
+	"github.com/yeo/ec2shop/finder/mq"
 	"github.com/yeo/ec2shop/finder/redshift"
 
 	"github.com/yeo/ec2shop/finder/ec2"
@@ -28,6 +30,9 @@ type PriceByService struct {
 
 	Opensearch common.PriceByInstanceType[*simpleri.Price]
 	Redshift   common.PriceByInstanceType[*simpleri.Price]
+
+	ActiveMQ common.PriceByInstanceType[*activestandby.Price]
+	RabbitMQ common.PriceByInstanceType[*activestandby.Price]
 }
 
 type PriceFinder struct {
@@ -62,6 +67,14 @@ var AvailableServices = []common.AwsSvc{
 	common.AwsSvc{
 		Code: "redshift",
 		Name: "Redshift",
+	},
+	common.AwsSvc{
+		Code: "rabbitmq",
+		Name: "RabbitMQ",
+	},
+	common.AwsSvc{
+		Code: "activemq",
+		Name: "ActiveMQ",
 	},
 }
 
@@ -98,6 +111,9 @@ func (p *PriceFinder) Discover() {
 			p.Regions[loadedRegion].Elasticache = elasticache.Discover("Redis", loadedRegion)
 			p.Regions[loadedRegion].Opensearch = es.Discover(loadedRegion)
 			p.Regions[loadedRegion].Redshift = redshift.Discover(loadedRegion)
+
+			p.Regions[loadedRegion].RabbitMQ = mq.Discover("RabbitMQ", loadedRegion)
+			p.Regions[loadedRegion].ActiveMQ = mq.Discover("ActiveMQ", loadedRegion)
 		}(r)
 	}
 	wg.Wait()
@@ -136,6 +152,12 @@ func (p *PriceFinder) SearchPriceFromRequest(c echo.Context) common.SearchResult
 
 	case "redshift":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Redshift, requestRegion, keywords, sorters))
+
+	case "activemq":
+		return activestandby.SearchResult(common.PriceFromRequest[*activestandby.Price](p.Regions[requestRegion].ActiveMQ, requestRegion, keywords, sorters))
+
+	case "rabbitmq":
+		return activestandby.SearchResult(common.PriceFromRequest[*activestandby.Price](p.Regions[requestRegion].RabbitMQ, requestRegion, keywords, sorters))
 
 	case "opensearch":
 		return simpleri.SearchResult(common.PriceFromRequest[*simpleri.Price](p.Regions[requestRegion].Opensearch, requestRegion, keywords, sorters))
