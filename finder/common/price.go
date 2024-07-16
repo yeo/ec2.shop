@@ -27,8 +27,11 @@ type PriceAttribute struct {
 	MemoryGib float64 `json:"-"`
 	VCPUFloat float64 `json:"-"`
 
-	InstanceType       string `json:"Instance Type"`
-	Memory             string `json:"Memory"`
+	InstanceType string `json:"Instance Type"`
+
+	Memory          string `json:"Memory"`
+	MemoryHyphenGib string `json:"Memory (GiB)"`
+
 	Storage            string `json:"Storage"`
 	NetworkPerformance string `json:"Network Performance"`
 
@@ -53,6 +56,13 @@ func (a *PriceAttribute) Build() {
 	if len(gib) >= 2 {
 		a.MemoryGib, _ = strconv.ParseFloat(gib[0], 64)
 	}
+
+	if len(a.MemoryHyphenGib) >= 1 {
+		gib := strings.Split(a.Memory, " ")
+		a.MemoryGib, _ = strconv.ParseFloat(gib[0], 64)
+		a.Memory = a.MemoryHyphenGib
+	}
+
 	a.VCPU, _ = strconv.ParseInt(a.RawVCPU, 10, 64)
 	a.VCPUFloat = float64(a.VCPU)
 
