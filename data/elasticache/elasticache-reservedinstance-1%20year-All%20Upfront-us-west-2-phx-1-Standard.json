@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/1 year/All Upfront/US West (Phoenix)/Standard/index.json</Key><RequestId>KPDS302XZX7J7311</RequestId><HostId>Q5NTM1zfHJoNcwvjbQ/dkCVEQljMUdafWvSpQWg81GP9vSMvoIlZ64Qoj8a53BO8csFSE/IzydE=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/1 year/All Upfront/US West (Phoenix)/Standard/index.json</Key><RequestId>QA9CFFSFMH16SEVZ</RequestId><HostId>B5v5hDNInr+0zTGTObakB2+92s5d7h4W0bUQSkXxaS4U6irFQ5MGXWiecoRhWCeQME28G0pajE0=</HostId></Error>
