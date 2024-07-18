@@ -20,10 +20,15 @@ jobs:
     - name: Download price
       run: |
         ruby data/download.rb
-        ruby data/download_rds.rb
         ruby data/download_es.rb
         ruby data/download_elasticache.rb
+        ruby data/download_msk.rb
+        ruby data/download_mq.rb
+        ruby data/download_rds.rb
         ruby data/download_redshift.rb
+        ruby data/download_storage.rb
+
+
  
     - name: Add new price data
       run: |
