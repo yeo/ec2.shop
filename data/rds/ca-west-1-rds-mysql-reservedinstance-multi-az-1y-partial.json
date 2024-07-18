@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mysql-reservedinstance/Multi-AZ/1 year/Partial Upfront/Canada West (Calgary)/index.json</Key><RequestId>BKF9CASNFJJ5EAVH</RequestId><HostId>39xWnmihEzp7N+sM2X/Wuw+rAkoHFVkrfyyI+X5IrASin007C//huWniLOmqlX04rgkpo/2p21A=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mysql-reservedinstance/Multi-AZ/1 year/Partial Upfront/Canada West (Calgary)/index.json</Key><RequestId>RG4XEKD952P2NKHJ</RequestId><HostId>0V/eLepaSwAyaM1UKtNMaea8oxZyNz9oyRoMJ0se/brRkzx4tWzY0/L06wbLhTR2FIucamxr760=</HostId></Error>
