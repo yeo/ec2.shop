@@ -108,10 +108,14 @@ function compareFloatFirst(a, b) {
 let awsSvc = "ec2"
 if (document.currentScript.hasAttribute('data-svc')) {
     // svc has this format provider:svc such as aws:rds aws:rds-pg or gcp:vm
-    const svc = document.currentScript.getAttribute('data-svc')
-    awsSvc = svc.split(":")[1]
+  const svc = document.currentScript.getAttribute('data-svc')
+  awsSvc = svc.split(":")[1]
 }
+
 let params = new URL(document.location.toString()).searchParams
+if (!params.get("region")) {
+  params.set("region", "us-east-1")
+}
 
 const dataGridOptions = {}
 dataGridOptions.ec2 = {
@@ -753,13 +757,7 @@ var g = window.g = new gridjs.Grid({
   search: {
     server: {
       url: (prev, keyword) => {
-        let params = new URL(document.location.toString()).searchParams
         params.set("filter", keyword)
-        if (!params.get("region")) {
-            // default to us-east-1
-            // TODO: load from cookie ?
-            params.set("region", "us-east-1")
-        }
         window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString())
         return `?json&${params.toString()}`
       }
@@ -785,7 +783,24 @@ function sharelink(button) {
     }, 5000)
 }
 
+
 if (params.get("filter")) {
   // load the parameter on ui to search box
   g.config.store.state.search = {keyword: params.get("filter")}
+}
+
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'complete') {
+    g.config.store.subscribe((prev, next) => {
+      const params = new URL(document.location.toString()).searchParams
+      if (!next?.search || next?.search?.keyword == "") {
+        params.delete("filter")
+        if (!params.get("region")) {
+           params.set("region", "us-east-1")
+        }
+        window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString())
+      }
+    })
+  }
 }
