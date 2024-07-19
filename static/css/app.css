@@ -206,10 +206,19 @@ table.gridjs-table {
 td.gridjs-td {
   border: 1px solid #e5e7eb;
   padding: 12px 24px;
-  background-color: #fff;
   box-sizing: content-box;
   font-size: 0.9rem;
 }
+
+.gridjs-tr:nth-child(even) td.gridjs-td {
+  background-color: #fff;
+}
+
+.gridjs-tr:nth-child(odd) td.gridjs-td {
+  --tw-bg-opacity : 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity))
+}
+
 td.gridjs-td:first-child {
   border-left: none;
 }
