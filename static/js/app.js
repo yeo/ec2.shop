@@ -796,9 +796,6 @@ document.onreadystatechange = function () {
       const params = new URL(document.location.toString()).searchParams
       if (!next?.search || next?.search?.keyword == "") {
         params.delete("filter")
-        if (!params.get("region")) {
-           params.set("region", "us-east-1")
-        }
         window.history.pushState(params.toString(), 'unused', window.location.pathname + "?" + params.toString())
       }
     })
