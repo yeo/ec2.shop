@@ -33,28 +33,40 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 var (
 	logger *slog.Logger
 	e      *echo.Echo
+
+	bindTo string
+	debug  bool
+
+	priceFinder *finder.PriceFinder
 )
 
-func main() {
+func loadEnv() {
 	logger = slog.New(slog.NewTextHandler(os.Stderr, nil))
+	debug = os.Getenv("DEBUG") == "1"
 
-	debug := os.Getenv("DEBUG") == "1"
+	bindTo = os.Getenv("BIND_TO")
+	if bindTo == "" {
+		bindTo = "127.0.0.1:6001"
+	}
+
+	// Echo instance
+	e = echo.New()
 
 	if err := common.LoadRegions(); err != nil {
 		panic(err)
 	}
 
-	priceFinder := finder.New()
+	priceFinder = finder.New()
 	priceFinder.Discover()
-
-	// Echo instance
-	e = echo.New()
 
 	t := &Template{
 		templates: template.Must(template.ParseGlob("views/*.html")),
 	}
 	e.Renderer = t
 
+}
+
+func setupRouter() {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -64,15 +76,13 @@ func main() {
 	e.GET("/", GetPriceHandler(debug, priceFinder))
 	e.GET("/:svc", GetPriceHandler(debug, priceFinder))
 	e.GET("/:svc/", GetPriceHandler(debug, priceFinder))
+}
 
-	// Start server
+func main() {
+	loadEnv()
+	setupRouter()
 
-	listen_on := os.Getenv("BIND_TO")
-	if listen_on == "" {
-		listen_on = "127.0.0.1:6001"
-	}
-
-	e.Logger.Fatal(e.Start(listen_on))
+	e.Logger.Fatal(e.Start(bindTo))
 }
 
 func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error {
@@ -92,6 +102,12 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 			awsSvc = "ec2"
 		}
 
+		// If user not select, default to us-east1
+		currentRegion := "us-east-1"
+		if region := c.QueryParam("region"); region != "" {
+			currentRegion = region
+		}
+
 		if !debug {
 			c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		}
@@ -108,12 +124,6 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 
 		if IsText(c) {
 			return prices.RenderText(c)
-		}
-
-		// If user not select, default to us-east1
-		currentRegion := "us-east-1"
-		if region := c.QueryParam("region"); region != "" {
-			currentRegion = region
 		}
 
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
