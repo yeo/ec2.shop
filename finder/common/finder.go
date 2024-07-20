@@ -1,7 +1,6 @@
 package common
 
 import (
-	"fmt"
 	"slices"
 	"strings"
 )
@@ -26,7 +25,6 @@ func PriceFromRequest[T Inventory](priceData map[string]T, requestRegion string,
 				switch kw.TextOp {
 
 				case ExcludeOpType:
-					fmt.Println("evaluate exclude")
 					if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) {
 						matched = false
 						break
@@ -45,7 +43,6 @@ func PriceFromRequest[T Inventory](priceData map[string]T, requestRegion string,
 					matched = true
 
 				case IncludeOpType:
-					fmt.Println("evaluate include", strings.Contains(strings.ToLower(m.InstanceType), kw.Text()), m.InstanceType, kw.Text())
 					if len(kw.Text()) < 3 {
 						if strings.Contains(strings.ToLower(m.Family), kw.Text()) {
 							matched = true
