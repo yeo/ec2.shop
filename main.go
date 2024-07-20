@@ -92,9 +92,8 @@ func GetPriceHandler(debug bool, p *finder.PriceFinder) func(echo.Context) error
 			awsSvc = "ec2"
 		}
 
-		c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
-		if debug {
-			ts = time.Now()
+		if !debug {
+			c.Response().Header().Set("Cache-Control", "public, max-age=300, stale-while-revalidate=60, stale-if-error=10800")
 		}
 
 		prices := p.SearchPriceFromRequest(c)

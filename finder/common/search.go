@@ -7,10 +7,14 @@ import (
 )
 
 type TermType int64
+type OpType int64
 
 const (
 	TextTermType TermType = 1
 	ExprTermType TermType = 2
+
+	IncludeOpType = 1
+	ExcludeOpType = 2
 )
 
 var (
@@ -21,6 +25,8 @@ type SearchFn func(Inventory) bool
 type SearchTerm struct {
 	Raw  string
 	Type TermType
+
+	TextOp OpType
 
 	SearchFn SearchFn
 }
@@ -41,6 +47,15 @@ func NewSearchTerm(term string) *SearchTerm {
 	st := &SearchTerm{
 		Raw:  term,
 		Type: TextTermType,
+
+		TextOp: IncludeOpType,
+	}
+
+	if st.Raw[0] == '-' {
+		st.Raw = st.Raw[1:]
+		st.TextOp = ExcludeOpType
+
+		return st
 	}
 
 	//if strings.HasPrefix(st.Raw, "mem") || strings.HasPrefix(st.Raw, "vcpu") ||

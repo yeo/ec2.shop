@@ -1,6 +1,7 @@
 package common
 
 import (
+	"fmt"
 	"slices"
 	"strings"
 )
@@ -11,22 +12,68 @@ func PriceFromRequest[T Inventory](priceData map[string]T, requestRegion string,
 	for _, price := range priceData {
 		m := price.GetAttribute()
 		// when search query is empty, match everything
-		matched := len(keywords) == 0
+		if len(keywords) == 0 {
+			prices = append(prices, price)
+			continue
+		}
+
+		// We start, default to a not match, and looking for item that has a
+		// match
+		matched := false
 
 		for _, kw := range keywords {
 			if kw.IsText() {
-				if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) ||
-					strings.Contains(strings.ToLower(m.Storage), kw.Text()) ||
-					strings.Contains(strings.ToLower(m.NetworkPerformance), kw.Text()) {
+				switch kw.TextOp {
+
+				case ExcludeOpType:
+					fmt.Println("evaluate exclude")
+					if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) {
+						matched = false
+						break
+					}
+
+					// when it's long enough, we look into storage, to exclude
+					// thing ssd/ebs
+					if len(kw.Text()) >= 3 {
+						if strings.Contains(strings.ToLower(m.Storage), kw.Text()) {
+							matched = false
+							break
+						}
+					}
+
+					// if we reach here, the check satitsifed
 					matched = true
-					// For text base, we do an OR, therefore we bait as soon as
-					// we matched
-					break
+
+				case IncludeOpType:
+					fmt.Println("evaluate include", strings.Contains(strings.ToLower(m.InstanceType), kw.Text()), m.InstanceType, kw.Text())
+					if len(kw.Text()) < 3 {
+						if strings.Contains(strings.ToLower(m.Family), kw.Text()) {
+							matched = true
+							break
+						}
+					}
+
+					if strings.Contains(strings.ToLower(m.InstanceType), kw.Text()) {
+						matched = true
+						break
+					}
+
+					if strings.Contains(strings.ToLower(m.Storage), kw.Text()) {
+						matched = true
+						// For text base, we do an OR, therefore we bait as soon as
+						// we matched
+						break
+					}
 				}
 			}
 		}
 
-		// For expression, we do `AND` we bail as soon as we failed to match
+		if !matched {
+			// bail early if the keyword isn't a match
+			continue
+		}
+
+		// now , narrow down the result with expression
 		for _, kw := range keywords {
 			if kw.IsExpr() {
 				if kw.SearchFn(price) {

@@ -48,15 +48,20 @@
         <div class="group relative rounded-tl-lg rounded-tr-lg bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 sm:rounded-tr-none">
           <div class="mx-6 mt-4">
             <p class="mt-2 text-sm text-gray-500">
-              You can also search like this in the search box, or pass to the API filter. <span style="color:red;">r5,cpu&lt;=16,mem&gt;=16,price&lt;=4</span>
+              type a filter in search box, or pass to the API filter: <span style="color:red;">r5,cpu&lt;=16,mem&gt;=16,price&lt;=4</span>
             </p>
             <p class="mt-2 text-sm text-gray-500">
-              To find server with ssd, but limit cpu, mem, and price range
+              keyword, and server spec. eg: 
               <span style="color:red;">ssd,cpu&gt;=32,cpu&lt;=48,mem&gt;=32,price&gt;=10</span>
             </p>
             <p class="mt-2 text-sm text-gray-500">
-              To compare 2 or a few instance type, enter the name into the search box:
+              compare servers, enter keyword, eg:
               <span style="color:red;">m6a.large,m7g.large,r6a.large</span>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+              To exclude, use <span style="color; red">-</span>. eg:
+              <span style="color:red;">-t3,-t2,price<=0.1,mem>=2</span>&nbsp;
+              <span style="color:red;">-ssd,-c5,price<=0.1,mem>=2</span>&nbsp;
             </p>
             <p class="mt-2 text-sm text-gray-500">
               Supported variables:

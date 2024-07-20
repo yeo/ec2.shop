@@ -40,6 +40,15 @@ We support below field:
 - **price**: hourly price
 - **spotprice**: hourly spot price
 
+## Exclude search
+
+Use `-` operator to exclude a certain type of server. Example, to exclude `t3`
+instance:
+
+```
+-t3,price<0.1,mem>=2
+```
+
 # Sorting
 
 To sort the instance, pass a `sort` query to pick which field and direction to
