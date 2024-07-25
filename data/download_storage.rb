@@ -15,6 +15,7 @@ ts=Time.now.to_i
   name: 'efs',
   url: "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/efs/USD/current/efs.json?timestamp=#{ts}"
 },].each do |instance_class|
+  name = instance_class[:name]
   puts "#{instance_class[:name]} downloading..."
 
   region_price_data = HTTPX.get(instance_class[:url])
