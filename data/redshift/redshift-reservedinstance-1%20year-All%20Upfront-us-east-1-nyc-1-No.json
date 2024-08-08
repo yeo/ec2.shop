@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>InternalError</Code><Message>We encountered an internal error. Please try again.</Message><RequestId>AE7DSP992Y4ZFCDW</RequestId><HostId>X64N0YyIKKhk8yhec53utLF0iQg/XNRvAATxNYdjp4QLVZyvltXX6DBswivn1/Lj6BXGM2uq0jr4pXRRgbLcQ5h188xLDqJzinvIR7euKe4=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/US East (New York City)/1 year/All Upfront/No/index.json</Key><RequestId>DHCNS1VZMXF0VFXE</RequestId><HostId>3+eYDQPvc5w7Y8fQUmQ5TGmoL91BCXRyZbhALj22HRdm/FxY1XoIwIooxYMYpYz9LhqSsfJoZOc=</HostId></Error>
