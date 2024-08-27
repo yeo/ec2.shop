@@ -1,4 +1,4 @@
-FROM golang:1.22-bullseye as build
+FROM golang:1.23.0 as build
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN \
   go build -o output/ec2shop .
 
 
-FROM debian:bullseye-slim
+FROM ubuntu:jammy
 
 RUN apt-get -y update \
  && apt-get install -y --no-install-recommends ca-certificates \
