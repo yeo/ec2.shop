@@ -19,9 +19,11 @@ func PriceFromRequest[T Inventory](priceData map[string]T, requestRegion string,
 		// We start, default to a not match, and looking for item that has a
 		// match
 		matched := false
+		hasTextSerch := false
 
 		for _, kw := range keywords {
 			if kw.IsText() {
+				hasTextSerch = true
 				switch kw.TextOp {
 
 				case ExcludeOpType:
@@ -65,7 +67,7 @@ func PriceFromRequest[T Inventory](priceData map[string]T, requestRegion string,
 			}
 		}
 
-		if !matched {
+		if hasTextSerch && !matched {
 			// bail early if the keyword isn't a match
 			continue
 		}
