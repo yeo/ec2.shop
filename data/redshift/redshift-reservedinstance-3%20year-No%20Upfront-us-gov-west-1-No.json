@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/AWS GovCloud (US)/3 year/No Upfront/No/index.json</Key><RequestId>ME7WZSG1TVW377BK</RequestId><HostId>8io6k9qm7iT1yWwSUSom053tuChhSUOTXatcLDvYLkVlAVIigIH7TGErvOo5uHTLP807Lb+3Oek=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/AWS GovCloud (US)/3 year/No Upfront/No/index.json</Key><RequestId>B7VWTGEV9V7ACK3H</RequestId><HostId>SS8BRJq2AvV8jhRrnvUSLCxSIPTN8iaNZnNF0wUTX6gjlRIs10Z9z0kM07d74uUNuMQiDX6uTtg=</HostId></Error>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/1 year/No Upfront/Australia (Perth)/Standard/index.json</Key><RequestId>8RJJAE7PRZNME72F</RequestId><HostId>Kz53My6QdbLqFQtZgptGF+3ThEsmj/udRvaE1Cg0rzcDMVnHRSaIWNG0Q6Ht4xGyOILtpI0UhtY=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/1 year/No Upfront/Australia (Perth)/Standard/index.json</Key><RequestId>5CTH154WVQV44JCS</RequestId><HostId>snqBtLOWKqKp1TV2AJ5Rht+2v7nfm2cqX8kY+xdilhBpSgQ3a25CGL0X638MT68mzpCBEFQ/pwc=</HostId></Error>
