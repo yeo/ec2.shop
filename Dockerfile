@@ -22,7 +22,9 @@ RUN apt-get -y update \
 
 WORKDIR /app
 
-COPY . /app
+COPY static /app/static
+COPY views /app/views
+COPY data /app/data
 
 COPY --from=build /app/output/ec2shop /app
 
