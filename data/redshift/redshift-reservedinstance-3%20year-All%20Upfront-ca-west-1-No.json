@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/Canada West (Calgary)/3 year/All Upfront/No/index.json</Key><RequestId>P2PBMH1ZAPBFMF1V</RequestId><HostId>iKiaNT8KoITKkAZlazuMYL9nIHmASlBJ8t9tDauIsyoeBWlDBs4rc05BWziTFCimAe7CUuLlVFU=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/Canada West (Calgary)/3 year/All Upfront/No/index.json</Key><RequestId>XSS70PD1ZKDFVDB1</RequestId><HostId>Ct5/XBP2UVpx7Azy3wGOW0ryHJ9CFfLiF4KsAkR4O0DriD+NJbrlcS9Ginewc42960OVxtLULqU=</HostId></Error>
