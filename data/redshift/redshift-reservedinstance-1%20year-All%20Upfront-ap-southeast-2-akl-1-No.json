@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/New Zealand (Auckland)/1 year/All Upfront/No/index.json</Key><RequestId>0KZJJT5Q8NCDW1JQ</RequestId><HostId>KCcFXjTO18psPNt/KgOaMSXlR2PZ1LBBr2/PRLKmy/uM338lCzc+TpH6isNYLtOisv2LnnYITNk=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/New Zealand (Auckland)/1 year/All Upfront/No/index.json</Key><RequestId>J5SSX98XT9DCR5D8</RequestId><HostId>t1U4XQaepcUX2qOT+7uGYBQR4TuV4L6xcjVOsiwnZGiLwPsh2k9XAfuEggxyH64+XU6Qb3VHrzs=</HostId></Error>
