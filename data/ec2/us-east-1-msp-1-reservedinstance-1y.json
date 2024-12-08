@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US East (Minneapolis)/Linux/Shared/index.json</Key><RequestId>08G08GT8G81F5CHA</RequestId><HostId>t5ZUtWtqjl9KLDkyCBVR+CBujcWYQU5C4Tt8DSSSC3tCwktNZH3kVrIJ2oo1bOfJAN84tqD31D0=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US East (Minneapolis)/Linux/Shared/index.json</Key><RequestId>J0ZX6Z96TD27DTN8</RequestId><HostId>BRtLZIbtFGvOp04UsbSg2dD5l4as9KxgzsZG5YL/gtVRFkeWhcxOFLp7TlJX1/B8Oi4GGj2HGQI=</HostId></Error>
