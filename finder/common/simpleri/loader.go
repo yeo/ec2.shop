@@ -93,6 +93,11 @@ func Discover(d *DiscoverRequest) map[string]*Price {
 					continue
 				}
 
+				if regionalPrice[priceItem.InstanceType] == nil {
+					fmt.Println("reshift has reserver data but not found in on-demand", priceItem)
+					continue
+				}
+
 				switch generation {
 				case "1%20year-No%20Upfront":
 					regionalPrice[priceItem.InstanceType].Reserved1y = priceItem.PriceFloat
