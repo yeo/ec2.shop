@@ -2,7 +2,7 @@
 
 require 'httpx'
 require 'json'
-require 'cgi'
+require 'uri'
 
 ts=Time.now.to_i
 

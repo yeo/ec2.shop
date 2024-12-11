@@ -2,7 +2,7 @@
 
 require 'httpx'
 require 'json'
-require 'cgi'
+require 'url'
 
 ts=Time.now.to_i
 `mkdir -p data/mq`
