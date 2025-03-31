@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/Asia Pacific (KDDI) - Tokyo/Linux/index.json</Key><RequestId>93ABTHWNQV4KDNXS</RequestId><HostId>fLaf80buCv51+A4OSdpxiBN1u+VWOQ0vIu/vH7EcsMhebi95joCBidSm8z64Eay/Ph8hd5h6a4Q=</HostId></Error>

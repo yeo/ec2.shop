@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US East (Kansas City)/Linux/index.json</Key><RequestId>ZNETNVDCJKT5GQCH</RequestId><HostId>zXZgSxF7m8RdK8+tv7KQgaX2H7oWU13lwGTHAZ6JJAyRemmfayMGTVvpPrEUmyMF2Ts0EDybIOU=</HostId></Error>

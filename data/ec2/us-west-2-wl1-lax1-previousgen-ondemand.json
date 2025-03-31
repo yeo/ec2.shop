@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Los Angeles/Linux/index.json</Key><RequestId>2GCN88Z5RNCP5NBV</RequestId><HostId>Br0bHmvlO8BZNyAloc1pTY8MvtkaerJVkPUF/UFbLJvkBouxOcmudREe159sLckkzH1JB97sGIk=</HostId></Error>

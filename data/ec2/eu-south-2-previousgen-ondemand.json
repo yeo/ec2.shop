@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/EU (Spain)/Linux/index.json</Key><RequestId>QCSPSX96D25MMESM</RequestId><HostId>8mpf3tV+mnHhOS4BJybX4eBAVDCdOsYTqOBMT7d182WlFaqwYMUT5vslAzqJzlZ+BLxOTpcDWKQ=</HostId></Error>

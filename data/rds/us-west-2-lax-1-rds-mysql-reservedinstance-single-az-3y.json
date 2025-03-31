@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mysql-reservedinstance/Single-AZ/3 year/Partial Upfront/US West (Los Angeles)/index.json</Key><RequestId>BWW7Y4C764JG1A1D</RequestId><HostId>VbXxI9lJIyKcuuk5WLq8apFeJMI0a5yIogd7D3nKiDEB3ju3z0BFviObn3szwaQLpZ1Frf4kXN8=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mysql-reservedinstance/Single-AZ/3 year/Partial Upfront/US West (Los Angeles)/index.json</Key><RequestId>185XYXPSW8Y0W3WR</RequestId><HostId>asSprQLCyVZw5zI6Ur42Vpods74ogjIfouFrJ/OggqrzHPN4eZ0dyg1EihDdklNeSH65cPEigq4=</HostId></Error>
