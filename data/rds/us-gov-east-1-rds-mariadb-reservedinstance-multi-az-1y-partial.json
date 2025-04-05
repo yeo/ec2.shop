@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Multi-AZ/1 year/Partial Upfront/AWS GovCloud (US-East)/index.json</Key><RequestId>3514Q3AY73BDVZMM</RequestId><HostId>EVWJIQ/I38Z/JqS/tPPisW1vA1z38dded5h+Po+FLUjyb9YmEPYukYMJoD4+l96QzpLqy0r7aAY=</HostId></Error>

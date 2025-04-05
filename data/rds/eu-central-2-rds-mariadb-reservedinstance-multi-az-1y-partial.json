@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Multi-AZ/1 year/Partial Upfront/EU (Zurich)/index.json</Key><RequestId>ZXM2ZJ93NM1Y36HQ</RequestId><HostId>DApTnWyY5sKL/P9+IvKQ1ObK3c4pZSdi4Teog2g3OxaB/aQ6P3Tj9VMczBsl3b9IU1KjV5wxiQQ=</HostId></Error>

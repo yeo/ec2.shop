@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-postgresql-reservedinstance/Multi-AZ/3 year/Partial Upfront/Australia (Perth)/index.json</Key><RequestId>TYGZSEYJFS5HKECZ</RequestId><HostId>6YRDCXBz91ZA9OsvsUgsR97fDSnTj/rGgt1CY7Y/iVY4s3R2aJ+kdEbj4wTECiWE/kspX70IwVU=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-postgresql-reservedinstance/Multi-AZ/3 year/Partial Upfront/Australia (Perth)/index.json</Key><RequestId>S54GJA24J9226JZ2</RequestId><HostId>0ssNXrERWszBoNp289eQWJ4mkYvR2ESc2vpCQDej3Bs16vjF33dShpGVgFhmixEv8FePUlzby7M=</HostId></Error>

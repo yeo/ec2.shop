@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/US East (Minneapolis)/3 year/Partial Upfront/Yes/index.json</Key><RequestId>PCD8W1M0M7D552W0</RequestId><HostId>/GwBma/H//pxrOXhV9kiPXwtMKSTA4v2cIfx6cVvVTatMNBfliZHP4lHUbnm52HvNdzCC2a/fOc=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/redshift/USD/current/redshift-reservedinstance/US East (Minneapolis)/3 year/Partial Upfront/Yes/index.json</Key><RequestId>JWJ3QZ3AM6HG4H9R</RequestId><HostId>6F2m/WS1xTLwrn5eO6Ud7gDoF95NN8YMb01hOX0OvENOAzgoKz8oKKnKlNTrrqgvnF9E6h/Mo5c=</HostId></Error>

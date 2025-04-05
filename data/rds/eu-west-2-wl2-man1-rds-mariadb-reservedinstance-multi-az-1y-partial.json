@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Multi-AZ/1 year/Partial Upfront/EU (British Telecom) - Manchester/index.json</Key><RequestId>BWZDCZPYCR2FDE7B</RequestId><HostId>o3I9SGDuwF1HwBxnljwUqTqdUb8wYfq4MWQ/SslwJ1as4TvHJSdQoSeCb3arugJD0IpI+06uc2o=</HostId></Error>

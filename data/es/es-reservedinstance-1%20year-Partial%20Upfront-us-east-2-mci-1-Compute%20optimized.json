@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/es/USD/current/es-reservedinstance/1 year/Partial Upfront/US East (Kansas City)/Compute optimized/index.json</Key><RequestId>B7TMJ03C33BH47DM</RequestId><HostId>k8Etp+ObZzTdRMpsopR87lGZ9I1kq0x1Mm/MGPnpieL4eofK+8HwLnyFIf3HRE6sMwAMcaaqKE8=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/es/USD/current/es-reservedinstance/1 year/Partial Upfront/US East (Kansas City)/Compute optimized/index.json</Key><RequestId>M04W93EKKBCHNS0V</RequestId><HostId>1GSiR557aVwX73t53cTfpoN0Q/976o6fi4WDy6Dm9llv3DfsAhJ9X8/GEVcTZOaAHWn452tr+0s=</HostId></Error>

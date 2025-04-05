@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Single-AZ/1 year/No Upfront/US East (Verizon) - Chicago/index.json</Key><RequestId>G4C9RERX10QERDPA</RequestId><HostId>06VwaZuSuw5VILK8wR6gUS41s62xiK4Y/vTHJUpZXLFfIj2acZWw6A5BLqjFUzqBBBoMsoTZUdI=</HostId></Error>

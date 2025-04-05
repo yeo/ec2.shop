@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Single-AZ/3 year/Partial Upfront/Canada (BELL) - Toronto/index.json</Key><RequestId>DA276Y892NKQE8BK</RequestId><HostId>t9QZ6QQ8+SpKVVi73iqiEKesDdMz6RvFjU1L/leNYXg0kBVkSWQQsyKngc6HYQjquSOwzq7CxgQ=</HostId></Error>

@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/rds/USD/current/rds-mariadb-reservedinstance/Single-AZ/1 year/Partial Upfront/Asia Pacific (KDDI) - Osaka/index.json</Key><RequestId>75AB90SR0SNKNWHK</RequestId><HostId>dNIo0dlpHF3UFMwQpu0thD7C8d3tmzwAmDC1mWW0R5AlAZhzuc8Pke/6U/k7Ilc+9i9O+1b/LD8=</HostId></Error>
