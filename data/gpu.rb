@@ -36,7 +36,7 @@ begin
       gpu_count = columns[3].text&.strip.to_i
       gpu_type = "NVIDIA L4"
       gpu_memory = columns[4].text&.strip.split(" ", 2).first.to_i
-      gpu_memory_unit = columns[4].text&.strip.split(" ", 2).last
+      gpu_memory_unit = "GB"
 
     when instance_type.start_with?("g5g.")
       gpu_count = columns[3].text&.strip.to_i

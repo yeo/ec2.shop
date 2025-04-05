@@ -101,7 +101,13 @@ function compareFloatFirst(a, b) {
   } else if (code(b) > code(a)) {
     return -1
   } else {
-    return 0
+    if (a == b) {
+      return 0
+    } if (a < b) {
+      return -1
+    } else {
+      return 1
+    }
   }
 }
 
@@ -146,11 +152,11 @@ dataGridOptions.ec2 = {
   columns: [
     {
       name: 'Type',
-      width: '80px',
+      width: '60px',
     },
     {
-      name: "Mem (GiB)",
-      width: '70px',
+      name: "Mem",
+      width: '50px',
       sort: {
         compare: compareFloatFirst,
       }
@@ -183,7 +189,7 @@ dataGridOptions.ec2 = {
         },
         {
           width: '40px',
-          name: 'Mem',
+          name: 'GPU Mem',
           sort: {
             compare: compareFloatFirst
           }
@@ -192,7 +198,7 @@ dataGridOptions.ec2 = {
     },
     {
       name: 'Price',
-      width: '90px',
+      width: '120px',
       columns: [
         {
           name: 'Hourly',

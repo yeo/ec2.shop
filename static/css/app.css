@@ -1,3 +1,8 @@
+:root {
+  --font-gpu: 0.8rem;
+  --font-base: 1rem;
+}
+
 body {
   --color-bg: #ddd;
   --color-text: #1a1e24;
@@ -205,7 +210,7 @@ table.gridjs-table {
 
 td.gridjs-td {
   border: 1px solid #e5e7eb;
-  padding: 12px 24px;
+  padding: 12px 6px;
   box-sizing: content-box;
   font-size: 0.9rem;
 }
@@ -368,4 +373,8 @@ th.gridjs-th:last-child {
 .gridjs-resizable:hover {
   cursor: ew-resize;
   background-color: #9bc2f7;
+}
+
+.gridjs-tr td[data-column-id="type"], .gridjs-tr td[data-column-id="gpuMem"] {
+  font-size: var(--font-gpu);
 }

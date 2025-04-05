@@ -33,49 +33,49 @@
     "core": 1,
     "type": "NVIDIA L4",
     "mem": 48,
-    "mem_unit": "48"
+    "mem_unit": "GB"
   },
   "g6e.2xlarge": {
     "core": 1,
     "type": "NVIDIA L4",
     "mem": 48,
-    "mem_unit": "48"
+    "mem_unit": "GB"
   },
   "g6e.4xlarge": {
     "core": 1,
     "type": "NVIDIA L4",
     "mem": 48,
-    "mem_unit": "48"
+    "mem_unit": "GB"
   },
   "g6e.8xlarge": {
     "core": 1,
     "type": "NVIDIA L4",
     "mem": 48,
-    "mem_unit": "48"
+    "mem_unit": "GB"
   },
   "g6e.16xlarge": {
     "core": 1,
     "type": "NVIDIA L4",
     "mem": 48,
-    "mem_unit": "48"
+    "mem_unit": "GB"
   },
   "g6e.12xlarge": {
     "core": 4,
     "type": "NVIDIA L4",
     "mem": 192,
-    "mem_unit": "192"
+    "mem_unit": "GB"
   },
   "g6e.24xlarge": {
     "core": 4,
     "type": "NVIDIA L4",
     "mem": 192,
-    "mem_unit": "192"
+    "mem_unit": "GB"
   },
   "g6e.48xlarge": {
     "core": 8,
     "type": "NVIDIA L4",
     "mem": 384,
-    "mem_unit": "384"
+    "mem_unit": "GB"
   },
   "g5g.xlarge": {
     "core": 1,
