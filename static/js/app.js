@@ -128,6 +128,8 @@ dataGridOptions.ec2 = {
         price.VCPUS,
         price.Storage,
         price.Network,
+        price.GPU ? `${price.GPU.core} ${price.GPU.type}` : "",
+        price.GPU && price.GPU.Mem > 0 ? `${price.GPU.mem} ${price.GPU.mem_unit}` : "",
         price.Cost,
         price.MonthlyPrice,
         price.SpotPrice,
@@ -144,7 +146,7 @@ dataGridOptions.ec2 = {
   columns: [
     {
       name: 'Type',
-      width: '90px',
+      width: '80px',
     },
     {
       name: "Mem (GiB)",
@@ -153,10 +155,9 @@ dataGridOptions.ec2 = {
         compare: compareFloatFirst,
       }
     },
-
     {
       name: 'vCPUS',
-      width: '60px',
+      width: '40px',
     },
     {
       name: 'Storage',
@@ -168,6 +169,26 @@ dataGridOptions.ec2 = {
       sort: {
         compare: compareNetwork
       }
+    },
+    {
+      name: 'GPU',
+      width: '130px',
+      columns: [
+        {
+          name: 'Type',
+          width: '50px',
+          sort: {
+            compare: compareFloatFirst
+          }
+        },
+        {
+          width: '40px',
+          name: 'Mem',
+          sort: {
+            compare: compareFloatFirst
+          }
+        },
+      ]
     },
     {
       name: 'Price',
