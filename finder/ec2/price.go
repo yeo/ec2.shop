@@ -8,6 +8,7 @@ import (
 
 // Price structure for a given ec2 instance
 type Price struct {
+	// the instance type id such as t4g.nano
 	ID string `json:"id"`
 
 	// RawPrice can be a float or a string or a NA
@@ -42,6 +43,14 @@ func (p *Price) GetAttb(key string) float64 {
 		lookup = p.Price
 	case "spot":
 		lookup = p.SpotPrice
+	case "gpu", "gpu_core":
+		if maybeGpuData, ok := gpuDetail[p.ID]; ok {
+			return maybeGpuData.Core
+		}
+	case "gpu_mem", "gmem":
+		if maybeGpuData, ok := gpuDetail[p.ID]; ok {
+			return maybeGpuData.Mem
+		}
 	}
 
 	return lookup

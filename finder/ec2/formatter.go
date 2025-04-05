@@ -18,6 +18,8 @@ type FriendlyPrice struct {
 	// This is weird because spot instance sometime have price list as NA so we use this to make it as not available
 	MonthlyPrice float64
 
+	GPU *GPUInfo
+
 	SpotPrice       string
 	SpotReclaimRate string
 	SpotSavingRate  string
@@ -38,6 +40,8 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 	}
 
 	for i, v := range p {
+		gpu, _ := gpuDetail[v.Attribute.InstanceType]
+
 		formattedResp.Prices[i] = &FriendlyPrice{
 			InstanceType:               v.Attribute.InstanceType,
 			Memory:                     v.Attribute.Memory,
@@ -45,6 +49,7 @@ func (p SearchResult) RenderJSON(c echo.Context) error {
 			Storage:                    v.Attribute.Storage,
 			Network:                    v.Attribute.NetworkPerformance,
 			Cost:                       v.Price,
+			GPU:                        gpu,
 			MonthlyPrice:               common.MonthlyPrice(v.Price),
 			SpotPrice:                  v.SpotPriceHourly(),
 			Reserved1yPrice:            common.ValueOrNA(v.Reserved1y),

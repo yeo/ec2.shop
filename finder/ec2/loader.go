@@ -1,12 +1,18 @@
 package ec2
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"maps"
 	"strconv"
 	"strings"
 
 	"github.com/yeo/ec2shop/finder/common"
+)
+
+var (
+	gpuDetail map[string]*GPUInfo
 )
 
 func LoadPriceForType(r, generation string) map[string]*Price {
@@ -38,6 +44,7 @@ func LoadPriceForType(r, generation string) map[string]*Price {
 }
 
 func Discover(r string) map[string]*Price {
+	gpuDetail, _ = LoadGPUInfo("./data/gpu/gpu.json")
 	regionalPrice := make(map[string]*Price)
 	// build up a base array with server spec and on-demand price
 	// this map hold all kind of servers including previous gen
@@ -81,4 +88,26 @@ func Discover(r string) map[string]*Price {
 	// go p.SpotPriceFinder.Run()
 
 	return regionalPrice
+}
+
+type GPUInfo struct {
+	GPUCoresCount int    `json:"core"`
+	GPUType       string `json:"type"`
+	GPUMem        int    `json:"mem"`
+	GPUMemUnit    string `json:"mem_unit"`
+}
+
+func LoadGPUInfo(filename string) (map[string]*GPUInfo, error) {
+	gpuInfo := make(map[string]*GPUInfo)
+
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(data, &gpuInfo); err != nil {
+		return nil, err
+	}
+
+	return gpuInfo, nil
 }
