@@ -176,6 +176,14 @@ contains this text: `"SpotPrice": "NA"` when that instance type isn't
 available for purchase on Spot Instance(as in, they are only available
 for on-demand).
 
+# Development
+
+The app is designed for simplicity with no custom build and zero dependencies on external build system. There is no database. We store all data in JSON to make development easiser. Simply checkout the code and run:
+
+```
+make run
+```
+
 # Credit
 
 ## Spot saving and spot reclaim

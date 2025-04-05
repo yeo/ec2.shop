@@ -375,6 +375,7 @@ th.gridjs-th:last-child {
   background-color: #9bc2f7;
 }
 
-.gridjs-tr td[data-column-id="type"], .gridjs-tr td[data-column-id="gpuMem"] {
+.gridjs-tr td[data-column-id="family"], .gridjs-tr td[data-column-id="gpuMem"] {
   font-size: var(--font-gpu);
+  background-color: oklch(82.8% .111 230.318);
 }

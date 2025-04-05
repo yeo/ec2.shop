@@ -181,7 +181,7 @@ dataGridOptions.ec2 = {
       width: '130px',
       columns: [
         {
-          name: 'Type',
+          name: 'Family',
           width: '50px',
           sort: {
             compare: compareFloatFirst
