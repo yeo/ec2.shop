@@ -129,7 +129,7 @@ dataGridOptions.ec2 = {
         price.Storage,
         price.Network,
         price.GPU ? `${price.GPU.core} ${price.GPU.type}` : "",
-        price.GPU && price.GPU.Mem > 0 ? `${price.GPU.mem} ${price.GPU.mem_unit}` : "",
+        price.GPU && price.GPU.mem > 0 ? `${price.GPU.mem} ${price.GPU.mem_unit}` : "",
         price.Cost,
         price.MonthlyPrice,
         price.SpotPrice,
