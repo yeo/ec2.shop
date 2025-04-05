@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Denver/Linux/index.json</Key><RequestId>4EJYS5A38QYEXM1D</RequestId><HostId>/830CMGlXKusXX+10aqdDB69Wsz8TAQ/kMddbHqF7Z2mMfgIeVVqTnFyqXoVYXsyQ4g8yx8ZuN0=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Verizon) - Denver/Linux/index.json</Key><RequestId>PNZYPYRPAR3JJN8S</RequestId><HostId>RXcV7Z0U+pu3B4TX/YwOEEVIm3kZOrsA1VDV4uj1EgwIiBvGmROITa0cH8r0Ekm+xgWvxv5F4ss=</HostId></Error>

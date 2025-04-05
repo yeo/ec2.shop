@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Phoenix)/Linux/index.json</Key><RequestId>YCWFFQ8Y0427T6YF</RequestId><HostId>jsUOvpH2U5zaqsmI85wqNDmGjqG5ZFnCh56qUEOo53RqfehCkrjvYeMUrKPCPPC9bTz1pTRhF7g=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/previousgen-ondemand/US West (Phoenix)/Linux/index.json</Key><RequestId>1TZTEENVD3A0A518</RequestId><HostId>VdbQnKEIlI1/NcpqJ/f9ecwf72OKrolBryiOOLKuFa4XmZvR+YAa4RZGihUNxz2jVBRJIvbC19E=</HostId></Error>

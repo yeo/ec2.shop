@@ -1,1 +1,2 @@
-{}
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/elasticache/USD/current/elasticache-reservedinstance/1 year/Partial Upfront/US East (Chicago)/Memory optimized/index.json</Key><RequestId>B29N1AW84NVZGDBF</RequestId><HostId>0RM3NFsvL0gUjwBiWMugWHOMoVkAEzWo6P2NHFIUhPI6zbLNDNeUL77YxHUEJKEZvXmhuKOkX6Y=</HostId></Error>

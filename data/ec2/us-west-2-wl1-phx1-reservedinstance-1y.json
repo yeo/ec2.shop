@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Verizon) - Phoenix/Linux/Shared/index.json</Key><RequestId>S3RFE23Y9J2X94JW</RequestId><HostId>gAWzFWLGHGHYyOmwO71ltJBDngH1ynTXe4Splz7ntG5IfbO/cqdPl+BP42EMGExcsixT6Lot97M=</HostId></Error>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-reservedinstance/1 year/No Upfront/US West (Verizon) - Phoenix/Linux/Shared/index.json</Key><RequestId>RVYWY26C5RHCE6XZ</RequestId><HostId>DUjD+tpO1aC1BqHubuS69YQt1q74Xarw4NLQv4M6bv9jH85e7q/C6tBxdGY143Ug1pimInpCrAg=</HostId></Error>
