@@ -45,11 +45,11 @@ func (p *Price) GetAttb(key string) float64 {
 		lookup = p.SpotPrice
 	case "gpu", "gpu_core":
 		if maybeGpuData, ok := gpuDetail[p.ID]; ok {
-			return maybeGpuData.Core
+			return float64(maybeGpuData.Core)
 		}
 	case "gpu_mem", "gmem":
 		if maybeGpuData, ok := gpuDetail[p.ID]; ok {
-			return maybeGpuData.Mem
+			return float64(maybeGpuData.Mem)
 		}
 	}
 

@@ -91,10 +91,10 @@ func Discover(r string) map[string]*Price {
 }
 
 type GPUInfo struct {
-	GPUCoresCount int    `json:"core"`
-	GPUType       string `json:"type"`
-	GPUMem        int    `json:"mem"`
-	GPUMemUnit    string `json:"mem_unit"`
+	Core    int    `json:"core"`
+	Type    string `json:"type"`
+	Mem     int    `json:"mem"`
+	MemUnit string `json:"mem_unit"`
 }
 
 func LoadGPUInfo(filename string) (map[string]*GPUInfo, error) {
