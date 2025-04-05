@@ -1,7 +1,17 @@
 # https://ec2.shop
 
-Get ec2 price right from your terminal
+Get AWS service price right from your terminal. Currently support:
 
+- EC2
+- ElastiCache
+- ElasticSearch
+- ActiveMQ
+- MSK
+- RDS
+- Redshift
+- EBS
+
+You can curl right from terminal
 ```
 curl 'https://ec2.shop'
 ```
@@ -11,7 +21,7 @@ If you prefer json, use:
 ```
 curl -H 'accept: json' 'https://ec2.shop'
 # or simply
-curl -H 'accept: json' 'https://ec2.shop?json'
+curl 'https://ec2.shop?json'
 ```
 
 If you want to search for a certain instance:
@@ -39,6 +49,8 @@ We support below field:
 - **cpu**: filter based on cpu
 - **price**: hourly price
 - **spotprice**: hourly spot price
+- **gpu_core**: filter based on how many gpu core
+- **gpu_mem**: filter based on how many gpu meme
 
 ## Exclude search
 

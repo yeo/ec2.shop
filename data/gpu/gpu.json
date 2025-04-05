@@ -1,0 +1,350 @@
+{
+  "p5.48xlarge": {
+    "core": 192,
+    "type": "NVIDIA H100",
+    "mem": 640,
+    "mem_unit": "GB HBM3"
+  },
+  "p5e.48xlarge": {
+    "core": 192,
+    "type": "NVIDIA H100",
+    "mem": 1128,
+    "mem_unit": "GB HBM3"
+  },
+  "p5en.48xlarge": {
+    "core": 192,
+    "type": "NVIDIA H100",
+    "mem": 1128,
+    "mem_unit": "GB HBM3"
+  },
+  "p4d.24xlarge": {
+    "core": 96,
+    "type": "NVIDIA A100",
+    "mem": 320,
+    "mem_unit": "GB HBM2"
+  },
+  "p4de.24xlarge (In preview)": {
+    "core": 96,
+    "type": "NVIDIA A100",
+    "mem": 640,
+    "mem_unit": "GB HBM2e"
+  },
+  "g6e.xlarge": {
+    "core": 1,
+    "type": "NVIDIA L4",
+    "mem": 48,
+    "mem_unit": "48"
+  },
+  "g6e.2xlarge": {
+    "core": 1,
+    "type": "NVIDIA L4",
+    "mem": 48,
+    "mem_unit": "48"
+  },
+  "g6e.4xlarge": {
+    "core": 1,
+    "type": "NVIDIA L4",
+    "mem": 48,
+    "mem_unit": "48"
+  },
+  "g6e.8xlarge": {
+    "core": 1,
+    "type": "NVIDIA L4",
+    "mem": 48,
+    "mem_unit": "48"
+  },
+  "g6e.16xlarge": {
+    "core": 1,
+    "type": "NVIDIA L4",
+    "mem": 48,
+    "mem_unit": "48"
+  },
+  "g6e.12xlarge": {
+    "core": 4,
+    "type": "NVIDIA L4",
+    "mem": 192,
+    "mem_unit": "192"
+  },
+  "g6e.24xlarge": {
+    "core": 4,
+    "type": "NVIDIA L4",
+    "mem": 192,
+    "mem_unit": "192"
+  },
+  "g6e.48xlarge": {
+    "core": 8,
+    "type": "NVIDIA L4",
+    "mem": 384,
+    "mem_unit": "384"
+  },
+  "g5g.xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4G",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g5g.2xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4G",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g5g.4xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4G",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g5g.8xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4G",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g5g.16xlarge": {
+    "core": 2,
+    "type": "NVIDIA T4G",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "g5g.metal": {
+    "core": 2,
+    "type": "NVIDIA T4G",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "g5.xlarge": {
+    "core": 1,
+    "type": "NVIDIA A10G",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "g5.2xlarge": {
+    "core": 1,
+    "type": "NVIDIA A10G",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "g5.4xlarge": {
+    "core": 1,
+    "type": "NVIDIA A10G",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "g5.8xlarge": {
+    "core": 1,
+    "type": "NVIDIA A10G",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "g5.16xlarge": {
+    "core": 1,
+    "type": "NVIDIA A10G",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "g5.12xlarge": {
+    "core": 4,
+    "type": "NVIDIA A10G",
+    "mem": 96,
+    "mem_unit": "GB"
+  },
+  "g5.24xlarge": {
+    "core": 4,
+    "type": "NVIDIA A10G",
+    "mem": 96,
+    "mem_unit": "GB"
+  },
+  "g5.48xlarge": {
+    "core": 8,
+    "type": "NVIDIA A10G",
+    "mem": 192,
+    "mem_unit": "GB"
+  },
+  "g4dn.xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4dn.2xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4dn.4xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4dn.8xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4dn.16xlarge": {
+    "core": 1,
+    "type": "NVIDIA T4",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4dn.12xlarge": {
+    "core": 4,
+    "type": "NVIDIA T4",
+    "mem": 64,
+    "mem_unit": "GB"
+  },
+  "g4dn.metal": {
+    "core": 8,
+    "type": "NVIDIA T4",
+    "mem": 128,
+    "mem_unit": "GB"
+  },
+  "g4ad.xlarge": {
+    "core": 1,
+    "type": "Radeon Pro V520",
+    "mem": 8,
+    "mem_unit": "GB"
+  },
+  "g4ad.2xlarge": {
+    "core": 1,
+    "type": "Radeon Pro V520",
+    "mem": 8,
+    "mem_unit": "GB"
+  },
+  "g4ad.4xlarge": {
+    "core": 1,
+    "type": "Radeon Pro V520",
+    "mem": 8,
+    "mem_unit": "GB"
+  },
+  "g4ad.8xlarge": {
+    "core": 2,
+    "type": "Radeon Pro V520",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "g4ad.16xlarge": {
+    "core": 4,
+    "type": "Radeon Pro V520",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "trn2.48xlarge": {
+    "core": 16,
+    "type": "AWS Trainium2",
+    "mem": 2,
+    "mem_unit": "TB"
+  },
+  "trn1.2xlarge": {
+    "core": 1,
+    "type": "AWS Trainium1",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "trn1.32xlarge": {
+    "core": 16,
+    "type": "AWS Trainium1",
+    "mem": 512,
+    "mem_unit": "GB"
+  },
+  "inf2.xlarge": {
+    "core": 1,
+    "type": "AWS Inferentia2",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "inf2.8xlarge": {
+    "core": 1,
+    "type": "AWS Inferentia2",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "inf2.24xlarge": {
+    "core": 6,
+    "type": "AWS Inferentia2",
+    "mem": 192,
+    "mem_unit": "GB"
+  },
+  "inf2.48xlarge": {
+    "core": 12,
+    "type": "AWS Inferentia2",
+    "mem": 384,
+    "mem_unit": "GB"
+  },
+  "inf1.xlarge": {
+    "core": 1,
+    "type": "AWS Inferentia1",
+    "mem": 0,
+    "mem_unit": ""
+  },
+  "inf1.2xlarge": {
+    "core": 1,
+    "type": "AWS Inferentia1",
+    "mem": 0,
+    "mem_unit": ""
+  },
+  "inf1.6xlarge": {
+    "core": 4,
+    "type": "AWS Inferentia1",
+    "mem": 0,
+    "mem_unit": ""
+  },
+  "inf1.24xlarge": {
+    "core": 16,
+    "type": "AWS Inferentia1",
+    "mem": 0,
+    "mem_unit": ""
+  },
+  "dl1.24xlarge": {
+    "core": 8,
+    "type": "Gaudi",
+    "mem": 0,
+    "mem_unit": ""
+  },
+  "dl2q.24xlarge": {
+    "core": 8,
+    "type": "Qualcomm AI 100",
+    "mem": 128,
+    "mem_unit": "GB"
+  },
+  "f2.6xlarge": {
+    "core": 1,
+    "type": "FPGAs",
+    "mem": 16,
+    "mem_unit": "GB"
+  },
+  "f2.12xlarge": {
+    "core": 2,
+    "type": "FPGAs",
+    "mem": 32,
+    "mem_unit": "GB"
+  },
+  "f2.48xlarge": {
+    "core": 8,
+    "type": "FPGAs",
+    "mem": 128,
+    "mem_unit": "GB"
+  },
+  "vt1.3xlarge": {
+    "core": 1,
+    "type": "U30",
+    "mem": 24,
+    "mem_unit": "GB"
+  },
+  "vt1.6xlarge": {
+    "core": 2,
+    "type": "U30",
+    "mem": 48,
+    "mem_unit": "GB"
+  },
+  "vt1.24xlarge": {
+    "core": 8,
+    "type": "U30",
+    "mem": 192,
+    "mem_unit": "GB"
+  }
+}
