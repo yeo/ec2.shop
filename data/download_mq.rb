@@ -2,14 +2,13 @@
 
 require 'httpx'
 require 'json'
-require 'url'
 
 ts=Time.now.to_i
 `mkdir -p data/mq`
 
 [{
   name: 'mq',
-  url: "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/mq/USD/current/mq.json?timestamp=1720953273260?timestamp=#{ts}"
+  url: "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/mq/USD/current/mq.json?timestamp=#{ts}"
 }].each do |instance_class|
   puts "#{instance_class[:name]} downloading..."
 
